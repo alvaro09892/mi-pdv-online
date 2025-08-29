@@ -1,712 +1,568 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2639
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww10340\viewh21040\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Venta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Estilos generales y tema oscuro */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .nav-tabs .nav-link {
+            color: var(--bs-secondary-color);
+        }
+        .nav-tabs .nav-link.active {
+            color: var(--bs-emphasis-color);
+            background-color: var(--bs-tertiary-bg);
+            border-color: var(--bs-border-color) var(--bs-border-color) var(--bs-tertiary-bg);
+        }
+        .table-hover tbody tr:hover {
+            background-color: var(--bs-tertiary-bg);
+        }
+        .suggestion-item {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: var(--bs-secondary-bg);
+        }
+        #suggestions {
+            border: 1px solid var(--bs-border-color);
+            border-radius: var(--bs-border-radius);
+            position: absolute;
+            background-color: var(--bs-body-bg);
+            width: 100%;
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mi PDV</a>
+        </div>
+    </nav>
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="es">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>PDV Pro - Versi\'f3n Estable y Funcional</title>\
-\
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>\
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>\
-\
-    <link rel="preconnect" href="https://fonts.googleapis.com">\
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">\
-\
-    <style>\
-    /* --- ESTILOS GLOBALES Y PALETA DE COLORES --- */\
-    :root \{\
-        --background-color: #f8fafc; --panel-color: #ffffff; --text-color: #334155; --text-light-color: #64748b;\
-        --accent-color: #D94C75; --accent-hover-color: #b84062; --sidebar-bg: #1e293b; --sidebar-text: #e2e8f0;\
-        --sidebar-active-bg: #334155; --border-color: #e2e8f0; --warning-color: #f59e0b; --danger-color: #ef4444;\
-        --success-color: #10b981; --info-color: #3b82f6; --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);\
-        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\
-    \}\
-    * \{ box-sizing: border-box; margin: 0; padding: 0; \}\
-    html \{ font-size: 16px; \}\
-    body \{ font-family: 'Inter', sans-serif; background-color: var(--background-color); color: var(--text-color); display: flex; height: 100vh; overflow: hidden; \}\
-\
-    /* --- LAYOUT PRINCIPAL: SIDEBAR Y CONTENIDO --- */\
-    .sidebar \{ width: 240px; background-color: var(--sidebar-bg); color: var(--sidebar-text); padding: 1.5rem 0; flex-shrink: 0; display: flex; flex-direction: column; \}\
-    .main-content \{ flex-grow: 1; padding: 2rem; overflow-y: auto; \}\
-    .sidebar-header \{ padding: 0 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; \}\
-    .sidebar-header .logo-icon \{ font-size: 2rem; color: var(--accent-color); \}\
-    .sidebar-header h1 \{ font-size: 1.25rem; font-weight: 600; \}\
-    .sidebar nav ul \{ list-style-type: none; \}\
-    .sidebar nav li \{ padding: 0.75rem 1.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; transition: background-color 0.2s ease, color 0.2s ease; border-left: 4px solid transparent; \}\
-    .sidebar nav li:hover \{ background-color: var(--sidebar-active-bg); \}\
-    .sidebar nav li.active \{ background-color: var(--sidebar-active-bg); border-left-color: var(--accent-color); color: #ffffff; font-weight: 500; \}\
-\
-    /* --- M\'d3DULOS Y T\'cdTULOS --- */\
-    .module \{ display: none; \}\
-    .module.active \{ display: block; animation: fadeIn 0.5s ease-in-out; \}\
-    @keyframes fadeIn \{ from \{ opacity: 0; transform: translateY(10px); \} to \{ opacity: 1; transform: translateY(0); \} \}\
-    h2 \{ font-size: 1.875rem; font-weight: 600; color: var(--text-color); margin-bottom: 2rem; \}\
-    .page-title-container \{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; \}\
-    h3 \{ font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; \}\
-\
-    /* --- COMPONENTES UI: PANELES, FORMULARIOS, BOTONES --- */\
-    .panel \{ background-color: var(--panel-color); border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); border: 1px solid var(--border-color); \}\
-    .form-group \{ margin-bottom: 1rem; \}\
-    .form-group label \{ display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem; \}\
-    input, select \{ font-family: inherit; font-size: 1rem; padding: 0.75rem; border-radius: 0.375rem; border: 1px solid var(--border-color); width: 100%; transition: border-color 0.2s ease, box-shadow 0.2s ease; \}\
-    input:focus, select:focus \{ outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(217, 76, 117, 0.2); \}\
-    .btn \{ display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; font-size: 1rem; padding: calc(0.75rem - 2px) calc(1.5rem - 2px); border-radius: 0.375rem; border: 2px solid transparent; cursor: pointer; transition: all 0.2s ease; text-decoration: none; \}\
-    .btn-primary \{ background-color: var(--accent-color); color: white; border-color: var(--accent-color); \}\
-    .btn-primary:hover \{ background-color: var(--accent-hover-color); border-color: var(--accent-hover-color); transform: translateY(-1px); \}\
-    .btn-secondary \{ background-color: var(--sidebar-bg); color: var(--sidebar-text); border-color: var(--sidebar-bg); \}\
-    .btn-secondary:hover \{ background-color: var(--sidebar-active-bg); border-color: var(--sidebar-active-bg); transform: translateY(-1px); \}\
-    \
-    .btn-outline \{\
-        background-color: transparent;\
-        color: var(--sidebar-bg);\
-        border: 2px solid var(--sidebar-bg);\
-    \}\
-    .btn-outline:hover \{\
-        background-color: var(--sidebar-bg);\
-        color: var(--sidebar-text);\
-        transform: translateY(-1px);\
-    \}\
-\
-    .btn-danger \{ background-color: var(--danger-color); color: #fff; border-color: var(--danger-color); \}\
-    .btn-danger:hover \{ background-color: #dc2626; border-color: #dc2626;\}\
-    .btn-warning \{ background-color: var(--warning-color); color: white; border-color: var(--warning-color);\}\
-\
-    /* --- TABLAS --- */\
-    table \{ width: 100%; border-collapse: collapse; margin-top: 1rem; \}\
-    th, td \{ text-align: left; padding: 1rem; border-bottom: 1px solid var(--border-color); vertical-align: middle; \}\
-    th \{ background-color: #f1f5f9; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light-color); \}\
-    .action-icon \{ cursor: pointer; color: var(--text-light-color); transition: color 0.2s ease; vertical-align: middle; \}\
-    .action-icon:hover \{ color: var(--danger-color); \}\
-    \
-    /* --- MODALES --- */\
-    .modal-overlay \{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(30, 41, 59, 0.6); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; \}\
-    .modal-overlay.visible \{ display: flex; opacity: 1; \}\
-    .modal-content \{ background-color: var(--panel-color); padding: 2rem; border-radius: 0.5rem; width: 90%; max-width: 500px; box-shadow: var(--shadow-lg); transform: scale(0.95); transition: transform 0.3s ease; \}\
-    .modal-overlay.visible .modal-content \{ transform: scale(1); \}\
-    .modal-content.modal-lg \{ max-width: 800px; \}\
-    .modal-header \{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; \}\
-    .modal-header h3 \{ font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0; \}\
-    .modal-footer \{ margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 0.75rem; \}\
-\
-    /* --- TARJETAS (REPORTES, VENTAS, APARTADOS) --- */\
-    .report-cards \{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; \}\
-    .report-card \{ background: var(--panel-color); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; \}\
-    .report-card:hover \{ transform: translateY(-4px); box-shadow: var(--shadow-lg); \}\
-    .report-card.highlight \{ background-color: #fdf2f8; border-color: var(--accent-color); \}\
-    .report-card h4 \{ font-size: 0.875rem; font-weight: 500; color: var(--text-light-color); margin-bottom: 0.5rem; \}\
-    .report-card .value \{ font-size: 2rem; font-weight: 600; color: var(--text-color); \}\
-    .report-card ul \{ list-style-type: none; margin-top: 0.5rem; padding-left: 0.5rem; font-size: 0.875rem; \}\
-    .report-card ul li \{ display: flex; justify-content: space-between; \}\
-\
-    .card-grid \{ display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; \}\
-    .data-card \{ border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem; background-color: var(--panel-color); box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; \}\
-    .data-card:hover \{ transform: translateY(-4px); box-shadow: var(--shadow-lg); \}\
-    .data-card-header \{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; \}\
-    .data-card .folio-container \{ display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--accent-color); \}\
-    .data-card .folio-container .material-icons \{ color: var(--warning-color); font-size: 1.1rem; \}\
-    .status-tag \{ padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; color: white; \}\
-    .status-tag.activo \{ background-color: var(--info-color); \} .status-tag.liquidado \{ background-color: var(--success-color); \} .status-tag.cancelado \{ background-color: var(--danger-color); \}\
-    \
-    /* --- ESTADOS VAC\'cdOS Y RES\'daMENES --- */\
-    .empty-state \{ text-align: center; padding: 3rem; color: var(--text-light-color); \}\
-    .empty-state .material-icons \{ font-size: 3rem; margin-bottom: 1rem; \}\
-    .summary-grid \{ display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem; font-size: 1rem; \}\
-    .summary-grid > div:nth-child(odd) \{ text-align: right; color: var(--text-light-color); \}\
-    .summary-grid > div:nth-child(even) \{ text-align: right; font-weight: 500; \}\
-    #sale-item-count, #apartado-item-count \{ grid-column: 1 / -1; font-size: 1.125rem; \}\
-    #sale-item-count .material-icons, #apartado-item-count .material-icons \{ vertical-align: bottom; font-size: 1.25rem; margin-right: 0.25rem; \}\
-    #sale-total-value, #apartado-total-value \{ font-weight: 600; font-size: 1.75rem; color: var(--accent-color); \}\
-\
-    /* --- PESTA\'d1AS (TABS) --- */\
-    .tab-container \{ display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; \}\
-    .tab \{ padding: 0.75rem 1.5rem; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; color: var(--text-light-color); transition: all 0.2s ease; \}\
-    .tab.active \{ color: var(--accent-color); border-bottom-color: var(--accent-color); font-weight: 600; \}\
-    .tab-content \{ display: none; \}\
-    .tab-content.active \{ display: block; \}\
-\
-    /* --- OTROS ESTILOS --- */\
-    .detail-grid \{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; margin-bottom: 1.5rem; \}\
-    .detail-grid dt \{ font-weight: 500; color: var(--text-light-color); \}\
-    .detail-grid dd \{ font-size: 1.125rem; \}\
-    .detail-grid dd.saldo-pendiente \{ color: var(--danger-color); font-weight: bold; \}\
-    .detail-grid dd.saldo-favor \{ color: var(--success-color); font-weight: bold; \}\
-    \
-    .radio-group \{\
-        display: flex;\
-        justify-content: space-around;\
-        align-items: flex-start;\
-        gap: 1rem;\
-        width: 100%;\
-    \}\
-    .radio-option \{\
-        display: flex;\
-        flex-direction: column;\
-        align-items: center;\
-        flex: 1;\
-    \}\
-    .radio-option label \{\
-        margin-bottom: 0.5rem;\
-        font-weight: 500;\
-        text-align: center;\
-    \}\
-    .radio-option input[type="radio"] \{\
-        width: auto;\
-        transform: scale(1.5);\
-        margin: 0;\
-    \}\
-\
-    tr.item-for-deletion td \{ text-decoration: line-through; color: var(--danger-color); background-color: #fff8f8; \}\
-    \
-    /* --- ESTILOS DE IMPRESI\'d3N --- */\
-    @media print \{ \
-        body \{ display: block; \} \
-        /* --- CORRECCI\'d3N DEFINITIVA: Se usa !important para asegurar que se oculten los modales --- */\
-        .sidebar, .main-content, .modal-overlay, .no-print \{ \
-            display: none !important; \
-        \} \
-        .print-area \{ display: block !important; font-family: 'Courier New', monospace; width: 300px; margin: 0 auto; color: #000; \} \
-        .print-header \{ text-align: center; \} \
-        .print-header img \{ max-width: 150px; margin-bottom: 10px; \} \
-        .print-header p \{ margin: 2px 0; font-size: 12px; \} \
-        .print-totals \{ text-align: right; margin-top: 10px; font-size: 14px; \} \
-    \}\
-    .print-area \{ display: none; \}\
-</style>\
-</head>\
-<body>\
-\
-    <aside class="sidebar">\
-        <div class="sidebar-header"><span class="material-icons logo-icon">storefront</span><h1>PDV Pro</h1></div>\
-        <nav><ul>\
-            <li id="nav-puntoventa" class="active"><span class="material-icons">point_of_sale</span>Punto de Venta</li>\
-            <li id="nav-listaventas"><span class="material-icons">receipt_long</span>Ventas</li>\
-            <li id="nav-apartados"><span class="material-icons">inventory</span>Apartados</li>\
-            <li id="nav-pagos"><span class="material-icons">payments</span>Pagos a Proveedores</li>\
-            <li id="nav-devoluciones"><span class="material-icons">assignment_return</span>Devoluciones</li>\
-            <li id="nav-reportes"><span class="material-icons">leaderboard</span>Reportes</li>\
-            <li id="nav-gestion"><span class="material-icons">settings</span>Gesti\'f3n</li>\
-        </ul></nav>\
-    </aside>\
-\
-    <main class="main-content">\
-        <div id="module-puntoventa" class="module active">\
-             <div class="panel">\
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">\
-                    <div><label>Folio de Venta</label><p id="sale-folio" style="font-size: 1.25rem; font-weight: 600;"></p></div>\
-                    <div style="width: 40%;"><label for="sale-client">Nombre del Cliente</label><input type="text" id="sale-client" placeholder="Cliente General"></div>\
-                </div>\
-                <div class="form-group"><label for="barcode-input">Ingresar/Escanear C\'f3digo (Presiona Enter)</label><input type="text" id="barcode-input" autocomplete="off"></div>\
-            </div>\
-            <div class="panel">\
-                <table id="sale-items-table"><thead><tr><th>Cantidad</th><th>Clave</th><th>Concepto</th><th>Precio U.</th><th>Importe</th><th>% Dto.</th><th>Acciones</th></tr></thead><tbody></tbody></table>\
-                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);"><div class="summary-grid">\
-                    <div id="sale-item-count"><span class="material-icons">shopping_cart</span> 0</div>\
-                    <div>Subtotal:</div><div id="sale-subtotal">$0.00</div>\
-                    <div>Descuentos:</div><div id="sale-discounts">$0.00</div>\
-                    <div style="font-weight: 600; font-size: 1.25rem;">Total:</div><div id="sale-total-value">$0.00</div>\
-                </div></div>\
-                <div style="margin-top: 1.5rem; display:flex; justify-content: flex-end; align-items: center; gap: 1rem;">\
-                    <label for="general-discount" style="font-weight: 500;">Descuento General (%):</label><input type="number" id="general-discount" value="0" min="0" max="100" style="width: 100px;">\
-                    <button class="btn btn-primary" id="btn-pagar"><span class="material-icons">payment</span>Pagar</button>\
-                </div>\
-            </div>\
-        </div>\
-        \
-        <div id="module-listaventas" class="module">\
-            <h2>Ventas Realizadas</h2>\
-            <div class="panel">\
-                <h3>Filtros</h3>\
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: end;">\
-                    <div class="form-group"><label>Por Folio</label><input type="text" id="filter-folio" placeholder="Buscar folio..."></div>\
-                    <div class="form-group"><label>Por Cliente</label><input type="text" id="filter-cliente" placeholder="Buscar cliente..."></div>\
-                    <div class="form-group"><label>Por Fecha</label><input type="date" id="filter-fecha"></div>\
-                    <button class="btn btn-outline" id="btn-limpiar-filtros" style="width: 100%;">Limpiar</button>\
-                </div>\
-            </div>\
-            <div id="sales-list-container" class="card-grid"></div>\
-        </div>\
-        \
-        <div id="module-apartados" class="module">\
-             <div id="apartado-dashboard">\
-                <div class="page-title-container">\
-                    <h2>Sistema de Apartados</h2>\
-                    <button class="btn btn-primary" id="btn-crear-apartado"><span class="material-icons">add_circle</span> Crear Nuevo Apartado</button>\
-                </div>\
-                <div class="panel"><div class="form-group"><label for="apartado-search-input">Buscar por Folio o Cliente</label><input type="text" id="apartado-search-input" placeholder="Escribe para filtrar..."></div></div>\
-                <div id="apartado-cards-container" class="card-grid"></div>\
-            </div>\
-            <div id="apartado-creator" style="display: none;">\
-                <div class="page-title-container">\
-                    <h2>Crear Nuevo Apartado</h2>\
-                    <button class="btn btn-outline" id="btn-cancelar-creacion-apartado">Cancelar</button>\
-                </div>\
-                <div class="panel">\
-                    <div class="form-group"><label for="apartado-cliente-nombre">Nombre del Cliente</label><input type="text" id="apartado-cliente-nombre" placeholder="Nombre completo del cliente" required></div>\
-                    <div class="form-group"><label for="apartado-barcode-input">Ingresar/Escanear C\'f3digo (Presiona Enter)</label><input type="text" id="apartado-barcode-input" autocomplete="off"></div>\
-                </div>\
-                <div class="panel">\
-                    <table id="apartado-items-table"><thead><tr><th>Cantidad</th><th>Clave</th><th>Concepto</th><th>Precio U.</th><th>Importe</th><th>% Dto.</th><th>Acciones</th></tr></thead><tbody></tbody></table>\
-                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">\
-                        <div class="summary-grid">\
-                            <div id="apartado-item-count"><span class="material-icons">shopping_cart</span> 0</div>\
-                            <div>Subtotal:</div><div id="apartado-subtotal">$0.00</div>\
-                            <div>Descuentos:</div><div id="apartado-discounts">$0.00</div>\
-                            <div style="font-weight: 600; font-size: 1.25rem;">Total de la Compra:</div><div id="apartado-total-value">$0.00</div>\
-                        </div>\
-                        <div class="form-group" style="margin-top: 1.5rem;"><label for="apartado-anticipo-monto">Monto del Anticipo</label><input type="number" id="apartado-anticipo-monto" placeholder="0.00" step="0.01" min="0"></div>\
-                    </div>\
-                    <div style="margin-top: 1.5rem; display:flex; justify-content: flex-end; align-items: center; gap: 1rem;">\
-                        <label for="apartado-general-discount" style="font-weight: 500;">Descuento General (%):</label><input type="number" id="apartado-general-discount" value="0" min="0" max="100" style="width: 100px;">\
-                        <button class="btn btn-primary" id="btn-confirmar-apartado"><span class="material-icons">arrow_forward</span> Proceder al Pago del Anticipo</button>\
-                    </div>\
-                </div>\
-            </div>\
-            <div id="apartado-detail" style="display: none;"></div>\
-        </div>\
-\
-        <div id="module-pagos" class="module">\
-            <div id="pagos-dashboard">\
-                <div class="page-title-container">\
-                    <h2>Pagos a Proveedores</h2>\
-                    <button class="btn btn-primary" data-action="registrar-nueva-cuenta"><span class="material-icons">add_circle</span> Registrar Cuenta por Pagar</button>\
-                </div>\
-                <div id="proveedor-cards-container" class="card-grid"></div>\
-            </div>\
-            <div id="proveedor-detail-view" style="display:none;"></div>\
-        </div>\
-\
-        <div id="module-devoluciones" class="module">\
-            <h2>Devoluciones</h2>\
-            <div class="panel">\
-                <div class="form-group">\
-                    <label for="return-folio-search">Buscar Venta por Folio para Iniciar Devoluci\'f3n</label>\
-                    <div style="display: flex; gap: 1rem;">\
-                        <input type="text" id="return-folio-search" placeholder="Ej: V-1723249876543">\
-                        <button class="btn btn-primary" id="btn-buscar-folio-devolucion">Buscar</button>\
-                    </div>\
-                </div>\
-            </div>\
-            <div id="devolucion-process-container"></div>\
-            <h3>Historial de Devoluciones</h3>\
-            <div id="devoluciones-historial-container" class="card-grid"></div>\
-        </div>\
-\
-        <div id="module-reportes" class="module">\
-             <h2>Reportes y An\'e1lisis</h2><div class="report-cards" id="main-report-cards"></div>\
-             <h2>An\'e1lisis Comparativo</h2><div class="comparison-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">\
-                <div class="panel"><h3>Conjunto A</h3><div id="filters-a"></div><button class="btn btn-primary" id="btn-analizar-a" style="margin-top:1rem; width: 100%;">Analizar A</button><div class="report-cards" style="margin-top: 1.5rem;" id="results-a"></div></div>\
-                <div class="panel"><h3>Conjunto B</h3><div id="filters-b"></div><button class="btn btn-primary" id="btn-analizar-b" style="margin-top:1rem; width: 100%;">Analizar B</button><div class="report-cards" style="margin-top: 1.5rem;" id="results-b"></div></div>\
-            </div>\
-        </div>\
-        \
-        <div id="module-gestion" class="module">\
-            <h2>Gesti\'f3n</h2>\
-            <div class="tab-container" id="gestion-tabs"></div>\
-            <div id="gestion-tabs-content"></div>\
-        </div>\
-    </main>\
-\
-    <div id="error-modal" class="modal-overlay"><div class="modal-content"><div class="modal-header"><h3><span class="material-icons" style="color:var(--danger-color);">error</span>Error</h3></div><p id="error-message"></p><div class="modal-footer"><button class="btn btn-primary" id="error-ok-btn">Entendido</button></div></div></div>\
-    <div id="payment-modal" class="modal-overlay">\
-        <div class="modal-content">\
-            <div class="modal-header">\
-                <h3 id="payment-modal-title">Finalizar Venta</h3>\
-                <span class="material-icons action-icon no-print" id="btn-close-payment-modal">close</span>\
-            </div>\
-            <div id="payment-modal-content-wrapper">\
-                <div id="payment-modal-sale-fields">\
-                    <p id="payment-modal-fixed-total-section">Total a pagar: <strong id="payment-modal-total" style="font-size: 1.5rem; color: var(--accent-color);"></strong></p>\
-                     <div id="payment-modal-flexible-amount-section" style="display: none;">\
-                        <p style="color: var(--text-light-color);">Saldo de Referencia: <strong id="payment-modal-saldo-ref"></strong></p>\
-                        <div class="form-group" style="margin-top: 0.5rem;">\
-                            <label for="payment-modal-monto-input">Monto a Pagar</label>\
-                            <input type="number" id="payment-modal-monto-input" placeholder="0.00" step="0.01" min="0">\
-                        </div>\
-                    </div>\
-                    <div class="form-group" style="margin-top: 1.5rem;">\
-                        <label for="payment-method">Finalizar Como</label>\
-                        <select id="payment-method">\
-                            <option value="Efectivo">Pago en Efectivo</option>\
-                            <option value="Tarjeta">Pago con Tarjeta</option>\
-                            <option value="Transferencia">Pago por Transferencia</option>\
-                            <option value="Mixto">Pago Mixto</option>\
-                            <option value="Apartado" style="font-weight: bold; color: var(--accent-color);">+ Crear Apartado</option>\
-                        </select>\
-                    </div>\
-                    <div id="mixed-payment-fields" style="display: none;">\
-                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">\
-                            <div class="form-group" style="flex: 1 1 45%"><label>Monto Efectivo</label><input type="number" id="payment-cash-amount" placeholder="0.00"></div>\
-                            <div class="form-group" style="flex: 1 1 45%"><label>Monto Transferencia</label><input type="number" id="payment-transfer-amount" placeholder="0.00"></div>\
-                            <div class="form-group" style="flex: 1 1 100%"><label>Monto Tarjeta</label><input type="number" id="payment-card-amount" placeholder="0.00" readonly></div>\
-                        </div>\
-                    </div>\
-                    <div id="card-type-section" style="display: none; margin-top: 0.5rem;">\
-                        <label>Tipo de Tarjeta</label>\
-                        <div class="radio-group">\
-                            <div class="radio-option">\
-                                <label for="card-type-debito">D\'e9bito</label>\
-                                <input type="radio" id="card-type-debito" name="card-type" value="D\'e9bito" checked>\
-                            </div>\
-                            <div class="radio-option">\
-                                <label for="card-type-credito">Cr\'e9dito</label>\
-                                <input type="radio" id="card-type-credito" name="card-type" value="Cr\'e9dito">\
-                            </div>\
-                        </div>\
-                    </div>\
-                </div>\
-                <div id="payment-modal-apartado-fields" style="display: none;">\
-                    <p>Total de la compra: <strong id="apartado-modal-total-ref" style="font-size: 1.25rem;"></strong></p>\
-                    <div class="form-group" style="margin-top: 1rem;">\
-                        <label for="apartado-anticipo-input">Monto del Anticipo</label>\
-                        <input type="number" id="apartado-anticipo-input" placeholder="0.00" step="0.01" min="0">\
-                    </div>\
-                    <div class="form-group">\
-                        <label for="apartado-anticipo-method">M\'e9todo de Pago del Anticipo</label>\
-                        <select id="apartado-anticipo-method">\
-                            <option value="Efectivo">Efectivo</option>\
-                            <option value="Tarjeta">Tarjeta</option>\
-                            <option value="Transferencia">Transferencia</option>\
-                        </select>\
-                    </div>\
-                    <div id="apartado-card-type-section" style="display: none; margin-top: 0.5rem;">\
-                        <label>Tipo de Tarjeta (Anticipo)</label>\
-                        <div class="radio-group">\
-                            <div class="radio-option">\
-                                <label for="apartado-card-type-debito">D\'e9bito</label>\
-                                <input type="radio" id="apartado-card-type-debito" name="apartado-card-type" value="D\'e9bito" checked>\
-                            </div>\
-                             <div class="radio-option">\
-                                <label for="apartado-card-type-credito">Cr\'e9dito</label>\
-                                <input type="radio" id="apartado-card-type-credito" name="apartado-card-type" value="Cr\'e9dito">\
-                            </div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-            <div class="modal-footer">\
-                <button class="btn btn-outline" id="btn-cancel-payment">Cancelar</button>\
-                <button class="btn btn-primary" id="btn-confirm-payment">Confirmar</button>\
-            </div>\
-        </div>\
-    </div>\
-    <div id="sale-detail-modal" class="modal-overlay"><div class="modal-content modal-lg"><div class="modal-header"><h3 id="sale-detail-title">Detalle</h3><span class="material-icons action-icon no-print" id="btn-close-detail-modal">close</span></div><div id="sale-detail-content" style="max-height: 60vh; overflow-y: auto;"></div><div class="modal-footer" id="sale-detail-footer"><button class="btn btn-outline" id="btn-close-detail-modal-footer">Cerrar</button></div></div></div>\
-    <div id="confirm-modal" class="modal-overlay"><div class="modal-content"><div class="modal-header"><h3><span class="material-icons" style="color:var(--warning-color);">warning</span>Confirmaci\'f3n Requerida</h3></div><p id="confirm-message"></p><div class="modal-footer"><button class="btn btn-outline" id="confirm-cancel-btn">Cancelar</button><button class="btn btn-warning" id="confirm-ok-btn">Continuar</button></div></div></div>\
-    <div id="pagos-modal" class="modal-overlay"><div class="modal-content" id="pagos-modal-content"></div></div>\
-    \
-    <div id="print-receipt" class="print-area"></div>\
-    \
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let ventasRealizadas = [];
-    let devolucionesRealizadas = [];
-    let apartados = [];
-    let cuentasPorPagar = [];
-    let productos = []; // Aquí se cargará el inventario
-
-    // Cargar datos iniciales del JSON
-    function loadInitialData() {
-      fetch('pdv_data.json')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.json();
-        })
-        .then(data => {
-          ventasRealizadas = data.ventasRealizadas || [];
-          devolucionesRealizadas = data.devolucionesRealizadas || [];
-          apartados = data.apartados || [];
-          cuentasPorPagar = data.cuentasPorPagar || [];
-
-          updateSalesTable();
-          updateReturnsTable();
-          updateApartadosTable();
-          updateCuentasPorPagarTable();
-        })
-        .catch(error => {
-          console.error('Error al cargar los datos iniciales:', error);
-          alert('No se pudieron cargar los datos iniciales. Revisa la consola para más detalles.');
-        });
-    }
-
-    function updateSalesTable() {
-      const tbody = document.getElementById('salesTable').querySelector('tbody');
-      tbody.innerHTML = '';
-      ventasRealizadas.forEach(venta => {
-        const row = tbody.insertRow();
-        row.insertCell(0).textContent = venta.folio;
-        row.insertCell(1).textContent = venta.client;
-        row.insertCell(2).textContent = new Date(venta.date).toLocaleString();
-        row.insertCell(3).textContent = `$${venta.total.toFixed(2)}`;
-        const detailsCell = row.insertCell(4);
-        const detailsButton = document.createElement('button');
-        detailsButton.textContent = 'Ver Detalles';
-        detailsButton.className = 'btn btn-info btn-sm';
-        detailsButton.onclick = () => showSaleDetails(venta.folio);
-        detailsCell.appendChild(detailsButton);
-      });
-    }
-
-    function updateReturnsTable() {
-      const tbody = document.getElementById('returnsTable').querySelector('tbody');
-      tbody.innerHTML = '';
-      devolucionesRealizadas.forEach(devolucion => {
-        const row = tbody.insertRow();
-        row.insertCell(0).textContent = devolucion.folio;
-        row.insertCell(1).textContent = devolucion.originalSaleFolio;
-        row.insertCell(2).textContent = new Date(devolucion.date).toLocaleString();
-        row.insertCell(3).textContent = `$${devolucion.totalRefund.toFixed(2)}`;
-      });
-    }
-
-    function updateApartadosTable() {
-        const tbody = document.getElementById('apartadosTable').querySelector('tbody');
-        tbody.innerHTML = '';
-        apartados.forEach(apartado => {
-            const row = tbody.insertRow();
-            row.insertCell(0).textContent = apartado.folioApartado;
-            row.insertCell(1).textContent = apartado.clienteNombre;
-            row.insertCell(2).textContent = `$${apartado.total.toFixed(2)}`;
-            row.insertCell(3).textContent = `$${apartado.saldoPendiente.toFixed(2)}`;
-            row.insertCell(4).textContent = apartado.estado;
-            row.insertCell(5).textContent = new Date(apartado.fechaVencimiento).toLocaleDateString();
-        });
-    }
-
-    function updateCuentasPorPagarTable() {
-        const tbody = document.getElementById('cuentasPorPagarTable').querySelector('tbody');
-        tbody.innerHTML = '';
-        cuentasPorPagar.forEach(cuenta => {
-            const row = tbody.insertRow();
-            let saldo = cuenta.montoInicial - (cuenta.historialAbonos || []).reduce((acc, abono) => acc + (abono.montoTotal || 0), 0);
-            row.insertCell(0).textContent = cuenta.folio;
-            row.insertCell(1).textContent = cuenta.proveedorNombre;
-            row.insertCell(2).textContent = cuenta.concepto;
-            row.insertCell(3).textContent = `$${cuenta.montoInicial.toFixed(2)}`;
-            row.insertCell(4).textContent = `$${saldo.toFixed(2)}`;
-        });
-    }
-
-    window.showSaleDetails = function(folio) {
-      const venta = ventasRealizadas.find(v => v.folio === folio);
-      if (!venta) return;
-
-      const modalBody = document.getElementById('saleDetailsModalBody');
-      modalBody.innerHTML = `
-        <p><strong>Folio:</strong> ${venta.folio}</p>
-        <p><strong>Cliente:</strong> ${venta.client}</p>
-        <p><strong>Fecha:</strong> ${new Date(venta.date).toLocaleString()}</p>
-        <h5>Artículos:</h5>
-        <ul class="list-group">
-          ${venta.items.map(item => `
-            <li class="list-group-item">
-              ${item.cantidad} x ${item.concepto} (${item.clave}) - $${(item.precio * item.cantidad).toFixed(2)}
+    <div class="container mt-4">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="sales-tab" data-bs-toggle="tab" data-bs-target="#sales-tab-pane" type="button" role="tab">Ventas</button>
             </li>
-          `).join('')}
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="returns-tab" data-bs-toggle="tab" data-bs-target="#returns-tab-pane" type="button" role="tab">Devoluciones</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="apartados-tab" data-bs-toggle="tab" data-bs-target="#apartados-tab-pane" type="button" role="tab">Apartados</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cuentas-tab" data-bs-toggle="tab" data-bs-target="#cuentas-tab-pane" type="button" role="tab">Cuentas por Pagar</button>
+            </li>
+             <li class="nav-item" role="presentation">
+                <button class="nav-link" id="new-sale-tab" data-bs-toggle="tab" data-bs-target="#new-sale-tab-pane" type="button" role="tab"><strong>+ Nueva Venta</strong></button>
+            </li>
         </ul>
-        <hr>
-        <p class="text-end"><strong>Total: $${venta.total.toFixed(2)}</strong></p>
-      `;
 
-      const saleDetailsModal = new bootstrap.Modal(document.getElementById('saleDetailsModal'));
-      saleDetailsModal.show();
-    }
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="sales-tab-pane" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <h3>Ventas Realizadas</h3>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table table-hover" id="salesTable">
+                        <thead>
+                            <tr>
+                                <th>Folio</th>
+                                <th>Cliente</th>
+                                <th>Fecha</th>
+                                <th>Total</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
 
-    // Lógica de la pestaña de Nueva Venta
-    let carrito = [];
+            <div class="tab-pane fade" id="returns-tab-pane" role="tabpanel">
+                 <h3 class="mt-3">Devoluciones Realizadas</h3>
+                 <div class="table-responsive mt-3">
+                    <table class="table table-hover" id="returnsTable">
+                        <thead>
+                            <tr>
+                                <th>Folio Dev.</th>
+                                <th>Folio Venta Original</th>
+                                <th>Fecha</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
 
-    document.getElementById('productSearch').addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      if (searchTerm.length < 2) return;
+            <div class="tab-pane fade" id="apartados-tab-pane" role="tabpanel">
+                <h3 class="mt-3">Sistema de Apartados</h3>
+                <div class="table-responsive mt-3">
+                    <table class="table table-hover" id="apartadosTable">
+                        <thead>
+                            <tr>
+                                <th>Folio</th>
+                                <th>Cliente</th>
+                                <th>Total</th>
+                                <th>Saldo Pendiente</th>
+                                <th>Estado</th>
+                                <th>Vencimiento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
 
-      // Simulación de búsqueda en una lista de productos
-      // En una app real, aquí cargarías tu inventario
-      const mockProductos = [
-          { clave: "FOS75L60200", concepto: "Collar Laminado", precio: 200 },
-          { clave: "FPR75L40100", concepto: "Huggi Laminado", precio: 100 },
-          { clave: "FOS75L60230", concepto: "Collar Laminado", precio: 230 },
-      ];
+            <div class="tab-pane fade" id="cuentas-tab-pane" role="tabpanel">
+                <h3 class="mt-3">Cuentas por Pagar</h3>
+                 <div class="table-responsive mt-3">
+                    <table class="table table-hover" id="cuentasPorPagarTable">
+                        <thead>
+                            <tr>
+                                <th>Folio</th>
+                                <th>Proveedor</th>
+                                <th>Concepto</th>
+                                <th>Monto Inicial</th>
+                                <th>Saldo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
 
-      const results = mockProductos.filter(p => 
-          p.clave.toLowerCase().includes(searchTerm) || 
-          p.concepto.toLowerCase().includes(searchTerm)
-      );
+            <div class="tab-pane fade" id="new-sale-tab-pane" role="tabpanel">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h3>Nueva Venta</h3>
+                         <div class="mb-3 position-relative">
+                            <label for="productSearch" class="form-label">Buscar producto por clave o concepto</label>
+                            <input type="text" class="form-control" id="productSearch" autocomplete="off">
+                            <div id="suggestions" class="list-group position-absolute w-100" style="display: none;"></div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="cartTable">
+                                <thead>
+                                    <tr>
+                                        <th>Clave</th>
+                                        <th>Concepto</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Desc.</th>
+                                        <th>Total</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Resumen de la Venta</h5>
+                                <div class="mb-3">
+                                    <label for="clienteInput" class="form-label">Cliente</label>
+                                    <input type="text" id="clienteInput" class="form-control" value="Cliente General">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="generalDiscount" class="form-label">Descuento General (%)</label>
+                                    <input type="number" id="generalDiscount" class="form-control" value="0" min="0" max="100">
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between fs-4">
+                                    <strong>Total:</strong>
+                                    <strong id="grandTotal">$0.00</strong>
+                                </div>
+                                <div class="d-grid gap-2 mt-3">
+                                    <button class="btn btn-success btn-lg" id="finalizeSaleBtn">Finalizar Venta</button>
+                                    <button class="btn btn-danger">Cancelar Venta</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      const suggestions = document.getElementById('suggestions');
-      suggestions.innerHTML = '';
-      if(results.length > 0) {
-          results.forEach(p => {
-              const div = document.createElement('div');
-              div.textContent = `${p.clave} - ${p.concepto} ($${p.precio})`;
-              div.className = 'suggestion-item';
-              div.onclick = () => addProductToCart(p);
-              suggestions.appendChild(div);
-          });
-          suggestions.style.display = 'block';
-      } else {
-          suggestions.style.display = 'none';
-      }
-    });
+    <div class="modal fade" id="saleDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalles de la Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="saleDetailsModalBody">
+                    </div>
+            </div>
+        </div>
+    </div>
 
-    document.addEventListener('click', function(e) {
-        if (!document.getElementById('productSearch').contains(e.target)) {
-            document.getElementById('suggestions').style.display = 'none';
+    <div class="modal fade" id="discountModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Aplicar Descuento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="discountModalClave">
+                    <div class="mb-3">
+                        <label for="itemDiscountInput" class="form-label">Porcentaje de Descuento (%)</label>
+                        <input type="number" class="form-control" id="itemDiscountInput" min="0" max="100" value="0">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="applyDiscountButton">Aplicar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="paymentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Procesar Pago</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center mb-3">Total a Pagar: <span id="paymentModalTotal">$0.00</span></h3>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Efectivo $</span>
+                        <input type="number" class="form-control" id="montoEfectivo">
+                    </div>
+                     <div class="input-group mb-3">
+                        <span class="input-group-text">Tarjeta $</span>
+                        <input type="number" class="form-control" id="montoTarjeta">
+                    </div>
+                     <div class="input-group">
+                        <span class="input-group-text">Transfer. $</span>
+                        <input type="number" class="form-control" id="montoTransferencia">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-success" id="processPaymentBtn">Confirmar Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        let ventasRealizadas = [];
+        let devolucionesRealizadas = [];
+        let apartados = [];
+        let cuentasPorPagar = [];
+
+        function loadInitialData() {
+          fetch('pdv_data.json')
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+              }
+              return response.json();
+            })
+            .then(data => {
+              ventasRealizadas = data.ventasRealizadas || [];
+              devolucionesRealizadas = data.devolucionesRealizadas || [];
+              apartados = data.apartados || [];
+              cuentasPorPagar = data.cuentasPorPagar || [];
+
+              updateSalesTable();
+              updateReturnsTable();
+              updateApartadosTable();
+              updateCuentasPorPagarTable();
+            })
+            .catch(error => {
+              console.error('Error al cargar los datos iniciales:', error);
+              alert('No se pudieron cargar los datos iniciales. Revisa la consola para más detalles.');
+            });
         }
-    });
 
-    function addProductToCart(producto) {
-        const existingItem = carrito.find(item => item.clave === producto.clave);
-        if (existingItem) {
-            existingItem.cantidad++;
-        } else {
-            carrito.push({ ...producto, cantidad: 1, discount: 0 });
-        }
-        document.getElementById('productSearch').value = '';
-        document.getElementById('suggestions').style.display = 'none';
-        updateCartTable();
-    }
-
-    function updateCartTable() {
-        const tbody = document.getElementById('cartTable').querySelector('tbody');
-        tbody.innerHTML = '';
-        carrito.forEach((item, index) => {
+        function updateSalesTable() {
+          const tbody = document.getElementById('salesTable').querySelector('tbody');
+          tbody.innerHTML = '';
+          ventasRealizadas.forEach(venta => {
             const row = tbody.insertRow();
-            row.dataset.clave = item.clave;
-            row.insertCell(0).textContent = item.clave;
-            row.insertCell(1).textContent = item.concepto;
-            row.insertCell(2).textContent = `$${item.precio.toFixed(2)}`;
+            row.insertCell(0).textContent = venta.folio;
+            row.insertCell(1).textContent = venta.client;
+            row.insertCell(2).textContent = new Date(venta.date).toLocaleString();
+            row.insertCell(3).textContent = `$${venta.total.toFixed(2)}`;
+            const detailsCell = row.insertCell(4);
+            const detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Ver Detalles';
+            detailsButton.className = 'btn btn-info btn-sm';
+            detailsButton.onclick = () => showSaleDetails(venta.folio);
+            detailsCell.appendChild(detailsButton);
+          });
+        }
 
-            const quantityCell = row.insertCell(3);
-            const quantityInput = document.createElement('input');
-            quantityInput.type = 'number';
-            quantityInput.className = 'form-control form-control-sm quantity-input';
-            quantityInput.value = item.cantidad;
-            quantityInput.min = 1;
-            quantityInput.onchange = () => updateQuantity(item.clave, quantityInput.value);
-            quantityCell.appendChild(quantityInput);
+        function updateReturnsTable() {
+          const tbody = document.getElementById('returnsTable').querySelector('tbody');
+          tbody.innerHTML = '';
+          devolucionesRealizadas.forEach(devolucion => {
+            const row = tbody.insertRow();
+            row.insertCell(0).textContent = devolucion.folio;
+            row.insertCell(1).textContent = devolucion.originalSaleFolio;
+            row.insertCell(2).textContent = new Date(devolucion.date).toLocaleString();
+            row.insertCell(3).textContent = `$${devolucion.totalRefund.toFixed(2)}`;
+          });
+        }
 
-            const discountCell = row.insertCell(4);
-            discountCell.textContent = `${item.discount}%`;
+        function updateApartadosTable() {
+            const tbody = document.getElementById('apartadosTable').querySelector('tbody');
+            tbody.innerHTML = '';
+            apartados.forEach(apartado => {
+                const row = tbody.insertRow();
+                row.insertCell(0).textContent = apartado.folioApartado;
+                row.insertCell(1).textContent = apartado.clienteNombre;
+                row.insertCell(2).textContent = `$${apartado.total.toFixed(2)}`;
+                row.insertCell(3).textContent = `$${apartado.saldoPendiente.toFixed(2)}`;
+                row.insertCell(4).textContent = apartado.estado;
+                row.insertCell(5).textContent = new Date(apartado.fechaVencimiento).toLocaleDateString();
+            });
+        }
 
-            const totalCell = row.insertCell(5);
-            const subtotal = item.precio * item.cantidad;
-            const totalConDescuento = subtotal - (subtotal * (item.discount / 100));
-            totalCell.textContent = `$${totalConDescuento.toFixed(2)}`;
+        function updateCuentasPorPagarTable() {
+            const tbody = document.getElementById('cuentasPorPagarTable').querySelector('tbody');
+            tbody.innerHTML = '';
+            cuentasPorPagar.forEach(cuenta => {
+                const row = tbody.insertRow();
+                let saldo = cuenta.montoInicial - (cuenta.historialAbonos || []).reduce((acc, abono) => acc + (abono.montoTotal || 0), 0);
+                row.insertCell(0).textContent = cuenta.folio;
+                row.insertCell(1).textContent = cuenta.proveedorNombre;
+                row.insertCell(2).textContent = cuenta.concepto;
+                row.insertCell(3).textContent = `$${cuenta.montoInicial.toFixed(2)}`;
+                row.insertCell(4).textContent = `$${saldo.toFixed(2)}`;
+            });
+        }
 
-            const actionsCell = row.insertCell(6);
-            const discountButton = document.createElement('button');
-            discountButton.innerHTML = '<i class="bi bi-tag-fill"></i>';
-            discountButton.className = 'btn btn-warning btn-sm me-1';
-            discountButton.title = 'Aplicar descuento';
-            discountButton.onclick = () => openDiscountModal(discountButton);
+        window.showSaleDetails = function(folio) {
+          const venta = ventasRealizadas.find(v => v.folio === folio);
+          if (!venta) return;
 
-            const removeButton = document.createElement('button');
-            removeButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
-            removeButton.className = 'btn btn-danger btn-sm';
-            removeButton.title = 'Eliminar';
-            removeButton.onclick = () => removeFromCart(item.clave);
+          const modalBody = document.getElementById('saleDetailsModalBody');
+          modalBody.innerHTML = `
+            <p><strong>Folio:</strong> ${venta.folio}</p>
+            <p><strong>Cliente:</strong> ${venta.client}</p>
+            <p><strong>Fecha:</strong> ${new Date(venta.date).toLocaleString()}</p>
+            <h5>Artículos:</h5>
+            <ul class="list-group">
+              ${venta.items.map(item => `
+                <li class="list-group-item">
+                  ${item.cantidad} x ${item.concepto} (${item.clave}) - $${(item.precio * item.cantidad).toFixed(2)}
+                </li>
+              `).join('')}
+            </ul>
+            <hr>
+            <p class="text-end"><strong>Total: $${venta.total.toFixed(2)}</strong></p>
+          `;
 
-            actionsCell.appendChild(discountButton);
-            actionsCell.appendChild(removeButton);
+          const saleDetailsModal = new bootstrap.Modal(document.getElementById('saleDetailsModal'));
+          saleDetailsModal.show();
+        }
+
+        let carrito = [];
+
+        document.getElementById('productSearch').addEventListener('input', function(e) {
+          const searchTerm = e.target.value.toLowerCase();
+          if (searchTerm.length < 2) {
+              document.getElementById('suggestions').style.display = 'none';
+              return;
+          };
+
+          const mockProductos = [
+              { clave: "FOS75L60200", concepto: "Collar Laminado", precio: 200 },
+              { clave: "FPR75L40100", concepto: "Huggi Laminado", precio: 100 },
+              { clave: "FOS75L60230", concepto: "Collar Laminado", precio: 230 },
+          ];
+
+          const results = mockProductos.filter(p => 
+              p.clave.toLowerCase().includes(searchTerm) || 
+              p.concepto.toLowerCase().includes(searchTerm)
+          );
+
+          const suggestions = document.getElementById('suggestions');
+          suggestions.innerHTML = '';
+          if(results.length > 0) {
+              results.forEach(p => {
+                  const div = document.createElement('div');
+                  div.textContent = `${p.clave} - ${p.concepto} ($${p.precio})`;
+                  div.className = 'suggestion-item';
+                  div.onclick = () => addProductToCart(p);
+                  suggestions.appendChild(div);
+              });
+              suggestions.style.display = 'block';
+          } else {
+              suggestions.style.display = 'none';
+          }
         });
-        updateGrandTotal();
-    }
 
-    function updateQuantity(clave, nuevaCantidad) {
-        const item = carrito.find(i => i.clave === clave);
-        if(item) {
-            item.cantidad = parseInt(nuevaCantidad, 10);
-            if (item.cantidad < 1) item.cantidad = 1;
+        document.addEventListener('click', function(e) {
+            if (!document.getElementById('productSearch').contains(e.target)) {
+                document.getElementById('suggestions').style.display = 'none';
+            }
+        });
+
+        function addProductToCart(producto) {
+            const existingItem = carrito.find(item => item.clave === producto.clave);
+            if (existingItem) {
+                existingItem.cantidad++;
+            } else {
+                carrito.push({ ...producto, cantidad: 1, discount: 0 });
+            }
+            document.getElementById('productSearch').value = '';
+            document.getElementById('suggestions').style.display = 'none';
             updateCartTable();
         }
-    }
 
-    function removeFromCart(clave) {
-        carrito = carrito.filter(item => item.clave !== clave);
-        updateCartTable();
-    }
+        function updateCartTable() {
+            const tbody = document.getElementById('cartTable').querySelector('tbody');
+            tbody.innerHTML = '';
+            carrito.forEach((item, index) => {
+                const row = tbody.insertRow();
+                row.dataset.clave = item.clave;
+                row.insertCell(0).textContent = item.clave;
+                row.insertCell(1).textContent = item.concepto;
+                row.insertCell(2).textContent = `$${item.precio.toFixed(2)}`;
 
-    window.openDiscountModal = function(button) {
-        const row = button.closest('tr');
-        const clave = row.dataset.clave;
-        document.getElementById('discountModalClave').value = clave;
-        const modal = new bootstrap.Modal(document.getElementById('discountModal'));
-        modal.show();
-    }
+                const quantityCell = row.insertCell(3);
+                const quantityInput = document.createElement('input');
+                quantityInput.type = 'number';
+                quantityInput.className = 'form-control form-control-sm quantity-input';
+                quantityInput.value = item.cantidad;
+                quantityInput.min = 1;
+                quantityInput.onchange = () => updateQuantity(item.clave, quantityInput.value);
+                quantityCell.appendChild(quantityInput);
 
-    document.getElementById('applyDiscountButton').addEventListener('click', function() {
-        const clave = document.getElementById('discountModalClave').value;
-        const discount = parseFloat(document.getElementById('itemDiscountInput').value);
-        const item = carrito.find(i => i.clave === clave);
-        if (item && !isNaN(discount) && discount >= 0 && discount <= 100) {
-            item.discount = discount;
+                const discountCell = row.insertCell(4);
+                discountCell.textContent = `${item.discount}%`;
+
+                const totalCell = row.insertCell(5);
+                const subtotal = item.precio * item.cantidad;
+                const totalConDescuento = subtotal - (subtotal * (item.discount / 100));
+                totalCell.textContent = `$${totalConDescuento.toFixed(2)}`;
+
+                const actionsCell = row.insertCell(6);
+                const discountButton = document.createElement('button');
+                discountButton.innerHTML = '<i class="bi bi-tag-fill"></i>';
+                discountButton.className = 'btn btn-warning btn-sm me-1';
+                discountButton.title = 'Aplicar descuento';
+                discountButton.onclick = () => openDiscountModal(discountButton);
+
+                const removeButton = document.createElement('button');
+                removeButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+                removeButton.className = 'btn btn-danger btn-sm';
+                removeButton.title = 'Eliminar';
+                removeButton.onclick = () => removeFromCart(item.clave);
+
+                actionsCell.appendChild(discountButton);
+                actionsCell.appendChild(removeButton);
+            });
+            updateGrandTotal();
+        }
+
+        function updateQuantity(clave, nuevaCantidad) {
+            const item = carrito.find(i => i.clave === clave);
+            if(item) {
+                item.cantidad = parseInt(nuevaCantidad, 10);
+                if (item.cantidad < 1) item.cantidad = 1;
+                updateCartTable();
+            }
+        }
+
+        function removeFromCart(clave) {
+            carrito = carrito.filter(item => item.clave !== clave);
             updateCartTable();
         }
-        const modal = bootstrap.Modal.getInstance(document.getElementById('discountModal'));
-        modal.hide();
-    });
 
-    function updateGrandTotal() {
-        let total = 0;
-        carrito.forEach(item => {
-            const subtotal = item.precio * item.cantidad;
-            total += subtotal - (subtotal * (item.discount / 100));
-        });
-
-        const generalDiscount = parseFloat(document.getElementById('generalDiscount').value) || 0;
-        const finalTotal = total - (total * (generalDiscount / 100));
-
-        document.getElementById('grandTotal').textContent = `$${finalTotal.toFixed(2)}`;
-    }
-
-    document.getElementById('generalDiscount').addEventListener('input', updateGrandTotal);
-
-    // Finalizar Venta
-    document.getElementById('finalizeSaleBtn').addEventListener('click', function() {
-        if (carrito.length === 0) {
-            alert('El carrito está vacío.');
-            return;
+        window.openDiscountModal = function(button) {
+            const row = button.closest('tr');
+            const clave = row.dataset.clave;
+            document.getElementById('discountModalClave').value = clave;
+            const modal = new bootstrap.Modal(document.getElementById('discountModal'));
+            modal.show();
         }
 
-        const totalText = document.getElementById('grandTotal').textContent;
-        const montoFinal = parseFloat(totalText.replace('$', ''));
+        document.getElementById('applyDiscountButton').addEventListener('click', function() {
+            const clave = document.getElementById('discountModalClave').value;
+            const discount = parseFloat(document.getElementById('itemDiscountInput').value);
+            const item = carrito.find(i => i.clave === clave);
+            if (item && !isNaN(discount) && discount >= 0 && discount <= 100) {
+                item.discount = discount;
+                updateCartTable();
+            }
+            const modal = bootstrap.Modal.getInstance(document.getElementById('discountModal'));
+            modal.hide();
+        });
 
-        document.getElementById('paymentModalTotal').textContent = totalText;
-        document.getElementById('montoEfectivo').value = '';
-        document.getElementById('montoTarjeta').value = '';
-        document.getElementById('montoTransferencia').value = '';
+        function updateGrandTotal() {
+            let total = 0;
+            carrito.forEach(item => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal - (subtotal * (item.discount / 100));
+            });
 
-        const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
-        paymentModal.show();
-    });
+            const generalDiscount = parseFloat(document.getElementById('generalDiscount').value) || 0;
+            const finalTotal = total - (total * (generalDiscount / 100));
 
-    document.getElementById('processPaymentBtn').addEventListener('click', function() {
-        // Lógica para procesar el pago y registrar la venta
-        alert('Venta finalizada (simulación). Los datos se actualizarían en un backend real.');
+            document.getElementById('grandTotal').textContent = `$${finalTotal.toFixed(2)}`;
+        }
 
-        // Limpiar carrito y resetear
-        carrito = [];
-        updateCartTable();
-        document.getElementById('clienteInput').value = 'Cliente General';
-        document.getElementById('generalDiscount').value = 0;
-        updateGrandTotal();
+        document.getElementById('generalDiscount').addEventListener('input', updateGrandTotal);
 
-        const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
-        paymentModal.hide();
-    });
+        document.getElementById('finalizeSaleBtn').addEventListener('click', function() {
+            if (carrito.length === 0) {
+                alert('El carrito está vacío.');
+                return;
+            }
 
-    // Carga inicial
-    loadInitialData();
-  });
-</script>
-</body>\
-</html>\
-</html>}
+            const totalText = document.getElementById('grandTotal').textContent;
+
+            document.getElementById('paymentModalTotal').textContent = totalText;
+            document.getElementById('montoEfectivo').value = '';
+            document.getElementById('montoTarjeta').value = '';
+            document.getElementById('montoTransferencia').value = '';
+
+            const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+            paymentModal.show();
+        });
+
+        document.getElementById('processPaymentBtn').addEventListener('click', function() {
+            alert('Venta finalizada (simulación). Los datos se actualizarían en un backend real.');
+
+            carrito = [];
+            updateCartTable();
+            document.getElementById('clienteInput').value = 'Cliente General';
+            document.getElementById('generalDiscount').value = 0;
+            updateGrandTotal();
+
+            const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+            paymentModal.hide();
+        });
+
+        loadInitialData();
+      });
+    </script>
+</body>
+</html>
