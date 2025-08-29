@@ -1,0 +1,1519 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red193\green193\blue193;\red24\green24\blue24;\red140\green211\blue254;
+\red194\green126\blue101;\red167\green197\blue152;\red70\green137\blue204;}
+{\*\expandedcolortbl;;\cssrgb\c80000\c80000\c80000;\cssrgb\c12157\c12157\c12157;\cssrgb\c61176\c86275\c99608;
+\cssrgb\c80784\c56863\c47059;\cssrgb\c70980\c80784\c65882;\cssrgb\c33725\c61176\c83922;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \{\cb1 \
+\cb3   \cf4 \strokec4 "ventasRealizadas"\cf2 \strokec2 : [\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756500762944"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Rosca Chong"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T20:52:42.944Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60200"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 2\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 2\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L6070"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 70\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40400"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 400\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 2\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60500"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 500\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40300"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 300\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:11:42.746Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 2500\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 2500\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 2500\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756166483870"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:01:23.870Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 5\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 5\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:03:16.338Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Tarjeta"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf5 \strokec5 "D\'e9bito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755979495394"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Alvaro"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:04:55.394Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60400"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 400\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:11:38.576Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 400\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Tarjeta"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 400\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf5 \strokec5 "Cr\'e9dito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 400\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755477975367"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Galatea"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T00:46:15.367Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T00:48:49.947Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755457556473"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:05:56.473Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:07:02.928Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Tarjeta"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf5 \strokec5 "Cr\'e9dito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755456434923"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T18:47:14.923Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:05:48.841Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Tarjeta"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf5 \strokec5 "D\'e9bito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755413289963"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T06:48:09.963Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T06:48:42.244Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755407353736"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T05:09:13.736Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T05:09:41.674Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755321587956"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Misha "\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:19:47.956Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 3\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60235"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 235\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "method"\cf2 \strokec2 : \cf5 \strokec5 "Mixto"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cash"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "card"\cf2 \strokec2 : \cf6 \strokec6 532.5\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "transfer"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cardType"\cf2 \strokec2 : \cf5 \strokec5 "Cr\'e9dito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 832.5\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755321315355"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:15:15.355Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60800"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 800\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "method"\cf2 \strokec2 : \cf5 \strokec5 "Tarjeta"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cash"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "card"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "transfer"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cardType"\cf2 \strokec2 : \cf5 \strokec5 "D\'e9bito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755306108488"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T01:01:48.488Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "method"\cf2 \strokec2 : \cf5 \strokec5 "Mixto"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cash"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "card"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "transfer"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cardType"\cf2 \strokec2 : \cf5 \strokec5 "D\'e9bito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755297222344"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T22:33:42.344Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "method"\cf2 \strokec2 : \cf5 \strokec5 "Mixto"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cash"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "card"\cf2 \strokec2 : \cf6 \strokec6 130\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "transfer"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cardType"\cf2 \strokec2 : \cf5 \strokec5 "D\'e9bito"\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 330\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755291121127"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:52:01.127Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40200"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "method"\cf2 \strokec2 : \cf5 \strokec5 "Mixto"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cash"\cf2 \strokec2 : \cf6 \strokec6 90\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "card"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 290\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755288484244"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:08:04.244Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 2\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4010"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "method"\cf2 \strokec2 : \cf5 \strokec5 "Mixto"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "cash"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "card"\cf2 \strokec2 : \cf6 \strokec6 471.5\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 571.5\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756501914802"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Ronchita Chong"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:11:54.802Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:48:07.666Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756504115372"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:48:35.372Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:52:35.065Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756504419091"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:53:39.091Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40950"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 950\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:53:52.613Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 950\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 950\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 950\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756504517916"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "client"\cf2 \strokec2 : \cf5 \strokec5 "Cliente General"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:55:17.916Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "payment"\cf2 \strokec2 : \{\cb1 \
+\cb3         \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:55:26.214Z"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3         \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3       \},\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \cb1 \strokec2 \
+\cb3     \}\cb1 \
+\cb3   ],\cb1 \
+\cb3   \cf4 \strokec4 "devolucionesRealizadas"\cf2 \strokec2 : [\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "DEV-1756502122079"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "originalSaleFolio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756500762944"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:15:22.079Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalRefund"\cf2 \strokec2 : \cf6 \strokec6 300\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40300"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 300\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "DEV-1756166822089"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "originalSaleFolio"\cf2 \strokec2 : \cf5 \strokec5 "V-1756166483870"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:07:02.089Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalRefund"\cf2 \strokec2 : \cf6 \strokec6 180\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "DEV-1755323608150"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "originalSaleFolio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755321587956"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:53:28.150Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalRefund"\cf2 \strokec2 : \cf6 \strokec6 621\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 3\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "DEV-1755321625218"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "originalSaleFolio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755321315355"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:20:25.218Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalRefund"\cf2 \strokec2 : \cf6 \strokec6 90\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "DEV-1755306302751"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "originalSaleFolio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755306108488"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T01:05:02.751Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalRefund"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "DEV-1755291250895"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "originalSaleFolio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755291121127"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:54:10.895Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalRefund"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40200"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "DEV-1755289061870"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "originalSaleFolio"\cf2 \strokec2 : \cf5 \strokec5 "V-1755288484244"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "date"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:17:41.870Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalRefund"\cf2 \strokec2 : \cf6 \strokec6 9\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4010"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \}\cb1 \
+\cb3   ],\cb1 \
+\cb3   \cf4 \strokec4 "apartados"\cf2 \strokec2 : [\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1756502019763"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Teresca Chong"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 295\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 294\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Activo"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:13:39.763Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-28T21:13:39.763Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:13:39.762Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 ""\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755979495393"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Alma"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 430\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:04:55.393Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-22T20:04:55.393Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:04:55.393Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:08:31.900Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 30\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 30\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:38:44.558Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 300\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 300\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:08:12.685Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Modificaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "A\'f1adidos: 1 x Collar Laminado"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:38:44.558Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Liquidaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "El saldo lleg\'f3 a cero"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755977181293"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Lupe T"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 7\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 455\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:26:21.293Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-22T19:26:21.293Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:26:21.293Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:48:41.505Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:50:10.668Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 55\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 55\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:55:29.121Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:55:29.121Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Liquidaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "El saldo lleg\'f3 a cero"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755977132262"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Pablo p"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:25:32.262Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-22T19:25:32.262Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:25:32.262Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:55:13.555Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 130\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 130\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:55:13.555Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Liquidaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "El saldo lleg\'f3 a cero"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755484421965"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Pedro"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T02:33:41.965Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-17T02:33:41.965Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T02:33:41.965Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:48:55.637Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 220\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 220\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:48:55.638Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Liquidaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "El saldo lleg\'f3 a cero"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755484165529"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Dalia"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T02:29:25.529Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-17T02:29:25.529Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T02:29:25.529Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755457959320"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Alma"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60900"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 5\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 2050\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 2000\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Activo"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:12:39.320Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-16T19:12:39.320Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:12:39.320Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:39:11.458Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 49\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 49\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:16:17.726Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Modificaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "A\'f1adidos: 5 x Collar Laminado"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "generalDiscount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755321727170"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Andres J"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 3\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60250"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 250\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 2\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L40100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 1235\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 1040\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Activo"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:22:07.170Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-15T05:22:07.170Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:22:07.170Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 95\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Transferencia"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 95\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:52:28.950Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:22:54.112Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Agregado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:51:38.896Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Agregado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T05:51:41.585Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Agregado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-16T17:21:06.790Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Modificaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "A\'f1adidos: 2 x Huggi Laminado, 1 x Huggi Laminado"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755291319530"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Andres J"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60100"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 330\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:55:19.530Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-14T20:55:19.530Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:55:19.530Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:55:37.714Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 30\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 30\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:39:01.674Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTransferencia"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipoTarjeta"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Abono"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "historialModificaciones"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:39:01.675Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "accion"\cf2 \strokec2 : \cf5 \strokec5 "Liquidaci\'f3n"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "detalle"\cf2 \strokec2 : \cf5 \strokec5 "El saldo lleg\'f3 a cero"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755290264219"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Alvaro J"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4060"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 60\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4068"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 68\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 193\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:37:44.219Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-14T20:37:44.219Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:37:44.219Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 193\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Mixto"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 93\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folioApartado"\cf2 \strokec2 : \cf5 \strokec5 "APT-1755289678518"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "clienteNombre"\cf2 \strokec2 : \cf5 \strokec5 "Conny Chong"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "items"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FPR75L4065"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Huggi Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 65\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "clave"\cf2 \strokec2 : \cf5 \strokec5 "FOS75L60230"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Collar Laminado"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "precio"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "cantidad"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "discount"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ],\cb1 \
+\cb3       \cf4 \strokec4 "total"\cf2 \strokec2 : \cf6 \strokec6 295\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "saldoPendiente"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "estado"\cf2 \strokec2 : \cf5 \strokec5 "Liquidado"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaCreacion"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:27:58.518Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fechaVencimiento"\cf2 \strokec2 : \cf5 \strokec5 "2025-09-14T20:27:58.518Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialPagos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-15T20:27:58.518Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 295\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoEfectivo"\cf2 \strokec2 : \cf6 \strokec6 295\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTarjeta"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "tipo"\cf2 \strokec2 : \cf5 \strokec5 "Anticipo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \}\cb1 \
+\cb3   ],\cb1 \
+\cb3   \cf4 \strokec4 "cuentasPorPagar"\cf2 \strokec2 : [\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755401503551"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "Jose Juan"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Compra"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 1500\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T03:31:43.551Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T03:32:48.936Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:30:17.037Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Transferencia"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:30:41.254Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755401543852"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "lorenzo"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Bolsitas"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 500\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T03:32:23.852Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T03:38:05.390Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:12:47.939Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755402411865"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "lorenzo"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Compra"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 500\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T03:46:51.865Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : []\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755403408476"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "Dolores Cdong"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Maquila"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 5000\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:03:28.476Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:04:05.731Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:16:51.012Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T00:26:25.440Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 10\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T00:50:39.017Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 90\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 90\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-18T00:54:37.907Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 6000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 6000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755403510348"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "Laura Pineda"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Compra"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 10000\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:05:10.348Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:06:58.650Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf7 \strokec7 null\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:11:38.905Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T19:28:29.122Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 12000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 12000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755403559166"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "Laura Pineda"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Compra"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T04:05:59.166Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : []\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755458234062"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "Dolores Cdong"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Maquila"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 200\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-17T19:17:14.062Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : []\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1755981593458"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "FOS"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Compra"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:39:53.458Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T20:40:18.124Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 100\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \},\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:08:55.741Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "folio"\cf2 \strokec2 : \cf5 \strokec5 "CPP-1756502052113"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "proveedorNombre"\cf2 \strokec2 : \cf5 \strokec5 "Otros"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "concepto"\cf2 \strokec2 : \cf5 \strokec5 "Compras"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "montoInicial"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:14:12.113Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "historialAbonos"\cf2 \strokec2 : [\cb1 \
+\cb3         \{\cb1 \
+\cb3           \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T21:16:29.230Z"\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoTotal"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoDeCaja"\cf2 \strokec2 : \cf6 \strokec6 1000\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "montoExterno"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3           \cf4 \strokec4 "metodoPago"\cf2 \strokec2 : \cf5 \strokec5 "Efectivo"\cf2 \cb1 \strokec2 \
+\cb3         \}\cb1 \
+\cb3       ]\cb1 \
+\cb3     \}\cb1 \
+\cb3   ],\cb1 \
+\cb3   \cf4 \strokec4 "cierresDeCaja"\cf2 \strokec2 : [\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T22:43:47.732Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoInicio"\cf2 \strokec2 : \cf5 \strokec5 "Inicio de operaciones"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoFin"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T22:43:47.732Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "grossRevenue"\cf2 \strokec2 : \cf6 \strokec6 6917\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalReturns"\cf2 \strokec2 : \cf6 \strokec6 985\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "netRevenue"\cf2 \strokec2 : \cf6 \strokec6 -15268\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cashSales"\cf2 \strokec2 : \cf6 \strokec6 3010\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cardSales"\cf2 \strokec2 : \cf6 \strokec6 823\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "transferSales"\cf2 \strokec2 : \cf6 \strokec6 95\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "creditCardSales"\cf2 \strokec2 : \cf6 \strokec6 500\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "debitCardSales"\cf2 \strokec2 : \cf6 \strokec6 230\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "pagosDeCaja"\cf2 \strokec2 : \cf6 \strokec6 21200\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-25T15:16:39.098Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoInicio"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-23T22:43:47.732Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoFin"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-25T15:16:39.098Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "grossRevenue"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalReturns"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "netRevenue"\cf2 \strokec2 : \cf6 \strokec6 -21200\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cashSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cardSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "transferSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "creditCardSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "debitCardSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "pagosDeCaja"\cf2 \strokec2 : \cf6 \strokec6 21200\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:00:12.287Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoInicio"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-25T15:16:39.098Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoFin"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:00:12.287Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "grossRevenue"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalReturns"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "netRevenue"\cf2 \strokec2 : \cf6 \strokec6 -21200\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cashSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cardSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "transferSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "creditCardSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "debitCardSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "pagosDeCaja"\cf2 \strokec2 : \cf6 \strokec6 21200\cf2 \cb1 \strokec2 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf4 \strokec4 "fecha"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:10:50.008Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoInicio"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:00:12.287Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "periodoFin"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:10:50.008Z"\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "numVentas"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "numDevoluciones"\cf2 \strokec2 : \cf6 \strokec6 1\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "grossRevenue"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "totalReturns"\cf2 \strokec2 : \cf6 \strokec6 180\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "netRevenue"\cf2 \strokec2 : \cf6 \strokec6 720\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cashSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "cardSales"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "transferSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "creditCardSales"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "debitCardSales"\cf2 \strokec2 : \cf6 \strokec6 900\cf2 \strokec2 ,\cb1 \
+\cb3       \cf4 \strokec4 "pagosDeCaja"\cf2 \strokec2 : \cf6 \strokec6 0\cf2 \cb1 \strokec2 \
+\cb3     \}\cb1 \
+\cb3   ],\cb1 \
+\cb3   \cf4 \strokec4 "ultimoCierre"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-26T00:10:50.008Z"\cf2 \strokec2 ,\cb1 \
+\cb3   \cf4 \strokec4 "timestamp"\cf2 \strokec2 : \cf5 \strokec5 "2025-08-29T22:04:51.748Z"\cf2 \cb1 \strokec2 \
+\cb3 \}\cb1 \
+}
