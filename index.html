@@ -1,568 +1,1791 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Punto de Venta</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>PDV Pro - Versión Estable y Funcional</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
-        /* Estilos generales y tema oscuro */
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        .nav-tabs .nav-link {
-            color: var(--bs-secondary-color);
-        }
-        .nav-tabs .nav-link.active {
-            color: var(--bs-emphasis-color);
-            background-color: var(--bs-tertiary-bg);
-            border-color: var(--bs-border-color) var(--bs-border-color) var(--bs-tertiary-bg);
-        }
-        .table-hover tbody tr:hover {
-            background-color: var(--bs-tertiary-bg);
-        }
-        .suggestion-item {
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-        .suggestion-item:hover {
-            background-color: var(--bs-secondary-bg);
-        }
-        #suggestions {
-            border: 1px solid var(--bs-border-color);
-            border-radius: var(--bs-border-radius);
-            position: absolute;
-            background-color: var(--bs-body-bg);
-            width: 100%;
-            z-index: 1000;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-    </style>
+    /* --- ESTILOS GLOBALES Y PALETA DE COLORES --- */
+    :root {
+        --background-color: #f8fafc; --panel-color: #ffffff; --text-color: #334155; --text-light-color: #64748b;
+        --accent-color: #D94C75; --accent-hover-color: #b84062; --sidebar-bg: #1e293b; --sidebar-text: #e2e8f0;
+        --sidebar-active-bg: #334155; --border-color: #e2e8f0; --warning-color: #f59e0b; --danger-color: #ef4444;
+        --success-color: #10b981; --info-color: #3b82f6; --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--background-color); color: var(--text-color); display: flex; height: 100vh; overflow: hidden; }
+
+    /* --- LAYOUT PRINCIPAL: SIDEBAR Y CONTENIDO --- */
+    .sidebar { width: 240px; background-color: var(--sidebar-bg); color: var(--sidebar-text); padding: 1.5rem 0; flex-shrink: 0; display: flex; flex-direction: column; }
+    .main-content { flex-grow: 1; padding: 2rem; overflow-y: auto; }
+    .sidebar-header { padding: 0 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+    .sidebar-header .logo-icon { font-size: 2rem; color: var(--accent-color); }
+    .sidebar-header h1 { font-size: 1.25rem; font-weight: 600; }
+    .sidebar nav ul { list-style-type: none; }
+    .sidebar nav li { padding: 0.75rem 1.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; transition: background-color 0.2s ease, color 0.2s ease; border-left: 4px solid transparent; }
+    .sidebar nav li:hover { background-color: var(--sidebar-active-bg); }
+    .sidebar nav li.active { background-color: var(--sidebar-active-bg); border-left-color: var(--accent-color); color: #ffffff; font-weight: 500; }
+
+    /* --- MÓDULOS Y TÍTULOS --- */
+    .module { display: none; }
+    .module.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    h2 { font-size: 1.875rem; font-weight: 600; color: var(--text-color); margin-bottom: 2rem; }
+    .page-title-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; }
+
+    /* --- COMPONENTES UI: PANELES, FORMULARIOS, BOTONES --- */
+    .panel { background-color: var(--panel-color); border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem; }
+    input, select { font-family: inherit; font-size: 1rem; padding: 0.75rem; border-radius: 0.375rem; border: 1px solid var(--border-color); width: 100%; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    input:focus, select:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(217, 76, 117, 0.2); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; font-size: 1rem; padding: calc(0.75rem - 2px) calc(1.5rem - 2px); border-radius: 0.375rem; border: 2px solid transparent; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+    .btn-primary { background-color: var(--accent-color); color: white; border-color: var(--accent-color); }
+    .btn-primary:hover { background-color: var(--accent-hover-color); border-color: var(--accent-hover-color); transform: translateY(-1px); }
+    .btn-secondary { background-color: var(--sidebar-bg); color: var(--sidebar-text); border-color: var(--sidebar-bg); }
+    .btn-secondary:hover { background-color: var(--sidebar-active-bg); border-color: var(--sidebar-active-bg); transform: translateY(-1px); }
+    
+    .btn-outline {
+        background-color: transparent;
+        color: var(--sidebar-bg);
+        border: 2px solid var(--sidebar-bg);
+    }
+    .btn-outline:hover {
+        background-color: var(--sidebar-bg);
+        color: var(--sidebar-text);
+        transform: translateY(-1px);
+    }
+
+    .btn-danger { background-color: var(--danger-color); color: #fff; border-color: var(--danger-color); }
+    .btn-danger:hover { background-color: #dc2626; border-color: #dc2626;}
+    .btn-warning { background-color: var(--warning-color); color: white; border-color: var(--warning-color);}
+
+    /* --- TABLAS --- */
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { text-align: left; padding: 1rem; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+    th { background-color: #f1f5f9; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light-color); }
+    .action-icon { cursor: pointer; color: var(--text-light-color); transition: color 0.2s ease; vertical-align: middle; }
+    .action-icon:hover { color: var(--danger-color); }
+    
+    /* --- MODALES --- */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(30, 41, 59, 0.6); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
+    .modal-overlay.visible { display: flex; opacity: 1; }
+    .modal-content { background-color: var(--panel-color); padding: 2rem; border-radius: 0.5rem; width: 90%; max-width: 500px; box-shadow: var(--shadow-lg); transform: scale(0.95); transition: transform 0.3s ease; }
+    .modal-overlay.visible .modal-content { transform: scale(1); }
+    .modal-content.modal-lg { max-width: 800px; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .modal-header h3 { font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0; }
+    .modal-footer { margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 0.75rem; }
+
+    /* --- TARJETAS (REPORTES, VENTAS, APARTADOS) --- */
+    .report-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .report-card { background: var(--panel-color); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .report-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .report-card.highlight { background-color: #fdf2f8; border-color: var(--accent-color); }
+    .report-card h4 { font-size: 0.875rem; font-weight: 500; color: var(--text-light-color); margin-bottom: 0.5rem; }
+    .report-card .value { font-size: 2rem; font-weight: 600; color: var(--text-color); }
+    .report-card ul { list-style-type: none; margin-top: 0.5rem; padding-left: 0.5rem; font-size: 0.875rem; }
+    .report-card ul li { display: flex; justify-content: space-between; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .data-card { border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem; background-color: var(--panel-color); box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; }
+    .data-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .data-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .data-card .folio-container { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--accent-color); }
+    .data-card .folio-container .material-icons { color: var(--warning-color); font-size: 1.1rem; }
+    .status-tag { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; color: white; }
+    .status-tag.activo { background-color: var(--info-color); } .status-tag.liquidado { background-color: var(--success-color); } .status-tag.cancelado { background-color: var(--danger-color); }
+    
+    /* --- ESTADOS VACÍOS Y RESÚMENES --- */
+    .empty-state { text-align: center; padding: 3rem; color: var(--text-light-color); }
+    .empty-state .material-icons { font-size: 3rem; margin-bottom: 1rem; }
+    .summary-grid { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem; font-size: 1rem; }
+    .summary-grid > div:nth-child(odd) { text-align: right; color: var(--text-light-color); }
+    .summary-grid > div:nth-child(even) { text-align: right; font-weight: 500; }
+    #sale-item-count, #apartado-item-count { grid-column: 1 / -1; font-size: 1.125rem; }
+    #sale-item-count .material-icons, #apartado-item-count .material-icons { vertical-align: bottom; font-size: 1.25rem; margin-right: 0.25rem; }
+    #sale-total-value, #apartado-total-value { font-weight: 600; font-size: 1.75rem; color: var(--accent-color); }
+
+    /* --- PESTAÑAS (TABS) --- */
+    .tab-container { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+    .tab { padding: 0.75rem 1.5rem; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; color: var(--text-light-color); transition: all 0.2s ease; }
+    .tab.active { color: var(--accent-color); border-bottom-color: var(--accent-color); font-weight: 600; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* --- OTROS ESTILOS --- */
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; margin-bottom: 1.5rem; }
+    .detail-grid dt { font-weight: 500; color: var(--text-light-color); }
+    .detail-grid dd { font-size: 1.125rem; }
+    .detail-grid dd.saldo-pendiente { color: var(--danger-color); font-weight: bold; }
+    .detail-grid dd.saldo-favor { color: var(--success-color); font-weight: bold; }
+    
+    .radio-group {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+    }
+    .radio-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    }
+    .radio-option label {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        text-align: center;
+    }
+    .radio-option input[type="radio"] {
+        width: auto;
+        transform: scale(1.5);
+        margin: 0;
+    }
+
+    tr.item-for-deletion td { text-decoration: line-through; color: var(--danger-color); background-color: #fff8f8; }
+    
+    /* --- ESTILOS DE IMPRESIÓN --- */
+    @media print { 
+        body { display: block; } 
+        /* --- CORRECCIÓN DEFINITIVA: Se usa !important para asegurar que se oculten los modales --- */
+        .sidebar, .main-content, .modal-overlay, .no-print { 
+            display: none !important; 
+        } 
+        .print-area { display: block !important; font-family: 'Courier New', monospace; width: 300px; margin: 0 auto; color: #000; } 
+        .print-header { text-align: center; } 
+        .print-header img { max-width: 150px; margin-bottom: 10px; } 
+        .print-header p { margin: 2px 0; font-size: 12px; } 
+        .print-totals { text-align: right; margin-top: 10px; font-size: 14px; } 
+    }
+    .print-area { display: none; }
+</style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mi PDV</a>
+
+    <aside class="sidebar">
+        <div class="sidebar-header"><span class="material-icons logo-icon">storefront</span><h1>PDV Pro</h1></div>
+        <nav><ul>
+            <li id="nav-puntoventa" class="active"><span class="material-icons">point_of_sale</span>Punto de Venta</li>
+            <li id="nav-listaventas"><span class="material-icons">receipt_long</span>Ventas</li>
+            <li id="nav-apartados"><span class="material-icons">inventory</span>Apartados</li>
+            <li id="nav-pagos"><span class="material-icons">payments</span>Pagos a Proveedores</li>
+            <li id="nav-devoluciones"><span class="material-icons">assignment_return</span>Devoluciones</li>
+            <li id="nav-reportes"><span class="material-icons">leaderboard</span>Reportes</li>
+            <li id="nav-gestion"><span class="material-icons">settings</span>Gestión</li>
+        </ul></nav>
+    </aside>
+
+    <main class="main-content">
+        <div id="module-puntoventa" class="module active">
+             <div class="panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div><label>Folio de Venta</label><p id="sale-folio" style="font-size: 1.25rem; font-weight: 600;"></p></div>
+                    <div style="width: 40%;"><label for="sale-client">Nombre del Cliente</label><input type="text" id="sale-client" placeholder="Cliente General"></div>
+                </div>
+                <div class="form-group"><label for="barcode-input">Ingresar/Escanear Código (Presiona Enter)</label><input type="text" id="barcode-input" autocomplete="off"></div>
+            </div>
+            <div class="panel">
+                <table id="sale-items-table"><thead><tr><th>Cantidad</th><th>Clave</th><th>Concepto</th><th>Precio U.</th><th>Importe</th><th>% Dto.</th><th>Acciones</th></tr></thead><tbody></tbody></table>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);"><div class="summary-grid">
+                    <div id="sale-item-count"><span class="material-icons">shopping_cart</span> 0</div>
+                    <div>Subtotal:</div><div id="sale-subtotal">$0.00</div>
+                    <div>Descuentos:</div><div id="sale-discounts">$0.00</div>
+                    <div style="font-weight: 600; font-size: 1.25rem;">Total:</div><div id="sale-total-value">$0.00</div>
+                </div></div>
+                <div style="margin-top: 1.5rem; display:flex; justify-content: flex-end; align-items: center; gap: 1rem;">
+                    <label for="general-discount" style="font-weight: 500;">Descuento General (%):</label><input type="number" id="general-discount" value="0" min="0" max="100" style="width: 100px;">
+                    <button class="btn btn-primary" id="btn-pagar"><span class="material-icons">payment</span>Pagar</button>
+                </div>
+            </div>
         </div>
-    </nav>
-
-    <div class="container mt-4">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="sales-tab" data-bs-toggle="tab" data-bs-target="#sales-tab-pane" type="button" role="tab">Ventas</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="returns-tab" data-bs-toggle="tab" data-bs-target="#returns-tab-pane" type="button" role="tab">Devoluciones</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="apartados-tab" data-bs-toggle="tab" data-bs-target="#apartados-tab-pane" type="button" role="tab">Apartados</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="cuentas-tab" data-bs-toggle="tab" data-bs-target="#cuentas-tab-pane" type="button" role="tab">Cuentas por Pagar</button>
-            </li>
-             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="new-sale-tab" data-bs-toggle="tab" data-bs-target="#new-sale-tab-pane" type="button" role="tab"><strong>+ Nueva Venta</strong></button>
-            </li>
-        </ul>
-
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="sales-tab-pane" role="tabpanel">
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <h3>Ventas Realizadas</h3>
-                </div>
-                <div class="table-responsive mt-3">
-                    <table class="table table-hover" id="salesTable">
-                        <thead>
-                            <tr>
-                                <th>Folio</th>
-                                <th>Cliente</th>
-                                <th>Fecha</th>
-                                <th>Total</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            </tbody>
-                    </table>
+        
+        <div id="module-listaventas" class="module">
+            <h2>Ventas Realizadas</h2>
+            <div class="panel">
+                <h3>Filtros</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: end;">
+                    <div class="form-group"><label>Por Folio</label><input type="text" id="filter-folio" placeholder="Buscar folio..."></div>
+                    <div class="form-group"><label>Por Cliente</label><input type="text" id="filter-cliente" placeholder="Buscar cliente..."></div>
+                    <div class="form-group"><label>Por Fecha</label><input type="date" id="filter-fecha"></div>
+                    <button class="btn btn-outline" id="btn-limpiar-filtros" style="width: 100%;">Limpiar</button>
                 </div>
             </div>
-
-            <div class="tab-pane fade" id="returns-tab-pane" role="tabpanel">
-                 <h3 class="mt-3">Devoluciones Realizadas</h3>
-                 <div class="table-responsive mt-3">
-                    <table class="table table-hover" id="returnsTable">
-                        <thead>
-                            <tr>
-                                <th>Folio Dev.</th>
-                                <th>Folio Venta Original</th>
-                                <th>Fecha</th>
-                                <th>Monto</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            </tbody>
-                    </table>
+            <div id="sales-list-container" class="card-grid"></div>
+        </div>
+        
+        <div id="module-apartados" class="module">
+             <div id="apartado-dashboard">
+                <div class="page-title-container">
+                    <h2>Sistema de Apartados</h2>
+                    <button class="btn btn-primary" id="btn-crear-apartado"><span class="material-icons">add_circle</span> Crear Nuevo Apartado</button>
                 </div>
+                <div class="panel"><div class="form-group"><label for="apartado-search-input">Buscar por Folio o Cliente</label><input type="text" id="apartado-search-input" placeholder="Escribe para filtrar..."></div></div>
+                <div id="apartado-cards-container" class="card-grid"></div>
             </div>
-
-            <div class="tab-pane fade" id="apartados-tab-pane" role="tabpanel">
-                <h3 class="mt-3">Sistema de Apartados</h3>
-                <div class="table-responsive mt-3">
-                    <table class="table table-hover" id="apartadosTable">
-                        <thead>
-                            <tr>
-                                <th>Folio</th>
-                                <th>Cliente</th>
-                                <th>Total</th>
-                                <th>Saldo Pendiente</th>
-                                <th>Estado</th>
-                                <th>Vencimiento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            </tbody>
-                    </table>
+            <div id="apartado-creator" style="display: none;">
+                <div class="page-title-container">
+                    <h2>Crear Nuevo Apartado</h2>
+                    <button class="btn btn-outline" id="btn-cancelar-creacion-apartado">Cancelar</button>
                 </div>
-            </div>
-
-            <div class="tab-pane fade" id="cuentas-tab-pane" role="tabpanel">
-                <h3 class="mt-3">Cuentas por Pagar</h3>
-                 <div class="table-responsive mt-3">
-                    <table class="table table-hover" id="cuentasPorPagarTable">
-                        <thead>
-                            <tr>
-                                <th>Folio</th>
-                                <th>Proveedor</th>
-                                <th>Concepto</th>
-                                <th>Monto Inicial</th>
-                                <th>Saldo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            </tbody>
-                    </table>
+                <div class="panel">
+                    <div class="form-group"><label for="apartado-cliente-nombre">Nombre del Cliente</label><input type="text" id="apartado-cliente-nombre" placeholder="Nombre completo del cliente" required></div>
+                    <div class="form-group"><label for="apartado-barcode-input">Ingresar/Escanear Código (Presiona Enter)</label><input type="text" id="apartado-barcode-input" autocomplete="off"></div>
                 </div>
-            </div>
-
-            <div class="tab-pane fade" id="new-sale-tab-pane" role="tabpanel">
-                <div class="row mt-3">
-                    <div class="col-md-8">
-                        <h3>Nueva Venta</h3>
-                         <div class="mb-3 position-relative">
-                            <label for="productSearch" class="form-label">Buscar producto por clave o concepto</label>
-                            <input type="text" class="form-control" id="productSearch" autocomplete="off">
-                            <div id="suggestions" class="list-group position-absolute w-100" style="display: none;"></div>
+                <div class="panel">
+                    <table id="apartado-items-table"><thead><tr><th>Cantidad</th><th>Clave</th><th>Concepto</th><th>Precio U.</th><th>Importe</th><th>% Dto.</th><th>Acciones</th></tr></thead><tbody></tbody></table>
+                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                        <div class="summary-grid">
+                            <div id="apartado-item-count"><span class="material-icons">shopping_cart</span> 0</div>
+                            <div>Subtotal:</div><div id="apartado-subtotal">$0.00</div>
+                            <div>Descuentos:</div><div id="apartado-discounts">$0.00</div>
+                            <div style="font-weight: 600; font-size: 1.25rem;">Total de la Compra:</div><div id="apartado-total-value">$0.00</div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table" id="cartTable">
-                                <thead>
-                                    <tr>
-                                        <th>Clave</th>
-                                        <th>Concepto</th>
-                                        <th>Precio</th>
-                                        <th>Cantidad</th>
-                                        <th>Desc.</th>
-                                        <th>Total</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    </tbody>
-                            </table>
+                        <div class="form-group" style="margin-top: 1.5rem;"><label for="apartado-anticipo-monto">Monto del Anticipo</label><input type="number" id="apartado-anticipo-monto" placeholder="0.00" step="0.01" min="0"></div>
+                    </div>
+                    <div style="margin-top: 1.5rem; display:flex; justify-content: flex-end; align-items: center; gap: 1rem;">
+                        <label for="apartado-general-discount" style="font-weight: 500;">Descuento General (%):</label><input type="number" id="apartado-general-discount" value="0" min="0" max="100" style="width: 100px;">
+                        <button class="btn btn-primary" id="btn-confirmar-apartado"><span class="material-icons">arrow_forward</span> Proceder al Pago del Anticipo</button>
+                    </div>
+                </div>
+            </div>
+            <div id="apartado-detail" style="display: none;"></div>
+        </div>
+
+        <div id="module-pagos" class="module">
+            <div id="pagos-dashboard">
+                <div class="page-title-container">
+                    <h2>Pagos a Proveedores</h2>
+                    <button class="btn btn-primary" data-action="registrar-nueva-cuenta"><span class="material-icons">add_circle</span> Registrar Cuenta por Pagar</button>
+                </div>
+                <div id="proveedor-cards-container" class="card-grid"></div>
+            </div>
+            <div id="proveedor-detail-view" style="display:none;"></div>
+        </div>
+
+        <div id="module-devoluciones" class="module">
+            <h2>Devoluciones</h2>
+            <div class="panel">
+                <div class="form-group">
+                    <label for="return-folio-search">Buscar Venta por Folio para Iniciar Devolución</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" id="return-folio-search" placeholder="Ej: V-1723249876543">
+                        <button class="btn btn-primary" id="btn-buscar-folio-devolucion">Buscar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="devolucion-process-container"></div>
+            <h3>Historial de Devoluciones</h3>
+            <div id="devoluciones-historial-container" class="card-grid"></div>
+        </div>
+
+        <div id="module-reportes" class="module">
+             <h2>Reportes y Análisis</h2><div class="report-cards" id="main-report-cards"></div>
+             <h2>Análisis Comparativo</h2><div class="comparison-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="panel"><h3>Conjunto A</h3><div id="filters-a"></div><button class="btn btn-primary" id="btn-analizar-a" style="margin-top:1rem; width: 100%;">Analizar A</button><div class="report-cards" style="margin-top: 1.5rem;" id="results-a"></div></div>
+                <div class="panel"><h3>Conjunto B</h3><div id="filters-b"></div><button class="btn btn-primary" id="btn-analizar-b" style="margin-top:1rem; width: 100%;">Analizar B</button><div class="report-cards" style="margin-top: 1.5rem;" id="results-b"></div></div>
+            </div>
+        </div>
+        
+        <div id="module-gestion" class="module">
+            <h2>Gestión</h2>
+            <div class="tab-container" id="gestion-tabs"></div>
+            <div id="gestion-tabs-content"></div>
+        </div>
+    </main>
+
+    <div id="error-modal" class="modal-overlay"><div class="modal-content"><div class="modal-header"><h3><span class="material-icons" style="color:var(--danger-color);">error</span>Error</h3></div><p id="error-message"></p><div class="modal-footer"><button class="btn btn-primary" id="error-ok-btn">Entendido</button></div></div></div>
+    <div id="payment-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="payment-modal-title">Finalizar Venta</h3>
+                <span class="material-icons action-icon no-print" id="btn-close-payment-modal">close</span>
+            </div>
+            <div id="payment-modal-content-wrapper">
+                <div id="payment-modal-sale-fields">
+                    <p id="payment-modal-fixed-total-section">Total a pagar: <strong id="payment-modal-total" style="font-size: 1.5rem; color: var(--accent-color);"></strong></p>
+                     <div id="payment-modal-flexible-amount-section" style="display: none;">
+                        <p style="color: var(--text-light-color);">Saldo de Referencia: <strong id="payment-modal-saldo-ref"></strong></p>
+                        <div class="form-group" style="margin-top: 0.5rem;">
+                            <label for="payment-modal-monto-input">Monto a Pagar</label>
+                            <input type="number" id="payment-modal-monto-input" placeholder="0.00" step="0.01" min="0">
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Resumen de la Venta</h5>
-                                <div class="mb-3">
-                                    <label for="clienteInput" class="form-label">Cliente</label>
-                                    <input type="text" id="clienteInput" class="form-control" value="Cliente General">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="generalDiscount" class="form-label">Descuento General (%)</label>
-                                    <input type="number" id="generalDiscount" class="form-control" value="0" min="0" max="100">
-                                </div>
-                                <hr>
-                                <div class="d-flex justify-content-between fs-4">
-                                    <strong>Total:</strong>
-                                    <strong id="grandTotal">$0.00</strong>
-                                </div>
-                                <div class="d-grid gap-2 mt-3">
-                                    <button class="btn btn-success btn-lg" id="finalizeSaleBtn">Finalizar Venta</button>
-                                    <button class="btn btn-danger">Cancelar Venta</button>
-                                </div>
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="payment-method">Finalizar Como</label>
+                        <select id="payment-method">
+                            <option value="Efectivo">Pago en Efectivo</option>
+                            <option value="Tarjeta">Pago con Tarjeta</option>
+                            <option value="Transferencia">Pago por Transferencia</option>
+                            <option value="Mixto">Pago Mixto</option>
+                            <option value="Apartado" style="font-weight: bold; color: var(--accent-color);">+ Crear Apartado</option>
+                        </select>
+                    </div>
+                    <div id="mixed-payment-fields" style="display: none;">
+                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <div class="form-group" style="flex: 1 1 45%"><label>Monto Efectivo</label><input type="number" id="payment-cash-amount" placeholder="0.00"></div>
+                            <div class="form-group" style="flex: 1 1 45%"><label>Monto Transferencia</label><input type="number" id="payment-transfer-amount" placeholder="0.00"></div>
+                            <div class="form-group" style="flex: 1 1 100%"><label>Monto Tarjeta</label><input type="number" id="payment-card-amount" placeholder="0.00" readonly></div>
+                        </div>
+                    </div>
+                    <div id="card-type-section" style="display: none; margin-top: 0.5rem;">
+                        <label>Tipo de Tarjeta</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <label for="card-type-debito">Débito</label>
+                                <input type="radio" id="card-type-debito" name="card-type" value="Débito" checked>
+                            </div>
+                            <div class="radio-option">
+                                <label for="card-type-credito">Crédito</label>
+                                <input type="radio" id="card-type-credito" name="card-type" value="Crédito">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="payment-modal-apartado-fields" style="display: none;">
+                    <p>Total de la compra: <strong id="apartado-modal-total-ref" style="font-size: 1.25rem;"></strong></p>
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="apartado-anticipo-input">Monto del Anticipo</label>
+                        <input type="number" id="apartado-anticipo-input" placeholder="0.00" step="0.01" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="apartado-anticipo-method">Método de Pago del Anticipo</label>
+                        <select id="apartado-anticipo-method">
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Tarjeta">Tarjeta</option>
+                            <option value="Transferencia">Transferencia</option>
+                        </select>
+                    </div>
+                    <div id="apartado-card-type-section" style="display: none; margin-top: 0.5rem;">
+                        <label>Tipo de Tarjeta (Anticipo)</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <label for="apartado-card-type-debito">Débito</label>
+                                <input type="radio" id="apartado-card-type-debito" name="apartado-card-type" value="Débito" checked>
+                            </div>
+                             <div class="radio-option">
+                                <label for="apartado-card-type-credito">Crédito</label>
+                                <input type="radio" id="apartado-card-type-credito" name="apartado-card-type" value="Crédito">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="saleDetailsModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Detalles de la Venta</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="saleDetailsModalBody">
-                    </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="btn-cancel-payment">Cancelar</button>
+                <button class="btn btn-primary" id="btn-confirm-payment">Confirmar</button>
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="discountModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Aplicar Descuento</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="discountModalClave">
-                    <div class="mb-3">
-                        <label for="itemDiscountInput" class="form-label">Porcentaje de Descuento (%)</label>
-                        <input type="number" class="form-control" id="itemDiscountInput" min="0" max="100" value="0">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="applyDiscountButton">Aplicar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="paymentModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Procesar Pago</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h3 class="text-center mb-3">Total a Pagar: <span id="paymentModalTotal">$0.00</span></h3>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Efectivo $</span>
-                        <input type="number" class="form-control" id="montoEfectivo">
-                    </div>
-                     <div class="input-group mb-3">
-                        <span class="input-group-text">Tarjeta $</span>
-                        <input type="number" class="form-control" id="montoTarjeta">
-                    </div>
-                     <div class="input-group">
-                        <span class="input-group-text">Transfer. $</span>
-                        <input type="number" class="form-control" id="montoTransferencia">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                     <button type="button" class="btn btn-success" id="processPaymentBtn">Confirmar Pago</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        let ventasRealizadas = [];
-        let devolucionesRealizadas = [];
-        let apartados = [];
-        let cuentasPorPagar = [];
-
+    <div id="sale-detail-modal" class="modal-overlay"><div class="modal-content modal-lg"><div class="modal-header"><h3 id="sale-detail-title">Detalle</h3><span class="material-icons action-icon no-print" id="btn-close-detail-modal">close</span></div><div id="sale-detail-content" style="max-height: 60vh; overflow-y: auto;"></div><div class="modal-footer" id="sale-detail-footer"><button class="btn btn-outline" id="btn-close-detail-modal-footer">Cerrar</button></div></div></div>
+    <div id="confirm-modal" class="modal-overlay"><div class="modal-content"><div class="modal-header"><h3><span class="material-icons" style="color:var(--warning-color);">warning</span>Confirmación Requerida</h3></div><p id="confirm-message"></p><div class="modal-footer"><button class="btn btn-outline" id="confirm-cancel-btn">Cancelar</button><button class="btn btn-warning" id="confirm-ok-btn">Continuar</button></div></div></div>
+    <div id="pagos-modal" class="modal-overlay"><div class="modal-content" id="pagos-modal-content"></div></div>
+    
+    <div id="print-receipt" class="print-area"></div>
+    
+ <script>
+    // =================================================================================
+    // MÓDULO PRINCIPAL DE LA APLICACIÓN (APP)
+    // =================================================================================
+    const App = (() => {
+        let state = { currentModule: 'puntoventa', businessInfo: {}, catalogs: { proveedores: [], materiales: [], productos: [] }, currentSale: null, ventasRealizadas: [], devolucionesRealizadas: [], apartados: [], cuentasPorPagar: [], cierresDeCaja: [], ultimoCierre: null };
+        let paymentConfirmCallback = null;
+        let salesFilterTimeout = null;
+        
+        function init() {
+            loadInitialData();
+            setupEventListeners();
+            showModule('puntoventa');
+            Venta.startNewSale();
+        }
+        
         function loadInitialData() {
-          fetch('pdv_data.json')
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-              }
-              return response.json();
-            })
-            .then(data => {
-              ventasRealizadas = data.ventasRealizadas || [];
-              devolucionesRealizadas = data.devolucionesRealizadas || [];
-              apartados = data.apartados || [];
-              cuentasPorPagar = data.cuentasPorPagar || [];
-
-              updateSalesTable();
-              updateReturnsTable();
-              updateApartadosTable();
-              updateCuentasPorPagarTable();
-            })
-            .catch(error => {
-              console.error('Error al cargar los datos iniciales:', error);
-              alert('No se pudieron cargar los datos iniciales. Revisa la consola para más detalles.');
+            state.businessInfo = JSON.parse(localStorage.getItem('business_info')) || { name: 'Tu Negocio', address: 'Tu Dirección', phone: 'Tu Teléfono', logo: null };
+            ['proveedores', 'materiales', 'productos'].forEach(cat => {
+                const data = localStorage.getItem(cat);
+                state.catalogs[cat] = data ? JSON.parse(data) : getSampleData(cat);
+                if (!data) localStorage.setItem(cat, JSON.stringify(state.catalogs[cat]));
             });
-        }
-
-        function updateSalesTable() {
-          const tbody = document.getElementById('salesTable').querySelector('tbody');
-          tbody.innerHTML = '';
-          ventasRealizadas.forEach(venta => {
-            const row = tbody.insertRow();
-            row.insertCell(0).textContent = venta.folio;
-            row.insertCell(1).textContent = venta.client;
-            row.insertCell(2).textContent = new Date(venta.date).toLocaleString();
-            row.insertCell(3).textContent = `$${venta.total.toFixed(2)}`;
-            const detailsCell = row.insertCell(4);
-            const detailsButton = document.createElement('button');
-            detailsButton.textContent = 'Ver Detalles';
-            detailsButton.className = 'btn btn-info btn-sm';
-            detailsButton.onclick = () => showSaleDetails(venta.folio);
-            detailsCell.appendChild(detailsButton);
-          });
-        }
-
-        function updateReturnsTable() {
-          const tbody = document.getElementById('returnsTable').querySelector('tbody');
-          tbody.innerHTML = '';
-          devolucionesRealizadas.forEach(devolucion => {
-            const row = tbody.insertRow();
-            row.insertCell(0).textContent = devolucion.folio;
-            row.insertCell(1).textContent = devolucion.originalSaleFolio;
-            row.insertCell(2).textContent = new Date(devolucion.date).toLocaleString();
-            row.insertCell(3).textContent = `$${devolucion.totalRefund.toFixed(2)}`;
-          });
-        }
-
-        function updateApartadosTable() {
-            const tbody = document.getElementById('apartadosTable').querySelector('tbody');
-            tbody.innerHTML = '';
-            apartados.forEach(apartado => {
-                const row = tbody.insertRow();
-                row.insertCell(0).textContent = apartado.folioApartado;
-                row.insertCell(1).textContent = apartado.clienteNombre;
-                row.insertCell(2).textContent = `$${apartado.total.toFixed(2)}`;
-                row.insertCell(3).textContent = `$${apartado.saldoPendiente.toFixed(2)}`;
-                row.insertCell(4).textContent = apartado.estado;
-                row.insertCell(5).textContent = new Date(apartado.fechaVencimiento).toLocaleDateString();
-            });
-        }
-
-        function updateCuentasPorPagarTable() {
-            const tbody = document.getElementById('cuentasPorPagarTable').querySelector('tbody');
-            tbody.innerHTML = '';
-            cuentasPorPagar.forEach(cuenta => {
-                const row = tbody.insertRow();
-                let saldo = cuenta.montoInicial - (cuenta.historialAbonos || []).reduce((acc, abono) => acc + (abono.montoTotal || 0), 0);
-                row.insertCell(0).textContent = cuenta.folio;
-                row.insertCell(1).textContent = cuenta.proveedorNombre;
-                row.insertCell(2).textContent = cuenta.concepto;
-                row.insertCell(3).textContent = `$${cuenta.montoInicial.toFixed(2)}`;
-                row.insertCell(4).textContent = `$${saldo.toFixed(2)}`;
-            });
-        }
-
-        window.showSaleDetails = function(folio) {
-          const venta = ventasRealizadas.find(v => v.folio === folio);
-          if (!venta) return;
-
-          const modalBody = document.getElementById('saleDetailsModalBody');
-          modalBody.innerHTML = `
-            <p><strong>Folio:</strong> ${venta.folio}</p>
-            <p><strong>Cliente:</strong> ${venta.client}</p>
-            <p><strong>Fecha:</strong> ${new Date(venta.date).toLocaleString()}</p>
-            <h5>Artículos:</h5>
-            <ul class="list-group">
-              ${venta.items.map(item => `
-                <li class="list-group-item">
-                  ${item.cantidad} x ${item.concepto} (${item.clave}) - $${(item.precio * item.cantidad).toFixed(2)}
-                </li>
-              `).join('')}
-            </ul>
-            <hr>
-            <p class="text-end"><strong>Total: $${venta.total.toFixed(2)}</strong></p>
-          `;
-
-          const saleDetailsModal = new bootstrap.Modal(document.getElementById('saleDetailsModal'));
-          saleDetailsModal.show();
-        }
-
-        let carrito = [];
-
-        document.getElementById('productSearch').addEventListener('input', function(e) {
-          const searchTerm = e.target.value.toLowerCase();
-          if (searchTerm.length < 2) {
-              document.getElementById('suggestions').style.display = 'none';
-              return;
-          };
-
-          const mockProductos = [
-              { clave: "FOS75L60200", concepto: "Collar Laminado", precio: 200 },
-              { clave: "FPR75L40100", concepto: "Huggi Laminado", precio: 100 },
-              { clave: "FOS75L60230", concepto: "Collar Laminado", precio: 230 },
-          ];
-
-          const results = mockProductos.filter(p => 
-              p.clave.toLowerCase().includes(searchTerm) || 
-              p.concepto.toLowerCase().includes(searchTerm)
-          );
-
-          const suggestions = document.getElementById('suggestions');
-          suggestions.innerHTML = '';
-          if(results.length > 0) {
-              results.forEach(p => {
-                  const div = document.createElement('div');
-                  div.textContent = `${p.clave} - ${p.concepto} ($${p.precio})`;
-                  div.className = 'suggestion-item';
-                  div.onclick = () => addProductToCart(p);
-                  suggestions.appendChild(div);
-              });
-              suggestions.style.display = 'block';
-          } else {
-              suggestions.style.display = 'none';
-          }
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!document.getElementById('productSearch').contains(e.target)) {
-                document.getElementById('suggestions').style.display = 'none';
+            try {
+                const storedSales = localStorage.getItem('ventas_realizadas'); state.ventasRealizadas = storedSales ? JSON.parse(storedSales) : [];
+                const storedReturns = localStorage.getItem('devoluciones_realizadas'); state.devolucionesRealizadas = storedReturns ? JSON.parse(storedReturns) : [];
+                const storedApartados = localStorage.getItem('apartados'); state.apartados = storedApartados ? JSON.parse(storedApartados) : [];
+                const storedPagos = localStorage.getItem('cuentas_por_pagar'); state.cuentasPorPagar = storedPagos ? JSON.parse(storedPagos) : [];
+                const storedCierres = localStorage.getItem('cierres_de_caja'); state.cierresDeCaja = storedCierres ? JSON.parse(storedCierres) : [];
+                const storedUltimoCierre = localStorage.getItem('ultimo_cierre'); state.ultimoCierre = storedUltimoCierre ? storedUltimoCierre : null;
+            } catch (error) {
+                console.error("Error al cargar datos transaccionales:", error);
+                state.ventasRealizadas = []; state.devolucionesRealizadas = []; state.apartados = []; state.cuentasPorPagar = []; state.cierresDeCaja = []; state.ultimoCierre = null;
             }
-        });
+        }
+        
+        function sincronizarConLocalStorage() {
+            try {
+                localStorage.setItem('ventas_realizadas', JSON.stringify(state.ventasRealizadas));
+                localStorage.setItem('devoluciones_realizadas', JSON.stringify(state.devolucionesRealizadas));
+                localStorage.setItem('apartados', JSON.stringify(state.apartados));
+                localStorage.setItem('cuentas_por_pagar', JSON.stringify(state.cuentasPorPagar));
+                localStorage.setItem('cierres_de_caja', JSON.stringify(state.cierresDeCaja));
+                localStorage.setItem('ultimo_cierre', state.ultimoCierre);
+            } catch (error) { showErrorModal("No se pudo guardar la sesión. Almacenamiento lleno."); }
+        }
 
-        function addProductToCart(producto) {
-            const existingItem = carrito.find(item => item.clave === producto.clave);
-            if (existingItem) {
-                existingItem.cantidad++;
+        function refreshApp() {
+            const activeModule = state.currentModule;
+            if (['listaventas', 'devoluciones', 'apartados', 'pagos', 'reportes', 'gestion'].includes(activeModule)) {
+                if (activeModule === 'listaventas') ListaVentas.init();
+                if (activeModule === 'devoluciones') Devoluciones.init();
+                if (activeModule === 'apartados') Apartados.init();
+                if (activeModule === 'pagos') Pagos.init();
+                if (activeModule === 'reportes') Reportes.init();
+                if (activeModule === 'gestion') Gestion.init();
             } else {
-                carrito.push({ ...producto, cantidad: 1, discount: 0 });
+                Reportes.init();
             }
-            document.getElementById('productSearch').value = '';
-            document.getElementById('suggestions').style.display = 'none';
-            updateCartTable();
         }
+        
+        function setupEventListeners() {
+            document.getElementById('nav-puntoventa').addEventListener('click', () => showModule('puntoventa'));
+            document.getElementById('nav-listaventas').addEventListener('click', () => showModule('listaventas'));
+            document.getElementById('nav-apartados').addEventListener('click', () => showModule('apartados'));
+            document.getElementById('nav-pagos').addEventListener('click', () => showModule('pagos'));
+            document.getElementById('nav-devoluciones').addEventListener('click', () => showModule('devoluciones'));
+            document.getElementById('nav-reportes').addEventListener('click', () => showModule('reportes'));
+            document.getElementById('nav-gestion').addEventListener('click', () => showModule('gestion'));
+            document.getElementById('error-ok-btn').addEventListener('click', () => document.getElementById('error-modal').classList.remove('visible'));
+            document.getElementById('btn-close-detail-modal').addEventListener('click', () => document.getElementById('sale-detail-modal').classList.remove('visible'));
+            document.getElementById('btn-close-detail-modal-footer').addEventListener('click', () => document.getElementById('sale-detail-modal').classList.remove('visible'));
+            document.getElementById('btn-close-payment-modal').addEventListener('click', Venta.closePaymentModal);
+            document.getElementById('btn-cancel-payment').addEventListener('click', Venta.closePaymentModal);
+            document.getElementById('barcode-input').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); const input = e.target; if(input.value) Venta.addItemByBarcode(input.value.trim()); input.value = ''; } });
+            document.getElementById('btn-pagar').addEventListener('click', () => Venta.openPaymentModal({ context: 'venta' }));
+            document.getElementById('general-discount').addEventListener('change', Venta.updateTotals);
+            document.getElementById('sale-items-table').querySelector('tbody').addEventListener('change', e => { const t = e.target; if (t.matches('.qty-input')) Venta.updateQuantity(t.dataset.index, t.value); if (t.matches('.discount-input')) Venta.updateItemDiscount(t.dataset.index, t.value); });
+            document.getElementById('sale-items-table').querySelector('tbody').addEventListener('click', e => { if (e.target.matches('.delete-item-btn')) Venta.removeItem(e.target.dataset.index); });
+            
+            document.getElementById('payment-method').addEventListener('change', Venta.togglePaymentView);
+            document.getElementById('apartado-anticipo-method').addEventListener('change', Venta.togglePaymentView);
 
-        function updateCartTable() {
-            const tbody = document.getElementById('cartTable').querySelector('tbody');
-            tbody.innerHTML = '';
-            carrito.forEach((item, index) => {
-                const row = tbody.insertRow();
-                row.dataset.clave = item.clave;
-                row.insertCell(0).textContent = item.clave;
-                row.insertCell(1).textContent = item.concepto;
-                row.insertCell(2).textContent = `$${item.precio.toFixed(2)}`;
-
-                const quantityCell = row.insertCell(3);
-                const quantityInput = document.createElement('input');
-                quantityInput.type = 'number';
-                quantityInput.className = 'form-control form-control-sm quantity-input';
-                quantityInput.value = item.cantidad;
-                quantityInput.min = 1;
-                quantityInput.onchange = () => updateQuantity(item.clave, quantityInput.value);
-                quantityCell.appendChild(quantityInput);
-
-                const discountCell = row.insertCell(4);
-                discountCell.textContent = `${item.discount}%`;
-
-                const totalCell = row.insertCell(5);
-                const subtotal = item.precio * item.cantidad;
-                const totalConDescuento = subtotal - (subtotal * (item.discount / 100));
-                totalCell.textContent = `$${totalConDescuento.toFixed(2)}`;
-
-                const actionsCell = row.insertCell(6);
-                const discountButton = document.createElement('button');
-                discountButton.innerHTML = '<i class="bi bi-tag-fill"></i>';
-                discountButton.className = 'btn btn-warning btn-sm me-1';
-                discountButton.title = 'Aplicar descuento';
-                discountButton.onclick = () => openDiscountModal(discountButton);
-
-                const removeButton = document.createElement('button');
-                removeButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
-                removeButton.className = 'btn btn-danger btn-sm';
-                removeButton.title = 'Eliminar';
-                removeButton.onclick = () => removeFromCart(item.clave);
-
-                actionsCell.appendChild(discountButton);
-                actionsCell.appendChild(removeButton);
+            document.getElementById('btn-confirm-payment').addEventListener('click', () => {
+                const method = document.getElementById('payment-method').value;
+                if (method === 'Apartado') {
+                    Venta.processApartadoFromSale();
+                } else if (paymentConfirmCallback) {
+                    paymentConfirmCallback();
+                }
             });
-            updateGrandTotal();
-        }
+            
+            document.getElementById('filter-folio').addEventListener('input', ListaVentas.debouncedApplyFilters);
+            document.getElementById('filter-cliente').addEventListener('input', ListaVentas.debouncedApplyFilters);
+            document.getElementById('filter-fecha').addEventListener('change', ListaVentas.debouncedApplyFilters);
 
-        function updateQuantity(clave, nuevaCantidad) {
-            const item = carrito.find(i => i.clave === clave);
-            if(item) {
-                item.cantidad = parseInt(nuevaCantidad, 10);
-                if (item.cantidad < 1) item.cantidad = 1;
-                updateCartTable();
-            }
-        }
-
-        function removeFromCart(clave) {
-            carrito = carrito.filter(item => item.clave !== clave);
-            updateCartTable();
-        }
-
-        window.openDiscountModal = function(button) {
-            const row = button.closest('tr');
-            const clave = row.dataset.clave;
-            document.getElementById('discountModalClave').value = clave;
-            const modal = new bootstrap.Modal(document.getElementById('discountModal'));
-            modal.show();
-        }
-
-        document.getElementById('applyDiscountButton').addEventListener('click', function() {
-            const clave = document.getElementById('discountModalClave').value;
-            const discount = parseFloat(document.getElementById('itemDiscountInput').value);
-            const item = carrito.find(i => i.clave === clave);
-            if (item && !isNaN(discount) && discount >= 0 && discount <= 100) {
-                item.discount = discount;
-                updateCartTable();
-            }
-            const modal = bootstrap.Modal.getInstance(document.getElementById('discountModal'));
-            modal.hide();
-        });
-
-        function updateGrandTotal() {
-            let total = 0;
-            carrito.forEach(item => {
-                const subtotal = item.precio * item.cantidad;
-                total += subtotal - (subtotal * (item.discount / 100));
+            document.getElementById('btn-limpiar-filtros').addEventListener('click', ListaVentas.clearFilters);
+            document.getElementById('sales-list-container').addEventListener('click', e => { const card = e.target.closest('.data-card'); if (card) { e.preventDefault(); ListaVentas.showDetail(card.dataset.folio); } });
+            document.getElementById('btn-buscar-folio-devolucion').addEventListener('click', () => Devoluciones.findSaleByFolio());
+            document.getElementById('devoluciones-historial-container').addEventListener('click', e => { const card = e.target.closest('.data-card'); if(card) Devoluciones.showHistoryDetail(card.dataset.folio); });
+            document.getElementById('btn-analizar-a').addEventListener('click', () => Reportes.generateComparison('a'));
+            document.getElementById('btn-analizar-b').addEventListener('click', () => Reportes.generateComparison('b'));
+            document.getElementById('btn-crear-apartado').addEventListener('click', Apartados.showCreatorView);
+            document.getElementById('apartado-search-input').addEventListener('input', e => Apartados.filterDashboard(e.target.value));
+            document.getElementById('btn-cancelar-creacion-apartado').addEventListener('click', Apartados.showDashboardView);
+            document.getElementById('btn-confirmar-apartado').addEventListener('click', Apartados.handleConfirmApartado);
+            document.getElementById('apartado-barcode-input').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); const input = e.target; if(input.value) Apartados.addItemToCreatorByBarcode(input.value.trim()); input.value = ''; } });
+            document.getElementById('apartado-items-table').querySelector('tbody').addEventListener('change', e => { const t = e.target; if (t.matches('.qty-input')) Apartados.updateCreatorQuantity(t.dataset.index, t.value); if (t.matches('.discount-input')) Apartados.updateCreatorItemDiscount(t.dataset.index, t.value); });
+            document.getElementById('apartado-items-table').querySelector('tbody').addEventListener('click', e => { if (e.target.matches('.delete-item-btn')) Apartados.removeCreatorItem(e.target.dataset.index); });
+            document.getElementById('apartado-cards-container').addEventListener('click', e => { const card = e.target.closest('.data-card'); if (card) Apartados.showDetailView(card.dataset.folio); });
+            
+            const apartadoDetailContainer = document.getElementById('apartado-detail');
+            apartadoDetailContainer.addEventListener('click', e => { 
+                const target = e.target.closest('[data-action]');
+                if(!target) return;
+                const { action, index } = target.dataset;
+                if(action === 'back-to-dashboard') Apartados.showDashboardView(); 
+                if(action === 'add-abono') Apartados.handleAbono(); 
+                if(action === 'cancel-apartado') Apartados.handleCancel(); 
+                if(action === 'enter-modification-mode') Apartados.enterModificationMode();
+                if(action === 'cancel-modification') Apartados.cancelModificationMode();
+                if(action === 'save-modifications') Apartados.saveModifications();
+                if(action === 'stage-item-for-deletion') Apartados.stageItemForDeletion(index);
+                if(action === 'unstage-item-for-deletion') Apartados.unstageItemForDeletion(index);
+                if(action === 'remove-new-item') Apartados.removeModificationNewItem(index);
             });
 
-            const generalDiscount = parseFloat(document.getElementById('generalDiscount').value) || 0;
-            const finalTotal = total - (total * (generalDiscount / 100));
+            apartadoDetailContainer.addEventListener('change', e => {
+                const target = e.target;
+                if (target.matches('.modification-qty-input')) {
+                    const { index } = target.dataset;
+                    Apartados.updateModificationNewItem(index, 'qty', target.value);
+                }
+                if (target.matches('.modification-discount-input')) {
+                    const { index } = target.dataset;
+                    Apartados.updateModificationNewItem(index, 'discount', target.value);
+                }
+            });
 
-            document.getElementById('grandTotal').textContent = `$${finalTotal.toFixed(2)}`;
+            apartadoDetailContainer.addEventListener('keydown', e => {
+                if (e.target.matches('#apartado-add-item-barcode') && e.key === 'Enter') {
+                    e.preventDefault();
+                    const input = e.target;
+                    if (input.value) {
+                        Apartados.addItemToModification(input.value.trim());
+                    }
+                }
+            });
+
+            document.getElementById('apartado-general-discount').addEventListener('change', Apartados.updateCreatorTotals);
+            
+            const pagosDashboardContainer = document.getElementById('pagos-dashboard');
+            pagosDashboardContainer.addEventListener('click', e => {
+                const card = e.target.closest('.data-card');
+                const actionBtn = e.target.closest('[data-action]');
+                if(card) Pagos.showDetailView(card.dataset.proveedor);
+                if(actionBtn && actionBtn.dataset.action === 'registrar-nueva-cuenta') Pagos.openRegistroCuentaModal();
+            });
+
+            const proveedorDetailContainer = document.getElementById('proveedor-detail-view');
+            proveedorDetailContainer.addEventListener('click', e => {
+                const actionBtn = e.target.closest('[data-action]');
+                if(!actionBtn) return;
+                const { action, proveedor } = actionBtn.dataset;
+                if(action === 'back-to-pagos-dashboard') Pagos.init();
+                if(action === 'registrar-abono') Pagos.openRegistrarAbonoModal(proveedor);
+                if(action === 'registrar-nueva-cuenta-proveedor') Pagos.openRegistroCuentaModal(proveedor);
+            });
+        }
+        
+        function showModule(moduleId) {
+            state.currentModule = moduleId;
+            document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+            document.getElementById(`module-${moduleId}`).classList.add('active');
+            document.querySelectorAll('.sidebar nav li').forEach(li => li.classList.remove('active'));
+            document.getElementById(`nav-${moduleId}`).classList.add('active');
+            if (moduleId === 'gestion') Gestion.init(); 
+            if (moduleId === 'reportes') Reportes.init(); 
+            if (moduleId === 'listaventas') ListaVentas.init(); 
+            if (moduleId === 'apartados') Apartados.init();
+            if (moduleId === 'pagos') Pagos.init();
+            if (moduleId === 'devoluciones') Devoluciones.init();
         }
 
-        document.getElementById('generalDiscount').addEventListener('input', updateGrandTotal);
+        function getSampleData(name) {
+            switch (name) {
+                case 'proveedores': return [{ codigo: 'FPR', nombre: 'Fashion PRO' }, { codigo: 'STY', nombre: 'Stylo Urbano' }];
+                case 'materiales': return [{ codigo: 'L', descripcion: 'Laminado' }, { codigo: 'P', descripcion: 'Piel Sintética' }];
+                case 'productos': return [{ codigo: '75', descripcion: 'Bolso Casual' }, { codigo: '80', descripcion: 'Mochila Ejecutiva' }];
+                default: return [];
+            }
+        }
 
-        document.getElementById('finalizeSaleBtn').addEventListener('click', function() {
-            if (carrito.length === 0) {
-                alert('El carrito está vacío.');
-                return;
+        function showErrorModal(message) { document.getElementById('error-message').textContent = message; document.getElementById('error-modal').classList.add('visible'); }
+
+        function showConfirmModal(message, onConfirm) {
+            const modal = document.getElementById('confirm-modal'); document.getElementById('confirm-message').textContent = message;
+            const confirmBtn = document.getElementById('confirm-ok-btn'); const cancelBtn = document.getElementById('confirm-cancel-btn');
+            const confirmHandler = () => { onConfirm(); cleanup(); };
+            const cancelHandler = () => { cleanup(); };
+            const cleanup = () => { modal.classList.remove('visible'); confirmBtn.removeEventListener('click', confirmHandler); cancelBtn.removeEventListener('click', cancelHandler); };
+            confirmBtn.addEventListener('click', confirmHandler, { once: true });
+            cancelBtn.addEventListener('click', cancelHandler, { once: true });
+            modal.classList.add('visible');
+        }
+
+        function decodeBarcode(codigo) {
+            const cleanedCode = codigo.trim().toUpperCase(); const len = cleanedCode.length;
+            if (len < 10 || len > 12) { showErrorModal(`Longitud de código inválida (${len}).`); return null; }
+            const proveedorCodigo = cleanedCode.substring(0, 3); const materialCodigo = cleanedCode.charAt(5); const precioStr = cleanedCode.slice(-3);
+            const precio = parseInt(precioStr, 10); if (isNaN(precio)) { showErrorModal(`Precio inválido en el código.`); return null; }
+            let codigoProductoStr = '';
+            if (len === 10) codigoProductoStr = cleanedCode.charAt(6); 
+            else if (len === 12) codigoProductoStr = cleanedCode.substring(6, 8); 
+            else { codigoProductoStr = (precio >= 100) ? cleanedCode.charAt(6) : cleanedCode.substring(6, 8); }
+            const proveedor = state.catalogs.proveedores.find(p => p.codigo === proveedorCodigo); if (!proveedor) { showErrorModal(`Proveedor "${proveedorCodigo}" no encontrado.`); return null; }
+            const material = state.catalogs.materiales.find(m => m.codigo === materialCodigo); if (!material) { showErrorModal(`Material "${materialCodigo}" no encontrado.`); return null; }
+            const producto = state.catalogs.productos.find(p => p.codigo === codigoProductoStr); if (!producto) { showErrorModal(`Producto "${codigoProductoStr}" no encontrado.`); return null; }
+            return { clave: cleanedCode, concepto: `${producto.descripcion} ${material.descripcion}`, precio: precio };
+        }
+        
+        const Venta = (() => {
+            function startNewSale() {
+                state.currentSale = { folio: `V-${Date.now()}`, client: 'Cliente General', date: new Date().toISOString(), items: [], generalDiscount: 0, payment: {} };
+                document.getElementById('general-discount').value = 0; document.getElementById('sale-client').value = 'Cliente General';
+                renderSale();
+            }
+            function addItemByBarcode(code) { const product = decodeBarcode(code); if (product) { const existingItem = state.currentSale.items.find(item => item.clave === product.clave); if (existingItem) { existingItem.cantidad++; } else { state.currentSale.items.push({ ...product, cantidad: 1, discount: 0 }); } renderSale(); } }
+            function renderSale() {
+                const tbody = document.querySelector('#sale-items-table tbody'); tbody.innerHTML = '';
+                document.getElementById('sale-folio').textContent = state.currentSale.folio;
+                state.currentSale.items.forEach((item, index) => { const importe = item.precio * item.cantidad; const row = document.createElement('tr'); row.innerHTML = `<td><input type="number" value="${item.cantidad}" min="1" class="qty-input" data-index="${index}" style="width: 70px;"></td><td>${item.clave}</td><td>${item.concepto}</td><td>${formatCurrency(item.precio)}</td><td>${formatCurrency(importe)}</td><td><input type="number" value="${item.discount}" min="0" max="100" class="discount-input" data-index="${index}" style="width: 70px;"></td><td><span class="material-icons action-icon delete-item-btn" data-index="${index}">delete</span></td>`; tbody.appendChild(row); });
+                updateTotals();
+            }
+            function updateQuantity(index, qty) { state.currentSale.items[index].cantidad = Math.max(1, parseInt(qty, 10) || 1); renderSale(); }
+            function updateItemDiscount(index, discount) { state.currentSale.items[index].discount = Math.max(0, Math.min(100, parseFloat(discount) || 0)); renderSale(); }
+            function removeItem(index) { state.currentSale.items.splice(index, 1); renderSale(); }
+            function updateTotals() {
+                let subtotal = 0, totalItemDiscounts = 0, totalItems = 0;
+                state.currentSale.items.forEach(item => { const itemTotal = item.precio * item.cantidad; subtotal += itemTotal; totalItemDiscounts += itemTotal * (item.discount / 100); totalItems += item.cantidad; });
+                const generalDiscountPercent = parseFloat(document.getElementById('general-discount').value) || 0;
+                const applicableSubtotalForGeneralDiscount = state.currentSale.items.filter(item => item.discount === 0).reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+                const generalDiscountAmount = applicableSubtotalForGeneralDiscount * (generalDiscountPercent / 100);
+                const totalDiscounts = totalItemDiscounts + generalDiscountAmount; const total = subtotal - totalDiscounts;
+                document.getElementById('sale-item-count').innerHTML = `<span class="material-icons">shopping_cart</span> ${totalItems}`;
+                document.getElementById('sale-subtotal').textContent = formatCurrency(subtotal);
+                document.getElementById('sale-discounts').textContent = `-${formatCurrency(totalDiscounts)}`;
+                document.getElementById('sale-total-value').textContent = formatCurrency(total);
+                state.currentSale.total = total;
+            }
+            function openPaymentModal(options = {}) {
+                const { total = null, callback = null, isFlexible = false, context = 'venta' } = options;
+
+                if (context === 'venta' && state.currentSale.items.length === 0) {
+                    showErrorModal("No hay artículos en la venta.");
+                    return;
+                }
+                
+                updateTotals(); 
+                paymentConfirmCallback = callback || processPayment;
+                const totalVenta = total !== null ? total : state.currentSale.total;
+
+                document.getElementById('payment-modal-total').textContent = formatCurrency(totalVenta);
+                document.getElementById('apartado-modal-total-ref').textContent = formatCurrency(totalVenta);
+
+                const flexibleSection = document.getElementById('payment-modal-flexible-amount-section');
+                const fixedSection = document.getElementById('payment-modal-fixed-total-section');
+                if (isFlexible) {
+                    flexibleSection.style.display = 'block';
+                    fixedSection.style.display = 'none';
+                    document.getElementById('payment-modal-saldo-ref').textContent = formatCurrency(totalVenta);
+                    document.getElementById('payment-modal-monto-input').value = '';
+                } else {
+                    flexibleSection.style.display = 'none';
+                    fixedSection.style.display = 'block';
+                }
+                
+                document.getElementById('payment-method').value = 'Efectivo'; 
+                togglePaymentView();
+                document.getElementById('payment-cash-amount').value = ''; 
+                document.getElementById('payment-transfer-amount').value = ''; 
+                document.getElementById('payment-card-amount').value = '';
+                document.getElementById('payment-modal').classList.add('visible');
+            }
+            function closePaymentModal() { document.getElementById('payment-modal').classList.remove('visible'); }
+            
+            function togglePaymentView() {
+                const mainMethod = document.getElementById('payment-method').value;
+                const title = document.getElementById('payment-modal-title');
+                const confirmBtn = document.getElementById('btn-confirm-payment');
+                const saleFields = document.getElementById('payment-modal-sale-fields');
+                const apartadoFields = document.getElementById('payment-modal-apartado-fields');
+                const apartadoCardSection = document.getElementById('apartado-card-type-section');
+                const anticipoMethod = document.getElementById('apartado-anticipo-method').value;
+
+                if (mainMethod === 'Apartado') {
+                    title.textContent = 'Crear Apartado y Registrar Anticipo';
+                    confirmBtn.innerHTML = `<span class="material-icons">inventory</span> Crear Apartado`;
+                    saleFields.style.display = 'none';
+                    apartadoFields.style.display = 'block';
+                    apartadoCardSection.style.display = anticipoMethod === 'Tarjeta' ? 'block' : 'none';
+                } else {
+                    title.textContent = 'Finalizar Venta';
+                    confirmBtn.innerHTML = 'Confirmar';
+                    saleFields.style.display = 'block';
+                    apartadoFields.style.display = 'none';
+                    document.getElementById('mixed-payment-fields').style.display = mainMethod === 'Mixto' ? 'block' : 'none';
+                    const cardSection = document.getElementById('card-type-section');
+
+                    if (mainMethod === 'Tarjeta') {
+                        cardSection.style.display = 'block';
+                    } else if (mainMethod === 'Mixto') {
+                        const cardInput = document.getElementById('payment-card-amount');
+                        const total = parseFloat(document.getElementById('payment-modal-total').textContent.replace(/[^0-9.-]+/g, '')) || 0;
+                        const recalculateMixed = () => {
+                            const cashAmount = parseFloat(document.getElementById('payment-cash-amount').value) || 0;
+                            const transferAmount = parseFloat(document.getElementById('payment-transfer-amount').value) || 0;
+                            const cardAmount = total - cashAmount - transferAmount;
+                            cardInput.value = cardAmount > 0 ? cardAmount.toFixed(2) : '0.00';
+                            cardSection.style.display = cardAmount > 0 ? 'block' : 'none';
+                        };
+                        document.getElementById('payment-cash-amount').oninput = recalculateMixed;
+                        document.getElementById('payment-transfer-amount').oninput = recalculateMixed;
+                        recalculateMixed();
+                    } else {
+                        cardSection.style.display = 'none';
+                    }
+                }
+            }
+            
+            function processPayment() {
+                const sale = state.currentSale;
+                sale.client = document.getElementById('sale-client').value || "Cliente General"; 
+                sale.generalDiscount = parseFloat(document.getElementById('general-discount').value) || 0;
+                updateTotals(); 
+                const paymentData = getPaymentData(sale.total); 
+                if (!paymentData) return;
+                sale.payment = paymentData;
+                state.ventasRealizadas.push(sale); 
+                sincronizarConLocalStorage();
+                printTicket(sale); 
+                closePaymentModal(); 
+                startNewSale(); 
+                refreshApp();
             }
 
-            const totalText = document.getElementById('grandTotal').textContent;
+            function processApartadoFromSale() {
+                const clientName = document.getElementById('sale-client').value;
+                if (!clientName || clientName.trim() === 'Cliente General' || clientName.trim() === '') {
+                    showErrorModal("Para crear un apartado, por favor, especifica un nombre de cliente.");
+                    return;
+                }
+                updateTotals();
+                const totalApartado = state.currentSale.total;
+                const anticipo = parseFloat(document.getElementById('apartado-anticipo-input').value) || 0;
 
-            document.getElementById('paymentModalTotal').textContent = totalText;
-            document.getElementById('montoEfectivo').value = '';
-            document.getElementById('montoTarjeta').value = '';
-            document.getElementById('montoTransferencia').value = '';
+                if (anticipo <= 0) { showErrorModal("El monto del anticipo debe ser mayor a cero."); return; }
+                if (anticipo > totalApartado) { showErrorModal("El anticipo no puede ser mayor que el total de la compra."); return; }
 
-            const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
-            paymentModal.show();
-        });
+                const anticipoMethod = document.getElementById('apartado-anticipo-method').value;
+                let anticipoCardType = null;
+                if (anticipoMethod === 'Tarjeta') {
+                    anticipoCardType = document.querySelector('input[name="apartado-card-type"]:checked').value;
+                }
+                const anticipoPaymentData = {
+                    fecha: new Date().toISOString(),
+                    montoTotal: anticipo,
+                    metodoPago: anticipoMethod,
+                    montoEfectivo: anticipoMethod === 'Efectivo' ? anticipo : 0,
+                    montoTarjeta: anticipoMethod === 'Tarjeta' ? anticipo : 0,
+                    montoTransferencia: anticipoMethod === 'Transferencia' ? anticipo : 0,
+                    tipoTarjeta: anticipoCardType,
+                    tipo: 'Anticipo'
+                };
+                
+                const saleDataForApartado = { ...state.currentSale, client: clientName };
+                
+                Apartados.createFromSale(saleDataForApartado, anticipoPaymentData);
+                closePaymentModal();
+                startNewSale();
+            }
 
-        document.getElementById('processPaymentBtn').addEventListener('click', function() {
-            alert('Venta finalizada (simulación). Los datos se actualizarían en un backend real.');
+            return { startNewSale, addItemByBarcode, renderSale, updateQuantity, updateItemDiscount, removeItem, updateTotals, openPaymentModal, closePaymentModal, togglePaymentView, processApartadoFromSale };
+        })();
+        
+        const ListaVentas = (() => {
+            let filterDebounce;
+            function debounce(func, delay = 250) {
+                return (...args) => {
+                    clearTimeout(filterDebounce);
+                    filterDebounce = setTimeout(() => { func.apply(this, args); }, delay);
+                };
+            }
+            function init() { renderSalesList(state.ventasRealizadas); }
+            function renderSalesList(sales) { 
+                const container = document.getElementById('sales-list-container'); 
+                if (sales.length === 0) { container.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><span class="material-icons">info</span><p>No hay ventas registradas.</p></div>`; return; } 
+                container.innerHTML = sales.sort((a,b) => new Date(b.date) - new Date(a.date)).map(sale => {
+                    const hasReturn = state.devolucionesRealizadas.some(r => r.originalSaleFolio === sale.folio);
+                    const returnIcon = hasReturn ? `<span class="material-icons" title="Esta venta tiene devoluciones">assignment_return</span>` : '';
+                    return `<div class="data-card" data-folio="${sale.folio}">
+                            <div class="data-card-header">
+                                <div class="folio-container">${returnIcon}<span>${sale.folio}</span></div>
+                                <span>${formatCurrency(sale.total)}</span>
+                            </div>
+                            <div>
+                                <p style="font-weight: 500;">${sale.client}</p>
+                                <p style="font-size: 0.875rem; color: var(--text-light-color);">${new Date(sale.date).toLocaleString()}</p>
+                            </div>
+                        </div>`;
+                }).join(''); 
+            }
+            function applyFilters() { const folio = document.getElementById('filter-folio').value.toLowerCase(); const cliente = document.getElementById('filter-cliente').value.toLowerCase(); const fecha = document.getElementById('filter-fecha').value; let filtered = state.ventasRealizadas; if(folio) filtered = filtered.filter(s => s.folio.toLowerCase().includes(folio)); if(cliente) filtered = filtered.filter(s => s.client.toLowerCase().includes(cliente)); if(fecha) filtered = filtered.filter(s => s.date.startsWith(fecha)); renderSalesList(filtered); }
+            function clearFilters() { document.getElementById('filter-folio').value = ''; document.getElementById('filter-cliente').value = ''; document.getElementById('filter-fecha').value = ''; init(); }
+            function showDetail(folio) {
+                const sale = state.ventasRealizadas.find(s => s.folio === folio);
+                if (!sale) { showErrorModal("Venta no encontrada."); return; }
+                const modal = document.getElementById('sale-detail-modal');
+                const modalTitle = document.getElementById('sale-detail-title');
+                const detailContent = document.getElementById('sale-detail-content');
+                const footer = document.getElementById('sale-detail-footer');
+                modalTitle.innerHTML = `<span class="material-icons">receipt_long</span> Detalle de Venta: ${sale.folio}`;
+                let html = getSaleDetailAsRichHTML(sale);
+                const associatedReturns = state.devolucionesRealizadas.filter(r => r.originalSaleFolio === folio);
+                if (associatedReturns.length > 0) {
+                    html += `<div class="panel" style="margin-top: -1rem;"><h3 style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">Devoluciones Asociadas</h3>`;
+                    associatedReturns.forEach(r => { html += `<div class="panel" style="background-color: #fff8f8;"><p><strong>Folio Devolución: ${r.folio}</strong> (${new Date(r.date).toLocaleString()})</p><p>Monto Reembolsado: ${formatCurrency(r.totalRefund)}</p><ul style="padding-left: 1.5rem; margin-top: 0.5rem;">${r.items.map(i => `<li>${i.cantidad} x ${i.concepto}</li>`).join('')}</ul></div>`; });
+                    html += `</div>`;
+                }
+                detailContent.innerHTML = html;
+                footer.innerHTML = ''; 
+                const btnAtras = document.createElement('button');
+                btnAtras.className = 'btn btn-outline';
+                btnAtras.innerHTML = `<span class="material-icons">arrow_back</span> Atrás`;
+                btnAtras.onclick = () => modal.classList.remove('visible');
+                footer.appendChild(btnAtras);
+                if (sale.items && sale.items.length > 0) {
+                    const btnDevolucion = document.createElement('button');
+                    btnDevolucion.className = 'btn btn-primary';
+                    btnDevolucion.innerHTML = `<span class="material-icons">assignment_return</span> Iniciar Devolución`;
+                    btnDevolucion.onclick = () => Devoluciones.startReturnFromVenta(folio);
+                    footer.appendChild(btnDevolucion);
+                }
+                modal.classList.add('visible');
+            }
+            return { init, debouncedApplyFilters: debounce(applyFilters, 250), clearFilters, showDetail };
+        })();
 
-            carrito = [];
-            updateCartTable();
-            document.getElementById('clienteInput').value = 'Cliente General';
-            document.getElementById('generalDiscount').value = 0;
-            updateGrandTotal();
+        const Devoluciones = (() => {
+            let saleToReturn = null;
+            function init() {
+                document.getElementById('devolucion-process-container').innerHTML = '';
+                renderHistory();
+            }
+            function renderHistory() { const container = document.getElementById('devoluciones-historial-container'); if (state.devolucionesRealizadas.length === 0) { container.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><p>No hay devoluciones registradas.</p></div>`; return; } container.innerHTML = state.devolucionesRealizadas.sort((a,b) => new Date(b.date) - new Date(a.date)).map(r => `<div class="data-card" data-folio="${r.folio}" style="cursor:pointer;"><div class="data-card-header"><div class="folio-container"><span>${r.folio}</span></div><span>-${formatCurrency(r.totalRefund)}</span></div><div><p style="font-weight: 500;">Venta Original: ${r.originalSaleFolio}</p><p style="font-size: 0.875rem; color: var(--text-light-color);">${new Date(r.date).toLocaleString()}</p></div></div>`).join(''); }
+            function showHistoryDetail(folio) {
+                const dev = state.devolucionesRealizadas.find(r => r.folio === folio);
+                if(dev) {
+                    const modal = document.getElementById('sale-detail-modal');
+                    document.getElementById('sale-detail-title').textContent = 'Detalle de Devolución';
+                    const detailContent = document.getElementById('sale-detail-content');
+                    detailContent.innerHTML = getReturnDetailHTML(dev);
+                    if(detailContent.querySelector('.print-area')) {
+                        detailContent.querySelector('.print-area').style.cssText = 'display: block; width: 100%; margin: 0; color: inherit; font-family: inherit;';
+                    }
+                    document.getElementById('sale-detail-footer').innerHTML = `<button class="btn btn-outline" onclick="document.getElementById('sale-detail-modal').classList.remove('visible')">Cerrar</button>`;
+                    modal.classList.add('visible');
+                }
+            }
+            function findSaleByFolio(folio = null) { const folioToSearch = folio || document.getElementById('return-folio-search').value.trim(); if (!folioToSearch) { showErrorModal("Ingresa un folio."); return; } saleToReturn = state.ventasRealizadas.find(s => s.folio === folioToSearch); const container = document.getElementById('devolucion-process-container'); if (saleToReturn) { if(saleToReturn.items.length === 0){ showErrorModal('Esta venta no tiene artículos para devolver.'); return; } displaySaleForReturn(container); } else { showErrorModal(`Venta con folio "${folioToSearch}" no encontrada.`); container.innerHTML = ''; } }
+            function startReturnFromVenta(folio) { showModule('devoluciones'); findSaleByFolio(folio); document.getElementById('sale-detail-modal').classList.remove('visible'); }
+            function displaySaleForReturn(container) { let html = `<div class="panel"><h3>Procesar Devolución para: ${saleToReturn.folio}</h3><p><strong>Cliente:</strong> ${saleToReturn.client}</p><table><thead><tr><th>Concepto</th><th>Cant. Vendida</th><th>Precio U.</th><th>Cant. a Devolver</th></tr></thead><tbody>`; saleToReturn.items.forEach((item, index) => { html += `<tr><td>${item.concepto}</td><td>${item.cantidad}</td><td>${formatCurrency(item.precio)}</td><td><input type="number" value="0" min="0" max="${item.cantidad}" data-index="${index}" style="width: 80px;"></td></tr>`; }); html += `</tbody></table><div style="margin-top: 1rem; text-align:right;"><p>Total a Reembolsar: <strong id="refund-total-value" style="font-size:1.5rem; color:var(--accent-color);">$0.00</strong></p></div><div class="modal-footer"><button class="btn btn-primary btn-process-return"><span class="material-icons">check_circle</span> Registrar Devolución</button></div></div>`; container.innerHTML = html; container.addEventListener('change', e => { if(e.target.matches('input[type="number"]')) updateRefundTotal(container); }); container.addEventListener('click', e => { if(e.target.matches('.btn-process-return')) processReturn(container); }); }
+            function updateRefundTotal(container) { let total = 0; container.querySelectorAll('input[data-index]').forEach(input => { const index = parseInt(input.dataset.index); const qty = parseInt(input.value) || 0; const item = saleToReturn.items[index]; const effectivePrice = item.precio * (1 - (item.discount / 100)); let itemRefund = qty * effectivePrice; if (item.discount === 0) itemRefund *= (1 - (saleToReturn.generalDiscount / 100)); total += itemRefund; }); container.querySelector('#refund-total-value').textContent = formatCurrency(total); }
+            function processReturn(container) { const totalRefund = parseFloat(container.querySelector('#refund-total-value').textContent.replace(/[^0-9.-]+/g, '')) || 0; if (totalRefund <= 0) { showErrorModal("No has seleccionado artículos para devolver."); return; } const returnRecord = { folio: `DEV-${Date.now()}`, originalSaleFolio: saleToReturn.folio, date: new Date().toISOString(), totalRefund, items: [] }; container.querySelectorAll('input[data-index]').forEach(input => { const qty = parseInt(input.value) || 0; if (qty > 0) { const index = parseInt(input.dataset.index); returnRecord.items.push({ ...saleToReturn.items[index], cantidad: qty }); } }); state.devolucionesRealizadas.push(returnRecord); sincronizarConLocalStorage(); printReturnVoucher(returnRecord); container.innerHTML = ''; saleToReturn = null; refreshApp(); }
+            return { init, findSaleByFolio, startReturnFromVenta, showHistoryDetail };
+        })();
+        
+        const Apartados = (() => {
+            let creatorState = { items: [] }; 
+            let activeDetailFolio = null; 
+            let modificationState = null;
 
-            const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
-            paymentModal.hide();
-        });
+            function init() { showDashboardView(); }
+            function showView(viewId) { ['apartado-dashboard', 'apartado-creator', 'apartado-detail'].forEach(id => { document.getElementById(id).style.display = (id === viewId) ? 'block' : 'none'; }); }
+            function showDashboardView() { activeDetailFolio = null; modificationState = null; showView('apartado-dashboard'); renderDashboard(); }
+            function showCreatorView() { creatorState = { items: [] }; document.getElementById('apartado-cliente-nombre').value = ''; document.getElementById('apartado-anticipo-monto').value = ''; document.getElementById('apartado-general-discount').value = '0'; showView('apartado-creator'); renderCreatorSale(); }
+            
+            function filterDashboard(filter = '') {
+                const lowerCaseFilter = filter.toLowerCase();
+                const filtered = state.apartados.filter(a => a.folioApartado.toLowerCase().includes(lowerCaseFilter) || a.clienteNombre.toLowerCase().includes(lowerCaseFilter));
+                renderDashboard(filtered);
+            }
+            function renderDashboard(apartados = state.apartados) {
+                const container = document.getElementById('apartado-cards-container');
+                const sorted = apartados.sort((a,b) => new Date(b.fechaCreacion) - new Date(a.fechaCreacion));
+                if (sorted.length === 0) { container.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><span class="material-icons">inventory_2</span><p>No hay apartados registrados.</p></div>`; return; }
+                container.innerHTML = sorted.map(a => {
+                    let balanceHtml;
+                    if (a.saldoPendiente > 0.009) {
+                        balanceHtml = `<small>Saldo Pendiente</small><p style="font-weight:600; font-size:1.2rem; color:var(--danger-color);">${formatCurrency(a.saldoPendiente)}</p>`;
+                    } else if (a.saldoPendiente < -0.009) {
+                        balanceHtml = `<small>Saldo a Favor</small><p style="font-weight:600; font-size:1.2rem; color:var(--success-color);">${formatCurrency(Math.abs(a.saldoPendiente))}</p>`;
+                    } else {
+                        balanceHtml = `<small>Liquidado</small><p style="font-weight:600; font-size:1.2rem; color:var(--success-color);">--</p>`;
+                    }
+                    return `<div class="data-card" data-folio="${a.folioApartado}"><div class="data-card-header"><div class="folio-container"><span>${a.folioApartado}</span></div><span class="status-tag ${a.estado.toLowerCase()}">${a.estado}</span></div><div class="data-card-body"><p>${a.clienteNombre}</p>${balanceHtml}</div><div class="data-card-footer"><small>Vence: ${new Date(a.fechaVencimiento).toLocaleDateString()}</small></div></div>`;
+                }).join('');
+            }
 
-        loadInitialData();
-      });
+            function addItemToCreatorByBarcode(code) { const product = decodeBarcode(code); if (product) { const existing = creatorState.items.find(i => i.clave === product.clave); if (existing) { existing.cantidad++; } else { creatorState.items.push({ ...product, cantidad: 1, discount: 0 }); } renderCreatorSale(); } }
+            function updateCreatorQuantity(index, qty) { creatorState.items[index].cantidad = Math.max(1, parseInt(qty, 10) || 1); renderCreatorSale(); }
+            function removeCreatorItem(index) { creatorState.items.splice(index, 1); renderCreatorSale(); }
+            function updateCreatorItemDiscount(index, discount) { creatorState.items[index].discount = Math.max(0, Math.min(100, parseFloat(discount) || 0)); renderCreatorSale(); }
+            function renderCreatorSale() { const tbody = document.getElementById('apartado-items-table').querySelector('tbody'); tbody.innerHTML = creatorState.items.map((item, index) => `<tr><td><input type="number" value="${item.cantidad}" min="1" class="qty-input" data-index="${index}" style="width: 70px;"></td><td>${item.clave}</td><td>${item.concepto}</td><td>${formatCurrency(item.precio)}</td><td>${formatCurrency(item.precio * item.cantidad)}</td><td><input type="number" value="${item.discount}" min="0" max="100" class="discount-input" data-index="${index}" style="width: 70px;"></td><td><span class="material-icons action-icon delete-item-btn" data-index="${index}">delete</span></td></tr>`).join(''); updateCreatorTotals(); }
+            function updateCreatorTotals() {
+                let subtotal = 0, totalItemDiscounts = 0, totalItems = 0;
+                creatorState.items.forEach(item => { const itemTotal = item.precio * item.cantidad; subtotal += itemTotal; totalItemDiscounts += itemTotal * (item.discount / 100); totalItems += item.cantidad; });
+                const generalDiscountPercent = parseFloat(document.getElementById('apartado-general-discount').value) || 0;
+                const applicableSubtotalForGeneralDiscount = creatorState.items.filter(item => item.discount === 0).reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+                const generalDiscountAmount = applicableSubtotalForGeneralDiscount * (generalDiscountPercent / 100);
+                const totalDiscounts = totalItemDiscounts + generalDiscountAmount; const total = subtotal - totalDiscounts;
+                document.getElementById('apartado-item-count').innerHTML = `<span class="material-icons">shopping_cart</span> ${totalItems}`;
+                document.getElementById('apartado-subtotal').textContent = formatCurrency(subtotal);
+                document.getElementById('apartado-discounts').textContent = `-${formatCurrency(totalDiscounts)}`;
+                document.getElementById('apartado-total-value').textContent = formatCurrency(total);
+                return total;
+            }
+            function handleConfirmApartado() {
+                const clienteNombre = document.getElementById('apartado-cliente-nombre').value.trim(); 
+                const totalApartado = updateCreatorTotals(); 
+                const anticipo = parseFloat(document.getElementById('apartado-anticipo-monto').value) || 0; 
+                if (!clienteNombre) { showErrorModal("El nombre del cliente es obligatorio."); return; } 
+                if (creatorState.items.length === 0) { showErrorModal("Debe agregar al menos un producto."); return; } 
+                if (anticipo <= 0) { showErrorModal("El monto del anticipo debe ser mayor a cero."); return; } 
+                if (anticipo > totalApartado) { showErrorModal("El anticipo no puede ser mayor que el total de la compra."); return; } 
+                Venta.openPaymentModal({
+                    total: anticipo,
+                    callback: () => {
+                        const paymentData = getPaymentData(anticipo, 'apartado-creator');
+                        if (paymentData) createApartado(clienteNombre, totalApartado, paymentData);
+                    },
+                    isFlexible: false,
+                    context: 'apartado'
+                });
+            }
+            function createApartado(clienteNombre, total, paymentData) { const now = new Date(); const vencimiento = new Date(); vencimiento.setDate(now.getDate() + 30); const newApartado = { folioApartado: `APT-${Date.now()}`, clienteNombre, items: creatorState.items, total, saldoPendiente: total - paymentData.montoTotal, estado: "Activo", fechaCreacion: now.toISOString(), fechaVencimiento: vencimiento.toISOString(), historialPagos: [{ ...paymentData, tipo: 'Anticipo' }], historialModificaciones: [], generalDiscount: parseFloat(document.getElementById('apartado-general-discount').value) || 0 }; if (newApartado.saldoPendiente <= 0.009) { newApartado.saldoPendiente = 0; newApartado.estado = 'Liquidado'; } state.apartados.push(newApartado); sincronizarConLocalStorage(); Venta.closePaymentModal(); showDashboardView(); refreshApp(); }
+            
+            function createFromSale(saleData, anticipoPaymentData) {
+                const now = new Date(); const vencimiento = new Date(); vencimiento.setDate(now.getDate() + 30);
+                const newApartado = {
+                    folioApartado: `APT-${Date.now()}`,
+                    clienteNombre: saleData.client,
+                    items: saleData.items,
+                    total: saleData.total,
+                    saldoPendiente: saleData.total - anticipoPaymentData.montoTotal,
+                    estado: 'Activo',
+                    fechaCreacion: now.toISOString(),
+                    fechaVencimiento: vencimiento.toISOString(),
+                    historialPagos: [anticipoPaymentData],
+                    historialModificaciones: [],
+                    generalDiscount: saleData.generalDiscount
+                };
+                if (newApartado.saldoPendiente <= 0.009) {
+                    newApartado.saldoPendiente = 0;
+                    newApartado.estado = 'Liquidado';
+                }
+                state.apartados.push(newApartado);
+                sincronizarConLocalStorage();
+                refreshApp();
+            }
+
+            function showDetailView(folio) { activeDetailFolio = folio; modificationState = null; showView('apartado-detail'); renderDetailView(); }
+            
+            function renderDetailView() {
+                const container = document.getElementById('apartado-detail');
+                const a = state.apartados.find(ap => ap.folioApartado === activeDetailFolio);
+                if (!a) { showDashboardView(); return; }
+
+                const isModificationMode = modificationState !== null;
+                const totalPagado = a.historialPagos.reduce((sum, p) => sum + (parseFloat(p.montoTotal) || 0), 0);
+
+                let saldoLabel = a.saldoPendiente > 0.009 ? 'Saldo Pendiente' : 'Saldo a Favor';
+                let saldoClass = a.saldoPendiente > 0.009 ? 'saldo-pendiente' : 'saldo-favor';
+                let actionButtonsHtml = '';
+
+                if (isModificationMode) {
+                    actionButtonsHtml = `<button class="btn btn-outline" data-action="cancel-modification">Cancelar Modificación</button><button class="btn btn-primary" data-action="save-modifications"><span class="material-icons">save</span> Guardar Cambios</button>`;
+                } else if (a.estado === 'Activo') {
+                    actionButtonsHtml = `<button class="btn btn-primary" data-action="add-abono"><span class="material-icons">add_card</span> Registrar Abono</button><button class="btn btn-secondary" data-action="enter-modification-mode"><span class="material-icons">edit</span> Modificar Artículos</button><button class="btn btn-danger" data-action="cancel-apartado"><span class="material-icons">cancel</span> Cancelar Apartado</button>`;
+                }
+
+                let mainDetailHtml = `<div class="page-title-container"><h2>Detalle del Apartado</h2><button class="btn btn-outline" data-action="back-to-dashboard">Volver</button></div>
+                <div class="panel"><div class="detail-grid">
+                    <dl><dt>Folio</dt><dd>${a.folioApartado}</dd></dl>
+                    <dl><dt>Cliente</dt><dd>${a.clienteNombre}</dd></dl>
+                    <dl><dt>Fecha Creación</dt><dd>${new Date(a.fechaCreacion).toLocaleDateString()}</dd></dl>
+                    <dl><dt>Fecha Vencimiento</dt><dd>${new Date(a.fechaVencimiento).toLocaleDateString()}</dd></dl>
+                    <dl><dt>Total Apartado</dt><dd>${formatCurrency(a.total)}</dd></dl>
+                    <dl><dt>${saldoLabel}</dt><dd class="${saldoClass}">${formatCurrency(Math.abs(a.saldoPendiente))}</dd></dl>
+                    <dl><dt>Estado</dt><dd><span class="status-tag ${a.estado.toLowerCase()}">${a.estado}</span></dd></dl>
+                </div></div>`;
+                
+                if (isModificationMode) {
+                    const newItemsHtml = modificationState.newItems.map((item, index) => {
+                        const itemTotal = (item.precio * item.cantidad) * (1 - (item.discount / 100));
+                        return `<tr>
+                            <td><input type="number" class="modification-qty-input" data-index="${index}" value="${item.cantidad}" min="1" style="width:70px"></td>
+                            <td>${item.concepto}</td>
+                            <td><input type="number" class="modification-discount-input" data-index="${index}" value="${item.discount}" min="0" max="100" style="width:70px"></td>
+                            <td>${formatCurrency(itemTotal)}</td>
+                            <td><span class="material-icons action-icon" data-action="remove-new-item" data-index="${index}">delete</span></td>
+                        </tr>`;
+                    }).join('');
+
+                    mainDetailHtml += `<div class="panel" style="border-color: var(--info-color);"><h3><span class="material-icons">add_shopping_cart</span> Nuevos Artículos a Añadir</h3>
+                        <table id="new-apartado-items-table"><thead><tr><th>Cant</th><th>Concepto</th><th>% Dto.</th><th>Importe</th><th>Acción</th></tr></thead><tbody>${newItemsHtml}</tbody></table>
+                        <div class="form-group" style="margin-top:1.5rem;"><label>Escanear/Ingresar código</label><input type="text" id="apartado-add-item-barcode"></div>
+                    </div>`;
+                }
+
+                mainDetailHtml += `<div class="panel"><h3>Artículos en Apartado</h3>
+                    <table><thead><tr><th>Cant.</th><th>Concepto</th><th>Total</th>${isModificationMode ? '<th>Acción</th>' : ''}</tr></thead>
+                    <tbody>${a.items.map((item, index) => {
+                        const isDeleted = isModificationMode && modificationState.deletedIndexes.has(index);
+                        const actionButton = isModificationMode ? (isDeleted ? `<td><button class="btn btn-secondary btn-sm" data-action="unstage-item-for-deletion" data-index="${index}"><span class="material-icons" style="font-size:1rem;">undo</span></button></td>` : `<td><span class="material-icons action-icon" data-action="stage-item-for-deletion" data-index="${index}">delete</span></td>`) : '';
+                        return `<tr class="${isDeleted ? 'item-for-deletion' : ''}"><td>${item.cantidad}</td><td>${item.concepto}</td><td>${formatCurrency(item.precio * item.cantidad * (1 - (item.discount || 0)/100) )}</td>${actionButton}</tr>`;
+                    }).join('')}</tbody></table>
+                </div>`;
+
+                if (isModificationMode) {
+                    const currentItemsInModification = a.items.filter((_, index) => !modificationState.deletedIndexes.has(index));
+                    const newTotal = currentItemsInModification.reduce((sum, i) => sum + (i.precio * i.cantidad * (1 - ((i.discount || 0)/100))), 0) + modificationState.newItems.reduce((sum, i) => sum + (i.precio * i.cantidad * (1 - (i.discount/100))), 0);
+                    const newSaldo = newTotal - totalPagado;
+
+                    mainDetailHtml += `<div class="panel" style="background-color: #f1f5f9;"><h3>Resumen de Cambios</h3><div class="summary-grid" style="font-size: 1.1rem;">
+                        <div>Total Anterior:</div><div>${formatCurrency(a.total)}</div>
+                        <div>Pagado:</div><div>${formatCurrency(totalPagado)}</div>
+                        <div style="font-weight:600">Nuevo Total:</div><div style="font-weight:600">${formatCurrency(newTotal)}</div>
+                        <div style="font-weight:600">${newSaldo > 0.009 ? 'Nuevo Saldo Pendiente:' : 'Nuevo Saldo a Favor:'}</div><div style="font-weight:600; color:${newSaldo > 0.009 ? 'var(--danger-color)' : 'var(--success-color)'}">${formatCurrency(Math.abs(newSaldo))}</div>
+                    </div></div>`;
+                }
+                
+                const paymentsHtml = a.historialPagos.map(p => `<tr><td>${new Date(p.fecha).toLocaleString()}</td><td>${p.tipo}</td><td>${formatCurrency(p.montoTotal)}</td><td>${p.metodoPago} ${p.tipoTarjeta ? `(${p.tipoTarjeta})` : ''}</td></tr>`).join('');
+                const modificationsHtml = (a.historialModificaciones || []).map(m => `<tr><td>${new Date(m.fecha).toLocaleString()}</td><td>${m.accion}</td><td>${m.detalle}</td></tr>`).join('');
+
+                mainDetailHtml += `<div class="panel"><h3>Historial de Pagos</h3><table><thead><tr><th>Fecha</th><th>Tipo</th><th>Monto</th><th>Método</th></tr></thead><tbody>${paymentsHtml}</tbody></table></div>
+                <div class="panel"><h3>Historial de Modificaciones</h3><table><thead><tr><th>Fecha</th><th>Acción</th><th>Detalle</th></tr></thead><tbody>${modificationsHtml}</tbody></table></div>
+                <div class="modal-footer">${actionButtonsHtml}</div>`;
+
+                container.innerHTML = mainDetailHtml;
+                if(isModificationMode) document.getElementById('apartado-add-item-barcode')?.focus();
+            }
+            
+            function handleAbono() {
+                const a = state.apartados.find(ap => ap.folioApartado === activeDetailFolio); 
+                if (!a || a.saldoPendiente <= 0) return; 
+                Venta.openPaymentModal({
+                    total: a.saldoPendiente,
+                    callback: () => { 
+                        const paymentData = getPaymentData(a.saldoPendiente);
+                        if (paymentData) processAbono(paymentData); 
+                    },
+                    isFlexible: true,
+                    context: 'apartado'
+                });
+            }
+            function processAbono(paymentData) { const a = state.apartados.find(ap => ap.folioApartado === activeDetailFolio); if (!a) return; a.historialPagos.push({ ...paymentData, tipo: 'Abono' }); recalculateApartadoTotals(a); Venta.closePaymentModal(); renderDetailView(); refreshApp(); }
+            function handleCancel() { showConfirmModal("¿Seguro que deseas cancelar este apartado? El dinero abonado no será reembolsado.", () => { const a = state.apartados.find(ap => ap.folioApartado === activeDetailFolio); if(!a) return; a.estado = 'Cancelado'; logModification(a, "Cancelación", "El apartado fue cancelado"); renderDetailView(); refreshApp(); }); }
+            function logModification(apartado, accion, detalle) { if (!apartado.historialModificaciones) apartado.historialModificaciones = []; apartado.historialModificaciones.push({ fecha: new Date().toISOString(), accion, detalle }); sincronizarConLocalStorage(); }
+            function recalculateApartadoTotals(apartado) {
+                apartado.total = apartado.items.reduce((sum, item) => sum + (item.precio * item.cantidad * (1 - (item.discount || 0) / 100)), 0);
+                const totalPagado = apartado.historialPagos.reduce((sum, p) => sum + (parseFloat(p.montoTotal) || 0), 0);
+                apartado.saldoPendiente = apartado.total - totalPagado;
+                if (Math.abs(apartado.saldoPendiente) < 0.01 && apartado.estado === 'Activo') {
+                    apartado.saldoPendiente = 0;
+                    apartado.estado = 'Liquidado';
+                    logModification(apartado, "Liquidación", "El saldo llegó a cero");
+                }
+                sincronizarConLocalStorage();
+            }
+
+            function enterModificationMode() { modificationState = { newItems: [], deletedIndexes: new Set() }; renderDetailView(); }
+            function cancelModificationMode() { modificationState = null; renderDetailView(); }
+            function stageItemForDeletion(index) { modificationState.deletedIndexes.add(parseInt(index)); renderDetailView(); }
+            function unstageItemForDeletion(index) { modificationState.deletedIndexes.delete(parseInt(index)); renderDetailView(); }
+            function addItemToModification(code) {
+                if(!modificationState) return;
+                const product = decodeBarcode(code);
+                if (product) {
+                    const existing = modificationState.newItems.find(i => i.clave === product.clave);
+                    if (existing) { existing.cantidad++; } else { modificationState.newItems.push({ ...product, cantidad: 1, discount: 0 }); }
+                    renderDetailView();
+                }
+            }
+            function updateModificationNewItem(index, key, value) {
+                if(!modificationState || !modificationState.newItems[index]) return;
+                if (key === 'qty') modificationState.newItems[index].cantidad = Math.max(1, parseInt(value) || 1);
+                if (key === 'discount') modificationState.newItems[index].discount = Math.max(0, Math.min(100, parseFloat(value) || 0));
+                renderDetailView();
+            }
+            function removeModificationNewItem(index) {
+                if(!modificationState) return;
+                modificationState.newItems.splice(index, 1);
+                renderDetailView();
+            }
+            function saveModifications() {
+                showConfirmModal("¿Estás seguro de que deseas guardar todos los cambios en este apartado?", () => {
+                    const a = state.apartados.find(ap => ap.folioApartado === activeDetailFolio);
+                    let changesLog = [];
+                    if (modificationState.deletedIndexes.size > 0) {
+                        const originalItems = [...a.items];
+                        const itemsToDelete = [];
+                        modificationState.deletedIndexes.forEach(index => itemsToDelete.push(originalItems[index].concepto));
+                        a.items = a.items.filter((_, index) => !modificationState.deletedIndexes.has(index));
+                        changesLog.push(`Eliminados: ${itemsToDelete.join(', ')}`);
+                    }
+                    if (modificationState.newItems.length > 0) {
+                        a.items.push(...modificationState.newItems);
+                        const newItemsLog = modificationState.newItems.map(i => `${i.cantidad} x ${i.concepto}`).join(', ');
+                        changesLog.push(`Añadidos: ${newItemsLog}`);
+                    }
+                    if (changesLog.length > 0) {
+                        logModification(a, "Modificación", changesLog.join('; '));
+                        recalculateApartadoTotals(a);
+                    }
+                    modificationState = null;
+                    renderDetailView();
+                    refreshApp();
+                });
+            }
+
+            return { init, showDashboardView, showCreatorView, filterDashboard, addItemToCreatorByBarcode, updateCreatorQuantity, updateCreatorItemDiscount, removeCreatorItem, renderCreatorSale, updateCreatorTotals, handleConfirmApartado, createFromSale, showDetailView, handleAbono, handleCancel, enterModificationMode, cancelModificationMode, saveModifications, addItemToModification, updateModificationNewItem, removeModificationNewItem, stageItemForDeletion, unstageItemForDeletion };
+        })();
+        
+        const Pagos = (() => {
+            let activeProveedor = null;
+
+            function init() {
+                document.getElementById('proveedor-detail-view').style.display = 'none';
+                document.getElementById('pagos-dashboard').style.display = 'block';
+                renderDashboard();
+            }
+            
+            function getPagosDeCaja(sinceDate = null) {
+                let allAbonos = state.cuentasPorPagar.flatMap(c => c.historialAbonos || []);
+                if (sinceDate) {
+                    const sinceTime = new Date(sinceDate).getTime();
+                    allAbonos = allAbonos.filter(abono => new Date(abono.fecha).getTime() > sinceTime);
+                }
+                return allAbonos.reduce((sum, abono) => sum + (parseFloat(abono.montoDeCaja) || 0), 0);
+            }
+
+            function renderDashboard() {
+                const container = document.getElementById('proveedor-cards-container');
+                const cuentasAgrupadas = state.cuentasPorPagar.reduce((acc, cuenta) => {
+                    if (!acc[cuenta.proveedorNombre]) {
+                        acc[cuenta.proveedorNombre] = { totalDeuda: 0, totalPagado: 0 };
+                    }
+                    const pagadoEnEstaCuenta = (cuenta.historialAbonos || []).reduce((sum, p) => sum + (parseFloat(p.montoTotal) || 0), 0);
+                    acc[cuenta.proveedorNombre].totalDeuda += (parseFloat(cuenta.montoInicial) || 0);
+                    acc[cuenta.proveedorNombre].totalPagado += pagadoEnEstaCuenta;
+                    return acc;
+                }, {});
+
+                if (Object.keys(cuentasAgrupadas).length === 0) {
+                    container.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><span class="material-icons">folder_off</span><p>No hay cuentas por pagar registradas.</p></div>`;
+                    return;
+                }
+
+                container.innerHTML = Object.entries(cuentasAgrupadas).map(([nombre, data]) => {
+                    const saldo = data.totalDeuda - data.totalPagado;
+                    let balanceHtml, statusClass, statusText;
+                    
+                    if (saldo > 0.009) {
+                        balanceHtml = `<small>Saldo Pendiente</small><p style="font-weight:600; font-size:1.2rem; color:var(--danger-color);">${formatCurrency(saldo)}</p>`;
+                        statusClass = 'activo';
+                        statusText = 'Activo';
+                    } else if (saldo < -0.009) {
+                        balanceHtml = `<small>Saldo a Favor</small><p style="font-weight:600; font-size:1.2rem; color:var(--success-color);">${formatCurrency(Math.abs(saldo))}</p>`;
+                        statusClass = 'liquidado';
+                        statusText = 'A Favor';
+                    } else {
+                        balanceHtml = `<small>Saldo Pagado</small><p style="font-weight:600; font-size:1.2rem; color:var(--success-color);">--</p>`;
+                        statusClass = 'liquidado';
+                        statusText = 'Liquidado';
+                    }
+
+                    return `<div class="data-card" data-proveedor="${nombre}"><div class="data-card-header"><div class="folio-container"><span>${nombre}</span></div><span class="status-tag ${statusClass}">${statusText}</span></div><div class="data-card-body">${balanceHtml}</div></div>`;
+                }).join('');
+            }
+            
+            function showDetailView(proveedorNombre) {
+                activeProveedor = proveedorNombre;
+                document.getElementById('pagos-dashboard').style.display = 'none';
+                const container = document.getElementById('proveedor-detail-view');
+                container.style.display = 'block';
+
+                const cuentasDelProveedor = state.cuentasPorPagar.filter(c => c.proveedorNombre === proveedorNombre);
+                const todosLosAbonos = cuentasDelProveedor.flatMap(c => c.historialAbonos || []);
+                const totalDeuda = cuentasDelProveedor.reduce((sum, c) => sum + (parseFloat(c.montoInicial) || 0), 0);
+                const totalPagado = todosLosAbonos.reduce((sum, p) => sum + (parseFloat(p.montoTotal) || 0), 0);
+                const saldoPendiente = totalDeuda - totalPagado;
+
+                let saldoLabel = saldoPendiente > 0.009 ? 'Saldo Pendiente Total' : 'Saldo a Favor Total';
+                let saldoClass = saldoPendiente > 0.009 ? 'saldo-pendiente' : 'saldo-favor';
+
+                let html = `
+                    <div class="page-title-container">
+                        <h2>Detalle de: ${proveedorNombre}</h2>
+                        <div>
+                            <button class="btn btn-secondary" data-action="registrar-nueva-cuenta-proveedor" data-proveedor="${proveedorNombre}"><span class="material-icons">add_circle_outline</span> Añadir Factura</button>
+                            <button class="btn btn-primary" data-action="registrar-abono" data-proveedor="${proveedorNombre}"><span class="material-icons">payment</span> Registrar Abono</button>
+                        </div>
+                    </div>
+                    <div class="panel"><div class="detail-grid">
+                        <dl><dt>Total Comprado a Crédito</dt><dd>${formatCurrency(totalDeuda)}</dd></dl>
+                        <dl><dt>Total Pagado</dt><dd>${formatCurrency(totalPagado)}</dd></dl>
+                        <dl><dt>${saldoLabel}</dt><dd class="${saldoClass}">${formatCurrency(Math.abs(saldoPendiente))}</dd></dl>
+                    </div></div>
+                    <div class="panel"><h3>Desglose de Cuentas</h3><table>
+                        <thead><tr><th>Folio</th><th>Fecha</th><th>Concepto</th><th>Monto Original</th><th>Saldo</th></tr></thead>
+                        <tbody>${cuentasDelProveedor.map(c => {
+                            const pagado = (c.historialAbonos || []).reduce((s,p) => s + (parseFloat(p.montoTotal) || 0), 0);
+                            return `<tr><td>${c.folio}</td><td>${new Date(c.fecha).toLocaleDateString()}</td><td>${c.concepto}</td><td>${formatCurrency(c.montoInicial)}</td><td>${formatCurrency(c.montoInicial - pagado)}</td></tr>`
+                        }).join('')}</tbody>
+                    </table></div>
+                    <div class="panel"><h3>Historial de Abonos</h3><table>
+                        <thead><tr><th>Fecha</th><th>Monto Total</th><th>De Caja</th><th>Externo</th><th>Método</th></tr></thead>
+                        <tbody>${todosLosAbonos.sort((a,b) => new Date(b.fecha) - new Date(a.fecha)).map(p => `<tr><td>${new Date(p.fecha).toLocaleString()}</td><td>${formatCurrency(p.montoTotal)}</td><td>${formatCurrency(p.montoDeCaja)}</td><td>${formatCurrency(p.montoExterno)}</td><td>${p.metodoPago}</td></tr>`).join('')}</tbody>
+                    </table></div>
+                    <div class="modal-footer"><button class="btn btn-outline" data-action="back-to-pagos-dashboard">Volver al Listado</button></div>
+                `;
+                container.innerHTML = html;
+            }
+
+            function openRegistroCuentaModal(proveedor = '') {
+                const modalContent = document.getElementById('pagos-modal-content');
+                modalContent.innerHTML = `
+                    <form id="form-nueva-cuenta">
+                        <div class="modal-header"><h3>Registrar Nueva Cuenta por Pagar</h3></div>
+                        <div class="form-group">
+                            <label for="pago-proveedor-nombre">Proveedor</label>
+                            <input type="text" id="pago-proveedor-nombre" value="${proveedor}" required list="proveedores-list">
+                            <datalist id="proveedores-list">${state.catalogs.proveedores.map(p => `<option value="${p.nombre}">`).join('')}</datalist>
+                        </div>
+                        <div class="form-group">
+                            <label for="pago-concepto">Concepto (Ej. Factura #, Mercancía)</label>
+                            <input type="text" id="pago-concepto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pago-monto-inicial">Monto Total de la Cuenta</label>
+                            <input type="number" id="pago-monto-inicial" min="0.01" step="0.01" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline" onclick="document.getElementById('pagos-modal').classList.remove('visible')">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Cuenta</button>
+                        </div>
+                    </form>
+                `;
+                document.getElementById('form-nueva-cuenta').addEventListener('submit', _handleRegistroSubmit);
+                document.getElementById('pagos-modal').classList.add('visible');
+            }
+
+            function _handleRegistroSubmit(e) {
+                e.preventDefault();
+                const proveedorNombre = document.getElementById('pago-proveedor-nombre').value.trim();
+                const concepto = document.getElementById('pago-concepto').value.trim();
+                const montoInicial = parseFloat(document.getElementById('pago-monto-inicial').value);
+
+                if(!proveedorNombre || !concepto || !montoInicial) {
+                    showErrorModal("Todos los campos son obligatorios.");
+                    return;
+                }
+
+                if (!state.catalogs.proveedores.some(p => p.nombre.toLowerCase() === proveedorNombre.toLowerCase())) {
+                    const nuevoCodigo = proveedorNombre.substring(0,3).toUpperCase();
+                    state.catalogs.proveedores.push({ codigo: nuevoCodigo, nombre: proveedorNombre });
+                    localStorage.setItem('proveedores', JSON.stringify(state.catalogs.proveedores));
+                }
+                
+                const nuevaCuenta = {
+                    folio: `CPP-${Date.now()}`,
+                    proveedorNombre,
+                    concepto,
+                    montoInicial,
+                    fecha: new Date().toISOString(),
+                    historialAbonos: [],
+                };
+                state.cuentasPorPagar.push(nuevaCuenta);
+                sincronizarConLocalStorage();
+                document.getElementById('pagos-modal').classList.remove('visible');
+                refreshApp();
+            }
+
+            function openRegistrarAbonoModal(proveedor) {
+                const modalContent = document.getElementById('pagos-modal-content');
+                modalContent.innerHTML = `
+                    <form id="form-nuevo-abono">
+                        <div class="modal-header"><h3>Registrar Abono a ${proveedor}</h3></div>
+                        <div class="form-group">
+                            <label for="abono-monto-total">Monto Total del Abono</label>
+                            <input type="number" id="abono-monto-total" min="0.01" step="0.01" required>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label>¿Este pago afecta la caja del negocio?</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <label for="origen-caja">Sí, de la caja</label>
+                                    <input type="radio" id="origen-caja" name="origen-fondos" value="caja" checked>
+                                </div>
+                                <div class="radio-option">
+                                    <label for="origen-externo">No, es externo</label>
+                                    <input type="radio" id="origen-externo" name="origen-fondos" value="externo">
+                                </div>
+                                <div class="radio-option">
+                                    <label for="origen-mixto">Pago Mixto</label>
+                                    <input type="radio" id="origen-mixto" name="origen-fondos" value="mixto">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="abono-mixto-fields" style="display:none; padding-left: 1rem; border-left: 3px solid var(--border-color);">
+                            <div class="form-group">
+                                <label for="abono-monto-caja">Monto desde Caja</label>
+                                <input type="number" id="abono-monto-caja" min="0" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="abono-monto-externo">Monto desde Fuente Externa</label>
+                                <input type="number" id="abono-monto-externo" min="0" step="0.01" readonly style="background-color: #f1f5f9;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="abono-metodo-pago">Método de Pago (de lo que sale de caja)</label>
+                            <select id="abono-metodo-pago"><option>Efectivo</option><option>Tarjeta</option><option>Transferencia</option></select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline" onclick="document.getElementById('pagos-modal').classList.remove('visible')">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Confirmar Abono</button>
+                        </div>
+                    </form>
+                    `;
+
+                const form = document.getElementById('form-nuevo-abono');
+                const totalInput = form.querySelector('#abono-monto-total');
+                const origenRadios = form.querySelectorAll('input[name="origen-fondos"]');
+                const mixtoFields = form.querySelector('#abono-mixto-fields');
+                const montoCajaInput = form.querySelector('#abono-monto-caja');
+                const montoExternoInput = form.querySelector('#abono-monto-externo');
+                
+                const toggleMixtoView = () => {
+                    const selected = form.querySelector('input[name="origen-fondos"]:checked').value;
+                    mixtoFields.style.display = selected === 'mixto' ? 'block' : 'none';
+                };
+
+                const calculateMixto = () => {
+                    const total = parseFloat(totalInput.value) || 0;
+                    let deCaja = parseFloat(montoCajaInput.value) || 0;
+                    if(deCaja > total) {
+                        deCaja = total;
+                        montoCajaInput.value = total;
+                    }
+                    montoExternoInput.value = (total - deCaja).toFixed(2);
+                };
+
+                origenRadios.forEach(radio => radio.addEventListener('change', toggleMixtoView));
+                totalInput.addEventListener('input', calculateMixto);
+                montoCajaInput.addEventListener('input', calculateMixto);
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    _handleAbonoSubmit(proveedor);
+                });
+
+                document.getElementById('pagos-modal').classList.add('visible');
+            }
+
+            function _handleAbonoSubmit(proveedorNombre) {
+                const montoTotal = parseFloat(document.getElementById('abono-monto-total').value) || 0;
+                const origen = document.querySelector('input[name="origen-fondos"]:checked').value;
+                const metodoPago = document.getElementById('abono-metodo-pago').value;
+                let montoDeCaja = 0, montoExterno = 0;
+
+                if(montoTotal <= 0) {
+                    showErrorModal("El monto total del abono debe ser mayor a cero.");
+                    return;
+                }
+
+                if(origen === 'caja') montoDeCaja = montoTotal;
+                else if(origen === 'externo') montoExterno = montoTotal;
+                else {
+                    montoDeCaja = parseFloat(document.getElementById('abono-monto-caja').value) || 0;
+                    montoExterno = parseFloat(document.getElementById('abono-monto-externo').value) || 0;
+                    if (Math.abs(montoDeCaja + montoExterno - montoTotal) > 0.01) {
+                        showErrorModal("Los montos del pago mixto no coinciden con el total del abono.");
+                        return;
+                    }
+                }
+                
+                const abono = { fecha: new Date().toISOString(), montoTotal, montoDeCaja, montoExterno, metodoPago };
+                
+                const cuentasPendientes = state.cuentasPorPagar
+                    .filter(c => c.proveedorNombre === proveedorNombre && ((parseFloat(c.montoInicial) || 0) - (c.historialAbonos || []).reduce((s,p)=>(s + (parseFloat(p.montoTotal) || 0)), 0) > 0.009))
+                    .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+                
+                if(cuentasPendientes.length === 0) {
+                    showErrorModal("Este proveedor no tiene saldos pendientes para aplicar el abono.");
+                    return;
+                }
+                
+                if (!cuentasPendientes[0].historialAbonos) cuentasPendientes[0].historialAbonos = [];
+                cuentasPendientes[0].historialAbonos.push(abono);
+                
+                sincronizarConLocalStorage();
+                document.getElementById('pagos-modal').classList.remove('visible');
+                refreshApp();
+                showDetailView(proveedorNombre);
+            }
+
+            return { init, getPagosDeCaja, showDetailView, openRegistroCuentaModal, openRegistrarAbonoModal };
+        })();
+        
+        const Reportes = (() => {
+            function init() { document.getElementById('filters-a').innerHTML = generateFilterHtml(); document.getElementById('filters-b').innerHTML = generateFilterHtml(); generateMainReport(); }
+            function generateFilterHtml() { return `<div class="form-group"><label>Rango de Fechas</label><div style="display:flex; gap: 0.5rem;"><input type="date" class="start-date"><input type="date" class="end-date"></div></div><div class="form-group"><label>Proveedor</label><select class="proveedor-filter"><option value="">Todos</option>${state.catalogs.proveedores.map(p => `<option value="${p.codigo}">${p.nombre}</option>`).join('')}</select></div><div class="form-group"><label>Material</label><select class="material-filter"><option value="">Todos</option>${state.catalogs.materiales.map(m => `<option value="${m.codigo}">${m.descripcion}</option>`).join('')}</select></div>`; }
+            
+            function generateMainReport() {
+                const lastClose = state.ultimoCierre;
+                
+                const salesSinceLastClose = state.ventasRealizadas.filter(s => !lastClose || new Date(s.date).getTime() > new Date(lastClose).getTime());
+                const returnsSinceLastClose = state.devolucionesRealizadas.filter(r => !lastClose || new Date(r.date).getTime() > new Date(lastClose).getTime());
+                const apartadoPaymentsSinceLastClose = state.apartados.flatMap(a => a.historialPagos).filter(p => !lastClose || new Date(p.fecha).getTime() > new Date(lastClose).getTime());
+                
+                const allSalePayments = salesSinceLastClose.map(s => ({...s.payment, montoTotal: s.total, fecha: s.date}));
+                const allClientPayments = [...allSalePayments, ...apartadoPaymentsSinceLastClose];
+
+                const metrics = calculateMetrics(allClientPayments, returnsSinceLastClose, lastClose);
+                
+                const today = new Date().toISOString().slice(0, 10);
+                const ingresosApartadosHoy = state.apartados.flatMap(a => a.historialPagos).filter(p => p.fecha.startsWith(today)).reduce((sum, p) => sum + (parseFloat(p.montoTotal) || 0), 0);
+
+                const container = document.getElementById('main-report-cards');
+                container.innerHTML = `
+                    <div class="report-card highlight"><h4>Ingresos Brutos (Hoy)</h4><p class="value">${formatCurrency(metrics.grossRevenue)}</p></div>
+                    <div class="report-card"><h4>Pagos a Proveedores (de Caja, Hoy)</h4><p class="value" style="color:var(--danger-color);">${formatCurrency(metrics.pagosDeCaja)}</p></div>
+                    <div class="report-card"><h4>Devoluciones (Hoy)</h4><p class="value">${formatCurrency(metrics.totalReturns)}</p></div>
+                    <div class="report-card"><h4>Ingresos Netos (Hoy)</h4><p class="value">${formatCurrency(metrics.netRevenue)}</p></div>
+                    <div class="report-card"><h4>Vtas. Efectivo (Hoy)</h4><p class="value">${formatCurrency(metrics.cashSales)}</p></div>
+                    <div class="report-card"><h4>Vtas. Tarjeta (Hoy)</h4><p class="value">${formatCurrency(metrics.cardSales)}</p><ul><li>Crédito: <span>${formatCurrency(metrics.creditCardSales)}</span></li><li>Débito: <span>${formatCurrency(metrics.debitCardSales)}</span></li></ul></div>
+                    <div class="report-card"><h4>Vtas. Transferencia (Hoy)</h4><p class="value">${formatCurrency(metrics.transferSales)}</p></div>
+                    <div class="report-card"><h4>Ingresos Apartados (Hoy)</h4><p class="value">${formatCurrency(ingresosApartadosHoy)}</p></div>`;
+            }
+            
+            function calculateMetrics(allPayments, returns, sinceDate = null) {
+                const pagosDeCaja = Pagos.getPagosDeCaja(sinceDate);
+                const grossRevenue = allPayments.reduce((acc, p) => acc + (parseFloat(p.montoTotal) || 0), 0);
+                const totalReturns = returns.reduce((acc, r) => acc + (parseFloat(r.totalRefund) || 0), 0);
+                const netRevenue = grossRevenue - totalReturns - pagosDeCaja;
+
+                const cashSales = allPayments.reduce((acc, p) => acc + (parseFloat(p.montoEfectivo) || 0), 0);
+                const transferSales = allPayments.reduce((acc, p) => acc + (parseFloat(p.montoTransferencia) || 0), 0);
+                const cardSales = allPayments.reduce((acc, p) => acc + (parseFloat(p.montoTarjeta) || 0), 0);
+                
+                const creditCardSales = allPayments.filter(p => p && p.tipoTarjeta === 'Crédito').reduce((acc, p) => acc + (parseFloat(p.montoTarjeta) || 0), 0);
+                const debitCardSales = allPayments.filter(p => p && p.tipoTarjeta === 'Débito').reduce((acc, p) => acc + (parseFloat(p.montoTarjeta) || 0), 0);
+                
+                return { grossRevenue, totalReturns, netRevenue, cashSales, cardSales, transferSales, creditCardSales, debitCardSales, pagosDeCaja };
+            }
+
+            function generateComparison(set) { 
+                const filterGroup = document.getElementById(`filters-${set}`); 
+                const startDate = filterGroup.querySelector('.start-date').value; 
+                const endDate = filterGroup.querySelector('.end-date').value; 
+                const proveedor = filterGroup.querySelector('.proveedor-filter').value; 
+                const material = filterGroup.querySelector('.material-filter').value; 
+                let filteredSales = state.ventasRealizadas; 
+                if(startDate) filteredSales = filteredSales.filter(s => s.date.split('T')[0] >= startDate); 
+                if(endDate) filteredSales = filteredSales.filter(s => s.date.split('T')[0] <= endDate); 
+                let salesToAnalyze = []; 
+                if (proveedor || material) { 
+                    filteredSales.forEach(sale => { 
+                        const hasMatchingItem = sale.items.some(item => { 
+                            const pCode = item.clave.substring(0, 3); 
+                            const mCode = item.clave.charAt(5); 
+                            return (!proveedor || pCode === proveedor) && (!material || mCode === material); 
+                        }); 
+                        if (hasMatchingItem) salesToAnalyze.push(sale); 
+                    }); 
+                } else { 
+                    salesToAnalyze = filteredSales; 
+                } 
+                const associatedReturns = state.devolucionesRealizadas.filter(r => salesToAnalyze.some(s => s.folio === r.originalSaleFolio)); 
+                const metrics = calculateMetrics(salesToAnalyze.map(s=>({...s.payment, montoTotal: s.total})), associatedReturns); 
+                const resultsContainer = document.getElementById(`results-${set}`); 
+                resultsContainer.innerHTML = `<div class="report-card"><h4>Ing. Brutos</h4><p class="value">${formatCurrency(metrics.grossRevenue)}</p></div><div class="report-card"><h4>Ing. Netos</h4><p class="value">${formatCurrency(metrics.netRevenue)}</p></div>`; 
+            }
+            return { init, generateComparison, calculateMetrics };
+        })();
+        
+        const Gestion = (() => {
+            const tabs = ['Cierre de Día', 'Respaldo de Datos', 'Datos del Negocio', 'Proveedores', 'Materiales', 'Productos']; let activeTab = 'Cierre de Día';
+            function init() { renderTabs(); renderTabContent(); }
+            function renderTabs() { const container = document.getElementById('gestion-tabs'); container.innerHTML = tabs.map(tab => `<div class="tab ${tab === activeTab ? 'active' : ''}" data-tab="${tab}">${tab}</div>`).join(''); container.addEventListener('click', (e) => { if (e.target.matches('.tab')) setActiveTab(e.target.dataset.tab); }); }
+            function setActiveTab(tabName) { activeTab = tabName; init(); }
+            function renderTabContent() { const container = document.getElementById('gestion-tabs-content'); let html = `<div class="panel tab-content active">`; switch(activeTab) { case 'Cierre de Día': html += renderCierreDeDiaTab(); break; case 'Respaldo de Datos': html += renderDataManagementTab(); break; case 'Datos del Negocio': html += renderBusinessInfoTab(); break; case 'Proveedores': html += renderCatalogTab('proveedores', {codigo: 'Código (3 letras)', nombre: 'Nombre del Proveedor'}); break; case 'Materiales': html += renderCatalogTab('materiales', {codigo: 'Código (1 caracter)', descripcion: 'Descripción Material'}); break; case 'Productos': html += renderCatalogTab('productos', {codigo: 'Código (1-2 car.)', descripcion: 'Descripción Producto'}); break; } html += `</div>`; container.innerHTML = html; if(activeTab === 'Datos del Negocio') attachBusinessFormListeners(); if(activeTab === 'Respaldo de Datos') attachDataManagementListeners(); if(['Proveedores', 'Materiales', 'Productos'].includes(activeTab)) attachCatalogFormListeners(); if(activeTab === 'Cierre de Día') attachCierreDeDiaListeners(); }
+            
+            function renderDataManagementTab() { return `<h3>Respaldo de Datos</h3><p>Crea un respaldo de seguridad o restaura desde un archivo. La aplicación guarda tu trabajo diario automáticamente.</p><div style="margin-top: 1.5rem; display: flex; gap: 1rem;"><input type="file" id="load-data-input" accept=".json" style="display:none;"><button class="btn btn-primary" id="restore-backup-btn"><span class="material-icons">upload_file</span>Restaurar Respaldo</button><button class="btn btn-secondary" id="create-backup-btn"><span class="material-icons">download</span>Crear Respaldo</button></div>`; }
+            function attachDataManagementListeners() { document.getElementById('restore-backup-btn').onclick = () => document.getElementById('load-data-input').click(); document.getElementById('load-data-input').onchange = handleRestoreFileSelect; document.getElementById('create-backup-btn').onclick = createBackupFile; }
+            function handleRestoreFileSelect(event) { const file = event.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = e => { const fileContent = e.target.result; const message = "Atención: Esto reemplazará todos los datos actuales. ¿Continuar?"; showConfirmModal(message, () => { try { const data = JSON.parse(fileContent); ['ventasRealizadas', 'devolucionesRealizadas', 'apartados', 'cuentasPorPagar', 'cierresDeCaja', 'ultimoCierre'].forEach(key => { state[key] = data[key] || (Array.isArray(state[key]) ? [] : null); }); sincronizarConLocalStorage(); alert(`Respaldo restaurado.`); refreshApp(); } catch (err) { showErrorModal("Error al procesar el archivo: " + err.message); } }); }; reader.readAsText(file); event.target.value = ''; }
+            function createBackupFile() { if (state.ventasRealizadas.length === 0 && state.devolucionesRealizadas.length === 0 && state.apartados.length === 0 && state.cuentasPorPagar.length === 0) { showErrorModal("No hay datos para respaldar."); return; } const backupData = { ventasRealizadas: state.ventasRealizadas, devolucionesRealizadas: state.devolucionesRealizadas, apartados: state.apartados, cuentasPorPagar: state.cuentasPorPagar, cierresDeCaja: state.cierresDeCaja, ultimoCierre: state.ultimoCierre, timestamp: new Date().toISOString() }; const dataStr = JSON.stringify(backupData, null, 2); const blob = new Blob([dataStr], {type: "application/json"}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); const date = new Date().toISOString().slice(0, 10); a.href = url; a.download = `respaldo-pdv-${date}.json`; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); }
+            
+            function renderBusinessInfoTab() { const { name, address, phone, logo } = state.businessInfo; return `<h3>Datos del Negocio</h3><div style="display:flex; gap:2rem;"><div style="flex:1;"><div class="form-group"><label>Nombre del Negocio</label><input type="text" id="business-name" value="${name}"></div><div class="form-group"><label>Dirección</label><input type="text" id="business-address" value="${address}"></div><div class="form-group"><label>Teléfono</label><input type="text" id="business-phone" value="${phone}"></div></div><div style="flex-shrink:0; text-align:center;"><label>Logo Actual</label><div id="logo-preview" style="width:150px; height:150px; border:1px dashed var(--border-color); display:flex; align-items:center; justify-content:center; margin:0.5rem auto; background-color: var(--background-color);">${logo ? `<img src="${logo}" style="max-width:100%; max-height:100%;">` : '<span>Sin logo</span>'}</div><input type="file" id="logo-upload" accept="image/*" style="display:none;"><button class="btn btn-outline" id="btn-adjuntar-logo">Adjuntar Logo</button></div></div>`; }
+            function attachBusinessFormListeners() { const form = document.querySelector('#gestion-tabs-content .panel'); form.addEventListener('change', e => { if(e.target.type !== 'file') saveBusinessInfo(); }); document.getElementById('btn-adjuntar-logo').addEventListener('click', () => document.getElementById('logo-upload').click()); document.getElementById('logo-upload').addEventListener('change', handleLogoUpload); }
+            function saveBusinessInfo() { state.businessInfo.name = document.getElementById('business-name').value; state.businessInfo.address = document.getElementById('business-address').value; state.businessInfo.phone = document.getElementById('business-phone').value; localStorage.setItem('business_info', JSON.stringify(state.businessInfo)); }
+            function handleLogoUpload(event) { const file = event.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onloadend = () => { state.businessInfo.logo = reader.result; localStorage.setItem('business_info', JSON.stringify(state.businessInfo)); document.getElementById('logo-preview').innerHTML = `<img src="${reader.result}" style="max-width:100%; max-height:100%;">`; }; reader.readAsDataURL(file); }
+            
+            function renderCatalogTab(catalogName, structure) { const data = state.catalogs[catalogName]; const keys = Object.keys(structure); let html = `<h3>${activeTab}</h3><table id="catalog-table"><thead><tr>`; Object.values(structure).forEach(h => html += `<th>${h}</th>`); html += `<th>Acciones</th></tr></thead><tbody>`; data.forEach((item, index) => { html += `<tr>`; keys.forEach(key => html += `<td>${item[key]}</td>`); html += `<td><span class="material-icons action-icon" onclick="App.Gestion.deleteItem('${catalogName}', ${index})">delete</span></td></tr>`; }); html += `</tbody></table>`; html += `<h3 style="margin-top:2rem;">Añadir Nuevo</h3><form id="add-form" data-catalog="${catalogName}" style="display:flex; gap:1rem; align-items:flex-end;">`; keys.forEach(key => { html += `<div class="form-group" style="flex:1;"><label>${structure[key]}</label><input type="text" data-key="${key}" required></div>`; }); html += `<button type="submit" class="btn btn-primary">Añadir</button></form>`; return html; }
+            function attachCatalogFormListeners() { const form = document.getElementById('add-form'); if(form) form.addEventListener('submit', e => { e.preventDefault(); addItem(e.target.dataset.catalog, e.target); }); }
+            function addItem(catalogName, form) { const newItem = {}; form.querySelectorAll('input[data-key]').forEach(input => { newItem[input.dataset.key] = input.value.trim(); input.value = ''; }); state.catalogs[catalogName].push(newItem); localStorage.setItem(catalogName, JSON.stringify(state.catalogs[catalogName])); renderTabContent(); }
+            function deleteItem(catalogName, index) { showConfirmModal('¿Estás seguro de que deseas eliminar este elemento del catálogo?', () => { state.catalogs[catalogName].splice(index, 1); localStorage.setItem(catalogName, JSON.stringify(state.catalogs[catalogName])); renderTabContent(); }); }
+
+            function renderCierreDeDiaTab() {
+                const lastClose = state.ultimoCierre;
+                const sales = state.ventasRealizadas.filter(s => !lastClose || new Date(s.date).getTime() > new Date(lastClose).getTime());
+                const returns = state.devolucionesRealizadas.filter(r => !lastClose || new Date(r.date).getTime() > new Date(lastClose).getTime());
+                const apartadoPayments = state.apartados.flatMap(a => a.historialPagos).filter(p => !lastClose || new Date(p.fecha).getTime() > new Date(lastClose).getTime());
+                const allClientPayments = [...sales.map(s => ({...s.payment, montoTotal: s.total})), ...apartadoPayments];
+                const metrics = Reportes.calculateMetrics(allClientPayments, returns, lastClose);
+
+                const lastCloseFormatted = state.ultimoCierre ? new Date(state.ultimoCierre).toLocaleString() : 'Nunca';
+
+                let html = `<h3>Cierre de Día</h3>
+                <p>Último cierre realizado: <strong>${lastCloseFormatted}</strong></p>
+                <p>A continuación se muestra un resumen de las operaciones desde el último cierre. Al realizar el corte, se generará un reporte final y las vistas se reiniciarán para la nueva jornada.</p>
+                <div class="report-cards" style="margin-top:1.5rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="report-card highlight"><h4>Ingresos Brutos</h4><p class="value">${formatCurrency(metrics.grossRevenue)}</p></div>
+                    <div class="report-card"><h4>Devoluciones</h4><p class="value">${formatCurrency(metrics.totalReturns)}</p></div>
+                    <div class="report-card"><h4>Pagos a Proveedores</h4><p class="value">${formatCurrency(metrics.pagosDeCaja)}</p></div>
+                    <div class="report-card"><h4>Ingresos Netos</h4><p class="value">${formatCurrency(metrics.netRevenue)}</p></div>
+                </div>
+                <div class="modal-footer" style="justify-content:center;">
+                    <button class="btn btn-primary" id="btn-realizar-corte" style="padding: 1rem 2rem; font-size: 1.1rem;"><span class="material-icons">receipt_long</span>Realizar Corte y Empezar Nuevo Día</button>
+                </div>`;
+                return html;
+            }
+
+            function attachCierreDeDiaListeners() {
+                document.getElementById('btn-realizar-corte').addEventListener('click', handleCierreDeDia);
+            }
+
+            function handleCierreDeDia() {
+                const message = "¿Estás seguro de que deseas cerrar las operaciones del día? Se generará un reporte final y las vistas se reiniciarán para la nueva jornada. Esta acción no se puede deshacer.";
+                showConfirmModal(message, () => {
+                    const lastClose = state.ultimoCierre;
+                    const now = new Date();
+                    
+                    const sales = state.ventasRealizadas.filter(s => !lastClose || new Date(s.date).getTime() > new Date(lastClose).getTime());
+                    const returns = state.devolucionesRealizadas.filter(r => !lastClose || new Date(r.date).getTime() > new Date(lastClose).getTime());
+                    const apartadoPayments = state.apartados.flatMap(a => a.historialPagos).filter(p => !lastClose || new Date(p.fecha).getTime() > new Date(lastClose).getTime());
+                    const allClientPayments = [...sales.map(s => ({...s.payment, montoTotal: s.total})), ...apartadoPayments];
+                    const metrics = Reportes.calculateMetrics(allClientPayments, returns, lastClose);
+
+                    const cierre = {
+                        fecha: now.toISOString(),
+                        periodoInicio: state.ultimoCierre || 'Inicio de operaciones',
+                        periodoFin: now.toISOString(),
+                        numVentas: sales.length,
+                        numDevoluciones: returns.length,
+                        ...metrics
+                    };
+
+                    printCierreDeDia(cierre);
+
+                    state.cierresDeCaja.push(cierre);
+                    state.ultimoCierre = now.toISOString();
+                    sincronizarConLocalStorage();
+                    
+                    Venta.startNewSale();
+                    Reportes.init();
+                    showModule('puntoventa');
+                });
+            }
+
+            return { init, deleteItem };
+        })();
+        
+        function formatCurrency(amount) { return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(amount || 0); }
+        function getPaymentData(maxAmount = Infinity, source = 'payment-modal-sale-fields') {
+            let totalAPagar, metodo, montoEfectivo=0, montoTarjeta=0, montoTransferencia=0, tipoTarjeta=null;
+            
+            const flexibleSectionVisible = document.getElementById('payment-modal-flexible-amount-section').style.display === 'block';
+
+            if (source === 'apartado-creator') {
+                totalAPagar = parseFloat(document.getElementById('apartado-anticipo-monto').value) || 0;
+                metodo = document.getElementById('apartado-anticipo-method').value;
+                if (metodo === 'Tarjeta') {
+                    tipoTarjeta = document.querySelector('input[name="apartado-card-type"]:checked').value;
+                }
+            } else { // 'venta' or 'apartado-abono'
+                if (flexibleSectionVisible) { 
+                    totalAPagar = parseFloat(document.getElementById('payment-modal-monto-input').value) || 0;
+                } else { 
+                    totalAPagar = parseFloat(document.getElementById('payment-modal-total').textContent.replace(/[^0-9.-]+/g, '')) || 0;
+                }
+                metodo = document.getElementById('payment-method').value;
+            }
+            
+            if (totalAPagar <= 0) { showErrorModal('El monto a pagar debe ser mayor a cero.'); return null; }
+            if (totalAPagar > maxAmount + 0.001) { showErrorModal(`El monto a pagar no puede superar el saldo de ${formatCurrency(maxAmount)}.`); return null; }
+
+            if (metodo === 'Efectivo') { montoEfectivo = totalAPagar; } 
+            else if (metodo === 'Transferencia') { montoTransferencia = totalAPagar; }
+            else if (metodo === 'Tarjeta') { 
+                montoTarjeta = totalAPagar; 
+                if(source !== 'apartado-creator') tipoTarjeta = document.querySelector('input[name="card-type"]:checked').value; 
+            } 
+            else if (metodo === 'Mixto'){ 
+                montoEfectivo = parseFloat(document.getElementById('payment-cash-amount').value) || 0; 
+                montoTransferencia = parseFloat(document.getElementById('payment-transfer-amount').value) || 0; 
+                montoTarjeta = parseFloat(document.getElementById('payment-card-amount').value) || 0; 
+                if (Math.abs((montoEfectivo + montoTarjeta + montoTransferencia) - totalAPagar) > 0.01) { 
+                    showErrorModal("El pago mixto no coincide con el monto a pagar."); 
+                    return null; 
+                } 
+                if (montoTarjeta > 0) tipoTarjeta = document.querySelector('input[name="card-type"]:checked').value; 
+            }
+            return { fecha: new Date().toISOString(), montoTotal: totalAPagar, metodoPago: metodo, montoEfectivo, montoTarjeta, montoTransferencia, tipoTarjeta };
+        }
+        function getSaleDetailAsRichHTML(saleData) {
+            let subtotal = 0; let totalItems = 0;
+            const itemsHtml = saleData.items.map(item => { const itemSubtotal = item.precio * item.cantidad; subtotal += itemSubtotal; totalItems += item.cantidad; const itemDiscountAmount = itemSubtotal * (item.discount / 100); const itemTotal = itemSubtotal - itemDiscountAmount; return `<tr><td>${item.cantidad}</td><td>${item.clave}</td><td>${item.concepto}</td><td>${formatCurrency(item.precio)}</td><td>${formatCurrency(itemTotal)}</td><td>${item.discount}%</td></tr>`; }).join('');
+            const totalDiscounts = subtotal - saleData.total;
+            return `<div class="panel"><div class="detail-grid"><dl><dt>Folio</dt><dd>${saleData.folio}</dd></dl><dl><dt>Cliente</dt><dd>${saleData.client}</dd></dl><dl><dt>Fecha</dt><dd>${new Date(saleData.date).toLocaleString()}</dd></dl><dl><dt>Método de Pago</dt><dd>${saleData.payment.metodoPago} ${saleData.payment.tipoTarjeta ? `(${saleData.payment.tipoTarjeta})` : ''}</dd></dl></div></div><div class="panel"><h3>Artículos</h3><table><thead><tr><th>Cantidad</th><th>Clave</th><th>Concepto</th><th>Precio U.</th><th>Importe</th><th>% Dto.</th></tr></thead><tbody>${itemsHtml}</tbody></table><div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);"><div class="summary-grid"><div id="sale-item-count"><span class="material-icons">shopping_cart</span> ${totalItems}</div><div>Subtotal:</div><div>${formatCurrency(subtotal)}</div><div>Descuentos:</div><div>-${formatCurrency(totalDiscounts)}</div><div style="font-weight: 600; font-size: 1.25rem;">Total:</div><div style="font-weight: 600; font-size: 1.75rem; color: var(--accent-color);">${formatCurrency(saleData.total)}</div></div></div></div>`;
+        }
+        
+        // --- CORRECCIÓN IMPRIMIBLES: getTicketHTML ---
+        function getTicketHTML(saleData) {
+            let subtotal = 0;
+            const itemsHtml = saleData.items.map(item => {
+                const importeBruto = item.precio * item.cantidad;
+                const importeNeto = importeBruto * (1 - (item.discount || 0) / 100);
+                subtotal += importeBruto;
+                return `<tr>
+                    <td>${item.cantidad}</td>
+                    <td>${item.concepto}<br><small>${item.clave}</small></td>
+                    <td style="text-align:right;">${formatCurrency(item.precio)}</td>
+                    <td style="text-align:right;">${formatCurrency(importeNeto)}</td>
+                </tr>`;
+            }).join('');
+            
+            const totalDiscounts = subtotal - saleData.total;
+            let paymentDetail = `Pagado con: ${saleData.payment.metodoPago}`;
+            if (saleData.payment.metodoPago === 'Mixto') {
+                paymentDetail = 'Pago Mixto:<br>';
+                if (saleData.payment.montoEfectivo > 0) paymentDetail += `<small>Efectivo: ${formatCurrency(saleData.payment.montoEfectivo)}</small><br>`;
+                if (saleData.payment.montoTarjeta > 0) paymentDetail += `<small>Tarjeta (${saleData.payment.tipoTarjeta}): ${formatCurrency(saleData.payment.montoTarjeta)}</small><br>`;
+                if (saleData.payment.montoTransferencia > 0) paymentDetail += `<small>Transferencia: ${formatCurrency(saleData.payment.montoTransferencia)}</small>`;
+            } else if (saleData.payment.tipoTarjeta) {
+                paymentDetail += ` (${saleData.payment.tipoTarjeta})`;
+            }
+
+            return `<div class="print-area">
+                <div class="print-header">
+                    ${state.businessInfo.logo ? `<img src="${state.businessInfo.logo}" alt="Logo">` : ''}
+                    <h3>${state.businessInfo.name}</h3>
+                    <p>${state.businessInfo.address}</p>
+                    <p>${state.businessInfo.phone}</p>
+                </div>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <p>Folio: ${saleData.folio}</p>
+                <p>Fecha: ${new Date(saleData.date).toLocaleString()}</p>
+                <p>Cliente: ${saleData.client}</p>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <table><thead><tr><th>Cant</th><th>Concepto</th><th style="text-align:right;">P.U.</th><th style="text-align:right;">Importe</th></tr></thead><tbody>${itemsHtml}</tbody></table>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <div class="print-totals">
+                    <p>Subtotal: ${formatCurrency(subtotal)}</p>
+                    <p>Descuentos: -${formatCurrency(totalDiscounts)}</p>
+                    <p><strong>TOTAL: ${formatCurrency(saleData.total)}</strong></p>
+                    <hr style="border:none; border-top: 1px dashed #000; margin: 5px 0;">
+                    <p>${paymentDetail}</p>
+                </div>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <div style="text-align:center; font-size: 12px; margin-top: 10px;">
+                    <p>Para cambios o devoluciones, conserva tu ticket. Tienes 30 días.</p>
+                    <p><strong>¡Gracias por tu compra!</strong></p>
+                </div>
+            </div>`;
+        }
+
+        function printTicket(saleData) { document.getElementById('print-receipt').innerHTML = getTicketHTML(saleData); window.print(); }
+        
+        // --- CORRECCIÓN IMPRIMIBLES: getReturnDetailHTML ---
+        function getReturnDetailHTML(returnData) {
+            const originalSale = state.ventasRealizadas.find(s => s.folio === returnData.originalSaleFolio);
+            let itemsHtml = '';
+            returnData.items.forEach(item => {
+                 const originalItem = originalSale.items.find(i => i.clave === item.clave);
+                 const effectivePrice = originalItem.precio * (1 - (originalItem.discount / 100));
+                 let itemRefund = item.cantidad * effectivePrice;
+                 if (originalItem.discount === 0) {
+                     itemRefund *= (1 - (originalSale.generalDiscount / 100));
+                 }
+                itemsHtml += `<tr>
+                    <td>${item.cantidad}</td>
+                    <td>${item.concepto}<br><small>${item.clave}</small></td>
+                    <td style="text-align:right;">-${formatCurrency(itemRefund)}</td>
+                </tr>`;
+            });
+
+            let html = `<div class="print-area">
+                <div class="print-header">
+                    <h3>COMPROBANTE DE DEVOLUCIÓN</h3>
+                </div>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <p>Folio Devolución: ${returnData.folio}</p>
+                <p>Fecha: ${new Date(returnData.date).toLocaleString()}</p>
+                <p>Venta Original: ${returnData.originalSaleFolio}</p>
+                <p>Cliente: ${originalSale ? originalSale.client : 'N/A'}</p>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <h4>Artículos Devueltos</h4>
+                <table><thead><tr><th>CANT.</th><th>CONCEPTO</th><th style="text-align:right;">IMPORTE</th></tr></thead><tbody>${itemsHtml}</tbody></table>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <div class="print-totals">
+                    <p><strong>TOTAL REEMBOLSADO: ${formatCurrency(returnData.totalRefund)}</strong></p>
+                </div>
+            </div>`;
+            return html;
+        }
+
+        function printReturnVoucher(returnData) { document.getElementById('print-receipt').innerHTML = getReturnDetailHTML(returnData); window.print(); }
+        
+        function getCierreDeDiaHTML(cierreData) {
+            const { businessInfo } = state;
+            const periodoInicio = cierreData.periodoInicio === 'Inicio de operaciones' ? 'Inicio de operaciones' : new Date(cierreData.periodoInicio).toLocaleString();
+            
+            // --- CORRECCIÓN IMPRIMIBLES: getCierreDeDiaHTML ---
+            return `
+            <div class="print-area">
+                <div class="print-header">
+                    ${businessInfo.logo ? `<img src="${businessInfo.logo}" alt="Logo">` : ''}
+                    <h3>${businessInfo.name}</h3>
+                    <p><strong>REPORTE DE CIERRE DE DÍA (CORTE Z)</strong></p>
+                </div>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <p><strong>Fecha de Cierre:</strong> ${new Date(cierreData.fecha).toLocaleString()}</p>
+                <p><strong>Periodo:</strong> ${periodoInicio} - ${new Date(cierreData.periodoFin).toLocaleString()}</p>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <h4>Métricas de Rendimiento</h4>
+                <table style="font-size: 14px; width: 100%; border-collapse: collapse;">
+                     <tr><td style="padding: 2px 0;">Ventas Realizadas:</td><td style="text-align:right;">${cierreData.numVentas}</td></tr>
+                     <tr><td style="padding: 2px 0;">Ticket Promedio:</td><td style="text-align:right;">${formatCurrency(cierreData.numVentas > 0 ? cierreData.grossRevenue / cierreData.numVentas : 0)}</td></tr>
+                </table>
+                <hr style="border:none; border-top: 1px dashed #000;">
+                <h4>Resumen de Ingresos</h4>
+                <table style="font-size: 14px; width: 100%; border-collapse: collapse;">
+                    <tr><td style="padding: 2px 0;">Ingresos por Efectivo:</td><td style="text-align:right;">${formatCurrency(cierreData.cashSales)}</td></tr>
+                    <tr><td style="padding: 2px 0;">Ingresos por Tarjeta:</td><td style="text-align:right;">${formatCurrency(cierreData.cardSales)}</td></tr>
+                    <tr><td style="padding: 2px 0; padding-left: 20px;">&rdsh; Crédito:</td><td style="text-align:right;">${formatCurrency(cierreData.creditCardSales)}</td></tr>
+                    <tr><td style="padding: 2px 0; padding-left: 20px;">&rdsh; Débito:</td><td style="text-align:right;">${formatCurrency(cierreData.debitCardSales)}</td></tr>
+                    <tr><td style="padding: 2px 0;">Ingresos por Transferencia:</td><td style="text-align:right;">${formatCurrency(cierreData.transferSales)}</td></tr>
+                </table>
+                <div class="print-totals" style="margin-top:0;">
+                    <p><strong>INGRESOS BRUTOS: ${formatCurrency(cierreData.grossRevenue)}</strong></p>
+                </div>
+                 <hr style="border:none; border-top: 1px dashed #000;">
+                <h4>Resumen de Salidas</h4>
+                 <table style="font-size: 14px; width: 100%; border-collapse: collapse;">
+                    <tr><td style="padding: 2px 0;">Devoluciones (${cierreData.numDevoluciones} trans.):</td><td style="text-align:right;">-${formatCurrency(cierreData.totalReturns)}</td></tr>
+                    <tr><td style="padding: 2px 0;">Pagos a Proveedores (de Caja):</td><td style="text-align:right;">-${formatCurrency(cierreData.pagosDeCaja)}</td></tr>
+                </table>
+                <hr style="border:none; border-top: 1px dashed #000; margin-top: 10px;">
+                <div class="print-totals">
+                    <p><strong>TOTAL EN CAJA (NETO): ${formatCurrency(cierreData.netRevenue)}</strong></p>
+                </div>
+                <hr style="border:none; border-top: 1px dashed #000; margin: 15px 0;">
+                <div style="text-align: center; margin-top: 50px;">
+                    <p style="border-top: 1px solid #000; margin: 0 50px; padding-top: 5px;">Firma del Responsable</p>
+                </div>
+            </div>`;
+        }
+        function printCierreDeDia(cierreData) {
+            document.getElementById('print-receipt').innerHTML = getCierreDeDiaHTML(cierreData);
+            window.print();
+        }
+
+        return { init, Gestion, Pagos };
+    })();
+
+    document.addEventListener('DOMContentLoaded', App.init);
     </script>
 </body>
+</html>
 </html>
